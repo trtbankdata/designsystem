@@ -1,0 +1,43 @@
+.root {
+    max-width: 1280px;
+    border: 1px solid red;
+    position: relative;
+    margin: 0 auto;
+}
+
+.grid-canvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+
+    .grid {
+        background-color: lightpink;
+        height: 100%;
+
+        .col {
+            background-color: #efefef;
+        }
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 2em;
+    padding: 0 2em;
+}
+
+
+.grid-wrapper {
+    position: relative;
+    padding: 2em 0;
+}
+
+kirby-card-contact-example {
+    &.sm { grid-column: 1 / 2; }   
+    &.md { grid-column: 2 / 4; }
+    &.lg { grid-column: 1 / 4; }
+}
+

@@ -108,7 +108,17 @@ main {
         }
     }   
 
-    @include media('>small') {
+}
+
+kirby-button {
+    font-size: 0.5em;
+    --primary: var(--contact-card-primary);
+    --on-primary: var(--contact-card-on-primary);
+}
+
+:host.md,
+:host.lg {
+    main {
         .opening-hours-collapsed {
             display: none;
         }
@@ -116,23 +126,18 @@ main {
         .opening-hours-full {
             display: block;
         }
-    }
 
-}
-
-kirby-button {
-    font-size: 0.5em;
-    --primary: var(--contact-card-primary);
-    --on-primary: var(--contact-card-on-primary);
-
-    @include media('>small') {
-        min-width: 50%;
-        max-width: 50%;
-        align-self: flex-end;
+        kirby-button {
+            min-width: 50%;
+            max-width: 50%;
+            align-self: flex-end;
+        }    
     }
 }
 
-@include media('>xxlarge') {
+
+// @include media('>xxlarge') {
+:host.lg {
     section {
         display: flex;
         flex-direction: row;
