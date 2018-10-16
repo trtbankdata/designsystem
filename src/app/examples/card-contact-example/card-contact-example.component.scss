@@ -1,7 +1,7 @@
 @import '../../../kirby/scss/web-imports';
 
 :host {
-    --contact-card-primary: black;
+    --contact-card-primary: #404040;
     --contact-card-on-primary: white;
     --contact-card-padding-x: 2em;
 }
@@ -10,7 +10,7 @@
     --kirby-border-radius: 1em;
     --kirby-wireframe-border: 0;
     --kirby-background-color: white;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -40,6 +40,8 @@ header {
         // position: relative;
         overflow: hidden;
         border-radius: 50%;
+        box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.2);
+
         // clip-path: circle(60px at 40% 27%);
     }
 }
@@ -53,7 +55,7 @@ main {
     font-size: 0.85em;
 
     padding: 1.5em;
-    padding-top: 5em;
+    padding-top: 7em;
     color: black;
 
     dl.contact {
