@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AppMenuComponent } from './app-menu/app-menu.component';
-import { GridCanvasComponent } from '~/app/app-grid/grid-canvas/grid-canvas.component';
+import { GridCanvasComponent } from '../app-grid/grid-canvas/grid-canvas.component';
 
 export const COMPONENT_DECLARATIONS: any[] = [
     HomeComponent,
