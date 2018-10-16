@@ -19,9 +19,11 @@
           <kirby-app-menu (menuToggled)="onMenuToggle($event)" [isMenuOpen]="isMenuOpen"></kirby-app-menu>
         </nav>
       </aside> 
-      <section style="min-height: 200vh; flex: 1 0 auto; color:rgb(83, 83, 83); padding: 2rem; text-transform: uppercase">
-        <h1>Awesome content here...</h1>
-        <kirby-card [title]="'Titel'" [subtitle]="'Subtitel'"></kirby-card>
+      <section style="min-height: 200vh; flex: 1 0 auto; color:rgb(83, 83, 83); padding: 2rem;">
+        <!-- <h1>Awesome content here...</h1>
+        <kirby-card [title]="'Titel'" [subtitle]="'Subtitel'"></kirby-card> -->
+        <kirby-card-contact-example></kirby-card-contact-example>
+
         <router-outlet name="main"></router-outlet>
       </section>
     </div>
