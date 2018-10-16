@@ -1,0 +1,146 @@
+@import '../../../kirby/scss/web-imports';
+
+:host {
+    --contact-card-primary: black;
+    --contact-card-on-primary: white;
+    --contact-card-padding-x: 2em;
+}
+
+:host kirby-card {
+    --kirby-border-radius: 1em;
+    --kirby-wireframe-border: 0;
+    --kirby-background-color: white;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    padding: var(--contact-card-padding-x);
+    background-color: var(--contact-card-primary);
+    color: var(--contact-card-on-primary);
+    // TODO JEO: Corners should be cropped in card component
+    border-top-left-radius: var(--kirby-border-radius);
+    border-top-right-radius: var(--kirby-border-radius);
+    
+    h1 {
+        margin: 0;
+        margin-bottom: 0.3em;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .contact-image {
+        margin-top: 1em;
+        width: 8em;
+        height: 8em;
+        display: inline-block;
+        margin-bottom: -7em;
+        // position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        // clip-path: circle(60px at 40% 27%);
+    }
+}
+
+main {
+    // background-color: lightyellow; //REMOVE
+    display: flex;
+    flex-direction: row;
+    // flex-flow: 
+
+    font-size: 0.85em;
+
+    padding: 1.5em;
+    padding-top: 5em;
+    color: black;
+
+    dl.contact {
+        flex: 50%;
+        // background-color: lightpink; //REMOVE
+
+        --contact-card-info-padding: 3.5em;
+        --contact-card-info-bullet-width: 2em;
+        padding-left: var(--contact-card-info-padding);
+
+        > dt {
+            color: #aaa;
+            font-size: 0.7em;
+
+            &:before {
+                content: "";
+                // position: relative;
+                // left: 0;
+                display: block;
+                position: absolute;
+                margin-left: calc(-1 * var(--contact-card-info-padding));
+                margin-top: 0.8em;
+                width: var(--contact-card-info-bullet-width);
+                height: var(--contact-card-info-bullet-width);
+                border-radius: 50%;
+                background-color: #d8d8d8;
+             }
+
+        }
+
+        > dd {
+            margin: 0;
+            margin-bottom: 1em;         
+        }
+    }
+
+    .opening-hours-full {
+        display: none;
+
+        dl.opening-hours {
+            margin: 0;
+            white-space: nowrap;
+
+            dt {
+                float: left;
+                width: 4.5em;
+            }
+    
+            dd {
+                margin: 0;
+            }
+    
+        }
+    }
+
+
+    @include media('>small') {
+        .opening-hours-collapsed {
+            display: none;
+        }
+
+        .opening-hours-full {
+            display: block;
+        }
+    }
+
+}
+
+footer {
+    text-align: center;
+    padding: var(--contact-card-padding-x);
+
+    kirby-button {
+        font-size: 0.5em;
+        --primary: var(--contact-card-primary);
+        --on-primary: var(--contact-card-on-primary);
+    }
+
+    @include media('>small') {
+        & {
+            display: flex;
+            justify-content: flex-end;
+
+            kirby-button {
+                flex-grow: 0;
+                flex-basis: 50%;
+            }
+        }
+    }
+}
