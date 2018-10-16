@@ -10,6 +10,7 @@
     --kirby-border-radius: 1em;
     --kirby-wireframe-border: 0;
     --kirby-background-color: white;
+    min-width: 320px;
     box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.2);
 }
 
@@ -21,7 +22,7 @@ header {
     // TODO JEO: Corners should be cropped in card component
     border-top-left-radius: var(--kirby-border-radius);
     border-top-right-radius: var(--kirby-border-radius);
-    
+
     h1 {
         margin: 0;
         margin-bottom: 0.3em;
@@ -41,39 +42,35 @@ header {
         overflow: hidden;
         border-radius: 50%;
         box-shadow: 0px 8px 10px -4px rgba(0, 0, 0, 0.2);
-
         // clip-path: circle(60px at 40% 27%);
     }
 }
 
 main {
-    // background-color: lightyellow; //REMOVE
     display: flex;
-    flex-direction: row;
-    // flex-flow: 
-
+    flex-direction: column;
     font-size: 0.85em;
-
     padding: 1.5em;
     padding-top: 7em;
     color: black;
 
-    dl.contact {
-        flex: 50%;
-        // background-color: lightpink; //REMOVE
+    .contact-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around
+    }
 
+    dl.contact {
         --contact-card-info-padding: 3.5em;
         --contact-card-info-bullet-width: 2em;
         padding-left: var(--contact-card-info-padding);
 
         > dt {
             color: #aaa;
-            font-size: 0.7em;
+            font-size: 0.9em;
 
             &:before {
                 content: "";
-                // position: relative;
-                // left: 0;
                 display: block;
                 position: absolute;
                 margin-left: calc(-1 * var(--contact-card-info-padding));
@@ -88,29 +85,28 @@ main {
 
         > dd {
             margin: 0;
-            margin-bottom: 1em;         
+            margin-bottom: 1em;
+            font-size: 1.1em;
         }
     }
 
     .opening-hours-full {
         display: none;
+        // white-space: nowrap;
 
         dl.opening-hours {
             margin: 0;
-            white-space: nowrap;
 
             dt {
                 float: left;
                 width: 4.5em;
             }
-    
-            dd {
-                margin: 0;
-            }
-    
-        }
-    }
 
+            dd {
+                margin-left: 4.5em;
+            }
+        }
+    }   
 
     @include media('>small') {
         .opening-hours-collapsed {
@@ -124,25 +120,33 @@ main {
 
 }
 
-footer {
-    text-align: center;
-    padding: var(--contact-card-padding-x);
-
-    kirby-button {
-        font-size: 0.5em;
-        --primary: var(--contact-card-primary);
-        --on-primary: var(--contact-card-on-primary);
-    }
+kirby-button {
+    font-size: 0.5em;
+    --primary: var(--contact-card-primary);
+    --on-primary: var(--contact-card-on-primary);
 
     @include media('>small') {
-        & {
-            display: flex;
-            justify-content: flex-end;
+        min-width: 50%;
+        max-width: 50%;
+        align-self: flex-end;
+    }
+}
 
-            kirby-button {
-                flex-grow: 0;
-                flex-basis: 50%;
-            }
+@include media('>xxlarge') {
+    section {
+        display: flex;
+        flex-direction: row;
+
+        header {
+            // TODO JEO: Corners should be cropped in card component
+            border-radius: 0;
+            border-top-left-radius: var(--kirby-border-radius);
+            border-bottom-left-radius: var(--kirby-border-radius);
+        }
+
+        main {
+            padding-top: 3em;
+            flex-grow: 1;
         }
     }
 }
