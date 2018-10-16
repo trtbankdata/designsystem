@@ -14,4 +14,8 @@ export class CardComponent implements OnInit {
   ngOnInit() {
   }
 
+  get showHeader() {
+    return this.title || this.subtitle;
+  }
+
 }

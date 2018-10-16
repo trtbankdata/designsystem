@@ -3,7 +3,14 @@
     --kirby-wireframe-border-color: var(--kirby-wireframe-color);
     --kirby-wireframe-border: 1px solid var(--kirby-wireframe-border-color);
     --kirby-wireframe-text-color: var(--kirby-wireframe-color);
+    --kirby-background-color: transparent;
+    --kirby-border-radius: 0.5em;
     color: var(--kirby-wireframe-text-color);
+    display: block;
+    border: var(--kirby-wireframe-border);
+    border-radius: var(--kirby-border-radius);
+    height: 100%;
+    background-color: var(--kirby-background-color);
 }
 
 header {
@@ -23,13 +30,6 @@ header {
         font-size: 2em;
         font-weight: bold;
     }
-}
-
-.card-wrapper {
-    border: var(--kirby-wireframe-border);
-    border-radius: 0.5em;
-    width: 254px;
-    height: 360px;
 }
 
 FlexboxLayout {
