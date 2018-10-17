@@ -63,7 +63,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1em;
     row-gap: 2em;
-    padding: 0 2em;
+    padding: 0 1.5em;
 }
 
 
@@ -78,7 +78,8 @@ kirby-card-contact-example {
     &.lg { grid-column: 1 / 4; }
 }
 
-@include media('<large') {
+//@include media('<large') { // TODO JEO: Align breakpoints (em vs. px)
+@media (max-width: 1024px) {
     .grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -91,9 +92,25 @@ kirby-card-contact-example {
 
     .grid-canvas {
         .grid {
-            background-color: lighten(lightgreen, 10%);
+            background-color: lighten(lightblue, 10%);
 
             .col3 {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-canvas {
+        .grid {
+            background-color: lighten(lightgreen, 10%);
+
+            .col2 {
                 display: none;
             }
         }
