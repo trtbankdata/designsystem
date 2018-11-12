@@ -1,0 +1,66 @@
+<h1>UI Components Comparison</h1>
+<div class="comparison">
+  <div style="grid-row: 1 / 3">Component:</div>
+  <div style="grid-column: 2 / 6; background-color: blueviolet;">WEB</div>
+  <!-- <div>Web - Ionic, Android</div>
+  <div>Web - Ionic, iOS</div>
+  <div>Web - Angular Material Design</div> -->
+  <!-- <div>Web - Progress</div> -->
+  <div style="grid-column: 6 / 8; background-color: darkblue;">NATIVE</div>
+  <!-- <div>Native - Android</div> -->
+  <!-- <div>Component:</div> -->
+  <div>No framework</div>
+  <div>Ionic, Android</div>
+  <div>Ionic, iOS</div>
+  <div>Angular Material Design</div>
+  <!-- <div>Web - Progress</div> -->
+  <div>iOS</div>
+  <div>Android</div>
+
+  <div>Button:</div>
+  <div><button>Button</button></div>
+  <div>
+      <iframe src="ui-components/ionic/button?ionic:mode=md"></iframe>
+  </div>
+  <div>
+      <iframe src="ui-components/ionic/button?ionic:mode=ios"></iframe>
+  </div>
+  <div>
+    <button mat-button color="primary" style="margin: 4px;">Basic</button>
+    <button mat-raised-button color="primary">Raised</button>
+  </div>
+  <div>-</div>
+  <div>-</div>
+
+  <div>Toggle:</div>
+  <div><input type="checkbox">??</div>
+  <div>
+      <iframe src="ui-components/ionic/toggle?ionic:mode=md"></iframe>
+  </div>
+  <div>
+      <iframe src="ui-components/ionic/toggle?ionic:mode=ios"></iframe>
+  </div>
+  <div><mat-slide-toggle color="primary" checked></mat-slide-toggle></div>
+  <div class="screenshot ios toggle"></div>
+  <div class="screenshot android toggle"></div>
+  <div>Date:</div>
+  <div>
+    <input type="date">
+  </div>
+  <div class="datepicker md">
+    <iframe src="ui-components/ionic/datepicker?ionic:mode=md"></iframe>
+  </div>
+  <div class="datepicker ios">
+    <iframe src="ui-components/ionic/datepicker?ionic:mode=ios"></iframe>
+  </div>
+  <div>
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  </div>
+  <div>-</div>
+  <div>-</div>
+
+</div>

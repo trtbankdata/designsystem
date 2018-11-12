@@ -1,0 +1,98 @@
+:host {
+    display: block;
+    padding: 2em;
+}
+
+div.comparison {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    column-gap: 1px;
+    row-gap: 1px;
+    // padding: 1em;
+    // flex: 1 1 auto;
+    // justify-content: space-between;
+    border: 1px solid gray;
+
+    > div {
+        padding: 0.5em 1em;
+        background-color: white;
+    }
+
+    > div:nth-child(-n+9) {
+        color: white;
+        background-color: black;
+        text-align: center;
+    }
+
+    > div:nth-child(14n+10),
+    > div:nth-child(14n+11),
+    > div:nth-child(14n+12),
+    > div:nth-child(14n+13),
+    > div:nth-child(14n+14),
+    > div:nth-child(14n+15),
+    > div:nth-child(14n+16),
+    {
+        background-color: #ddd;
+    }
+
+    > div:nth-child(1),
+    > div:nth-child(7n+10) {
+        color: black;
+        background-color: lightgreen;
+    }
+}
+
+iframe {
+    border: none;
+    height: 60px;    
+}
+
+div.datepicker {
+    background-image: url('/assets/devices/samsung_s7.png');
+    background-size: 250px;
+    background-repeat: no-repeat;
+    padding-top: 49px !important;
+    padding-left: 8px !important;
+
+    iframe {
+        height: 416px;
+        width: 234px;
+        // border: 1px solid red;
+    }
+
+    &.ios {
+        background-image: url('/assets/devices/iPhone_6_7_8.png');
+        padding-top: 61px !important;
+        padding-left: 16px !important;
+    
+        iframe {
+            height: 387px;
+            width: 217px;
+        }
+    }
+    
+}
+
+div.screenshot {
+    min-width: 250px;
+    height: 160px;
+    background-size: 250px;
+    background-position-x: center;
+    // background-position: -50px -20px;
+    background-repeat: no-repeat;
+
+    &:hover {
+        background-size: initial;
+        background-position-x: right;
+        background-position-y: -150px;
+        // border: 1px solid red;
+    }
+
+    &.ios.toggle {
+        background-image: url('/assets/screenshots/android_toggle.png');
+    }
+
+    &.android.toggle {
+        background-image: url('/assets/screenshots/android_toggle.png');
+    }
+}
