@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Directive, ContentChild, TemplateRef } from '@angular/core';
+
+@Directive({
+  selector: '[kirbyListItem]'
+})
+export class ListItemDirective {}
 
 @Component({
   selector: 'kirby-list',
@@ -6,7 +11,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() items: [{title: string, amount: string}];
+  @Input() items: any[];
+  @ContentChild(ListItemDirective, {read: TemplateRef}) listItemTemplate;
+
   constructor() { }
 
   ngOnInit() {

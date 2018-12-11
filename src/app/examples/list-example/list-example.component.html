@@ -3,4 +3,9 @@
     {title: 'Titel', amount: 'Beløb'},
     {title: 'Titel', amount: 'Beløb'},
     {title: 'Titel', amount: 'Beløb'}
-  ]"></kirby-list>
+  ]">
+  <ng-container *kirbyListItem="let item">
+    <p>{{item.title}}</p>
+    <p>{{item.amount}}</p>
+  </ng-container>
+</kirby-list>
