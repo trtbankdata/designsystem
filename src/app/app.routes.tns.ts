@@ -24,10 +24,6 @@ export const routes: Routes = [
         loadChildren: './examples/examples-routing.module#ExamplesRoutingModule'
     },
     {
-        path: 'app',
-        loadChildren: './app-shell/app-shell.module#AppShellModule'
-    },
-    {
         path: 'ui-components',
         loadChildren: './ui-components/ui-components.module#UiComponentsModule'
     },

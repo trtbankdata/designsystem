@@ -37,10 +37,6 @@ export const routes: Routes = [
         loadChildren: './designer/designer.module#DesignerModule'
     },
     {
-        path: 'app',
-        loadChildren: './app-shell/app-shell.module#AppShellModule'
-    },
-    {
         path: 'ui-components',
         loadChildren: './ui-components/ui-components.module#UiComponentsModule'
     },
