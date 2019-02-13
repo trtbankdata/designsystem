@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /dist-lib
+/test-reports
 
 # dependencies
 /node_modules
@@ -39,6 +40,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+*.bak
 
 # System Files
 .DS_Store
@@ -46,3 +48,4 @@ Thumbs.db
 
 scripts/manifest.plist
 scripts/install-ipa.html
+src/kirby/polyfills

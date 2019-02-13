@@ -1,14 +1,14 @@
 {
   "name": "@kirbydesign/designsystem",
-  "version": "0.0.3",
+  "version": "0.0.0",
   "description": "Kirby Design Components",
-  "main": "index",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kirbydesign/designsystem"
+    "url": "https://github.com/kirbydesign/designsystem.git"
   },
   "keywords": [
     "Angular",
@@ -22,5 +22,9 @@
     "url": "https://github.com/kirbydesign/designsystem/issues"
   },
   "homepage": "https://github.com/kirbydesign/designsystem#readme",
-  "types": "index.d.ts"
+  "types": "index.d.ts",
+  "dependencies": {
+    "highcharts": "^6.2.0",
+    "nativescript-webview-interface": "^1.4.2"
+  }
 }

@@ -1,29 +1,16 @@
 /* Page layout
 --------------------------------------------------------------------------------*/
 $page-side-nav-width: 16.625rem;
-$page-wrapper-netbank-padding-top: 3em;
-$page-max-width: 1280px;
+$page-max-width: 1366px;
 
 /* Breakpoints
 --------------------------------------------------------------------------------*/
 $breakpoints: (
-  small: 30em, 
-  medium: 38em, 
-  large: 52em, 
+  small: 361px, 
+  medium: 721px, 
+  large: 1025px,
   xlarge: 60em, 
   xxlarge: 80em 
-);
-
-/* Font-sizes
---------------------------------------------------------------------------------*/
-$font-sizes: (
-  xxl: 3rem,  // 48px
-  xl: 2rem,   // 32px
-  l: 1.5rem,  // 24px
-  m: 1.25rem, // 20px
-  n: 1rem,    // 16px
-  s: .875rem, // 14px
-  xs: .75rem  // 12px
 );
 
 /* Z-index
@@ -34,19 +21,7 @@ $z-layers: (
   modal: 901
 );
 
-/* Colors (Maybe we should avoid using these directly in other scss files)
+/* Borders 
 --------------------------------------------------------------------------------*/
-$sårt: #1C1C1C;
-$hvii: #F4F1E8;
-$dark-grey: #353535;
-$semi-dark-grey: #838383;
-$pink: #DF0067;
-
-/*
- * Specific module coloring and sizing follows
---------------------------------------------------------------------------------*/
-$page-header-bg: $sårt;
-$page-header-color: $hvii;
-$page-header-height: 7rem;
-$page-gutter: 1rem;
-
+$border-radius: 18px;
+$border-radius-small: 6px;

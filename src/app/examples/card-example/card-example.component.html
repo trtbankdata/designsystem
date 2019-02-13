@@ -1,11 +1,11 @@
-<kirby-card [title]="'Titel'" [subtitle]="'Subtitel'">
-  <kirby-list [items]="[
-  {title: 'Titel', amount: 'Beløb'},
-  {title: 'Titel', amount: 'Beløb'},
-  {title: 'Titel', amount: 'Beløb'},
-  {title: 'Titel', amount: 'Beløb'}
-  ]"></kirby-list>
-  <footer>
-    <kirby-button label="Tekst på knap" expand="block" shape="round" theme="cookbook"></kirby-button>
-  </footer> 
+<kirby-card>
+  <kirby-card-header [title]="'Titel'" [subtitle]="'Subtitel'">
+  </kirby-card-header>  
+
+  <!-- Card content example: -->
+  <div class="card-content">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia facere molestias recusandae necessitatibus ab veniam repellendus doloremque culpa quam libero, est quo accusamus cumque, in quia itaque cupiditate ratione repellat!
+  </div>
+
+  <kirby-card-footer></kirby-card-footer>
 </kirby-card>

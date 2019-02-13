@@ -1,28 +1,51 @@
-
 $themes: (
   'cookbook': (
-    'primary': rgb(51, 134, 212),
-    'on-primary': #fff,
-    'secondary': rgb(255, 255, 255),
-    'on-secondary': rgb(64, 64, 64),
+    'kirby-surface': #fff,
+    'kirby-on-surface': #333,
+    'kirby-primary': #2a71b4,
+    'kirby-primary-light': #2a71b4,
+    'kirby-primary-lighter': #2a71b4,
+    'kirby-on-primary': #fff,
+    'kirby-secondary': lighten(rgb(51, 134, 212), 30),
+    'kirby-on-secondary': rgb(64, 64, 64),
+    'kirby-notification': #ff3b30,
+    'kirby-on-notification' : #fff,
+    'kirby-error': #ff3b30,
+    'kirby-on-error': #fff,
+    'kirby-warning': #ff9500,
+    'kirby-on-warning' : #fff,
+    'kirby-positive': #4CD964,
+    'kirby-on-positive' : #fff,
+    'kirby-disabled' : #b6b6b6,
+    'kirby-on-disabled' : #b6b6b6,
+    'kirby-text-secondary': #666,
   ),
-  'cake': (
-    'primary': rgb(199, 159, 98),
-    'on-primary': #fff,
-    'secondary': rgb(255, 255, 255),
-    'on-secondary': rgb(64, 64, 64),
-  ),
-  'lollipop': (
-    surface: false,
+  'default': (
+    'kirby-surface': #fff,
+    'kirby-on-surface': #333,
+    'kirby-background' : #f5f5f5,
+    'kirby-on-background' : #666,
+    'kirby-primary': #005C3C,
+    'kirby-primary-light': #7fad9d,
+    'kirby-primary-lighter': #bfd6ce,
+    'kirby-on-primary': #fff,
+    'kirby-secondary': lighten(rgb(51, 134, 212), 30),
+    'kirby-on-secondary': rgb(64, 64, 64),
+    'kirby-notification': #ff3b30,
+    'kirby-on-notification' : #fff,
+    'kirby-error': #ff3b30,
+    'kirby-on-error': #fff,
+    'kirby-warning': #ff9500,
+    'kirby-on-warning' : #fff,
+    'kirby-positive': #4CD964,
+    'kirby-on-positive' : #fff,
+    'kirby-disabled' : #b6b6b6,
+    'kirby-on-disabled' : #b6b6b6,
+    'kirby-text-secondary': #666,
   )
 );
 
-@if $native {
-  @debug '$native is #{$native}'
-}
-
-// TODO TRM get-color should return either css variable or something else to native...
-@function get-color($map, $variant) {
+@function get-color($variant, $map: map-get($themes, 'default')) {
   $value: map-get($map, $variant);
   @if $value != null {
     @return $value;
@@ -30,24 +53,7 @@ $themes: (
   @return null;
 }
 
-
-// @each $themeName, $theme in $themes {
-//   .theme--#{$themeName} {
-//     color: get-color($theme, text);
-//     background-color: get-color($theme, theme);
-//     border-color: get-color($theme, border);
-//   }
-// }
 /* Notes: 
-
-Domain idea:
-.domain--jb {
-  .theme--cake {
-    --surface: rgb(64, 64, 64);
-    --on-surface: rgba(255, 255, 255, 0.87);
-  }
-}
-This wouldn't require the css to be build XX number of times.
 
 Color naming convention from Material design:
 https://material.io/design/color/the-color-system.html#color-theme-creation
@@ -79,5 +85,4 @@ Use opacity for text importance
   - 60% Opacity for Medium Emphasis / Helper texts
   - 35% Opacity for DISABLED
   - 100% for Error texts
-
 */

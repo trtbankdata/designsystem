@@ -1,5 +1,13 @@
 <Stacklayout>
-    <Button text="intro works1!" [nsRouterLink]="['/examples']" class="btn btn-primary"></Button>
-    <Button text="intro works2!" [nsRouterLink]="['/home/showcase']" class="btn btn-primary"></Button>
-    <Button text="intro works3!" [nsRouterLink]="['/designer']" class="btn btn-primary"></Button>
+    <Label text="Examples" style="font-size: 32; margin: 10"></Label>
+    <Button kirby-button text="Button" [nsRouterLink]="['/examples/button']" class="btn btn-primary"></Button>
+    <Button kirby-button text="Card" [nsRouterLink]="['/examples/card']" class="btn btn-primary"></Button>
+    <Button kirby-button text="List" [nsRouterLink]="['/examples/list']" class="btn btn-primary"></Button>
+    <Button kirby-button text="Grid" [nsRouterLink]="['/examples/grid']" class="btn btn-primary"></Button>
+    <Button kirby-button text="Fonts" [nsRouterLink]="['/examples/fonts']" ></Button>
+    <Button kirby-button text="Charts" [nsRouterLink]="['/examples/chart']" ></Button>
+    <Label text="{N} Only Components:" style="font-size: 18; margin: 10"></Label>
+    <Button kirby-button text="Doughnut Chart" [nsRouterLink]="['/examples/nativescript-only/doughnut-chart']" class="btn btn-primary"></Button>
+    <Button kirby-button text="Line Chart" [nsRouterLink]="['/examples/nativescript-only/line-chart']" class="btn btn-primary"></Button>
 </Stacklayout>
+  
