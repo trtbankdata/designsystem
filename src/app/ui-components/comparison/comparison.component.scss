@@ -75,7 +75,7 @@ div.datepicker {
 
 div.screenshot {
     min-width: 250px;
-    height: 160px;
+    height: 130px;
     background-size: 250px;
     background-position-x: center;
     // background-position: -50px -20px;
@@ -83,16 +83,29 @@ div.screenshot {
 
     &:hover {
         background-size: initial;
-        background-position-x: right;
+        background-position-x: center;
         background-position-y: -150px;
         // border: 1px solid red;
     }
 
-    &.ios.toggle {
-        background-image: url('/assets/screenshots/android_toggle.png');
+    &.toggle:hover {
+        background-position-x: right;
+    }
+    
+    &.datepicker {
+        height: 300px;
     }
 
-    &.android.toggle {
-        background-image: url('/assets/screenshots/android_toggle.png');
+    &.ios {
+        &.button { background-image: url('/assets/screenshots/ios_button.png'); }
+        &.toggle { background-image: url('/assets/screenshots/ios_toggle.png'); }
+        &.datepicker { background-image: url('/assets/screenshots/ios_datepicker.png'); }
     }
+
+    &.android {
+        &.button { background-image: url('/assets/screenshots/android_button.png'); }
+        &.toggle { background-image: url('/assets/screenshots/android_toggle.png'); }
+        &.datepicker { background-image: url('/assets/screenshots/android_datepicker.png'); }
+    }
+
 }
