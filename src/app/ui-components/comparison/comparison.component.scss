@@ -84,11 +84,11 @@ div.screenshot {
     &:hover {
         background-size: initial;
         background-position-x: center;
-        background-position-y: -150px;
+        background-position-y: -140px;
         // border: 1px solid red;
     }
 
-    &.toggle:hover {
+    &.android.toggle:hover {
         background-position-x: right;
     }
     
@@ -97,9 +97,18 @@ div.screenshot {
     }
 
     &.ios {
+        background-size: 320px;
+        background-position-y: -20px;
+        
+        &:hover {
+            background-size: 550px;
+            background-position-y: -120px;
+        }
+
         &.button { background-image: url('/assets/screenshots/ios_button.png'); }
         &.toggle { background-image: url('/assets/screenshots/ios_toggle.png'); }
         &.datepicker { background-image: url('/assets/screenshots/ios_datepicker.png'); }
+
     }
 
     &.android {
