@@ -28,12 +28,11 @@ import { KirbyModule } from '../kirby/kirby.module';
         IonicModule.forRoot(),
         AppRoutingModule,
         HttpClientModule,
+        FormsModule,
         KirbyModule
     ],
     providers: [
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        FormsModule,
-        KirbyModule,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]
 })
