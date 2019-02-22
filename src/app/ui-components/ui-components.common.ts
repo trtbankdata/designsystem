@@ -6,6 +6,7 @@ import { IonicDatepickerComponent } from './components/ionic/ionic-datepicker/io
 import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-toggle.component';
 import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-calendar.component';
 import { IonicSliderComponent } from './components/ionic/ionic-slider/ionic-slider.component';
+import { IonicModalComponent } from './components/ionic/ionic-modal/ionic-modal.component';
 
 export const COMPONENT_DECLARATIONS: any[] = [
     ComparisonComponent,
@@ -13,7 +14,8 @@ export const COMPONENT_DECLARATIONS: any[] = [
     IonicButtonComponent,
     IonicToggleComponent,
     IonicCalendarComponent,
-    IonicSliderComponent
+    IonicSliderComponent,
+    IonicModalComponent
 ];
 
 export const PROVIDERS_DECLARATIONS: any[] = [
@@ -35,6 +37,10 @@ export const ROUTES: Routes = [
     {
         path: 'ionic/datepicker',
         component: IonicDatepickerComponent
+    },
+    {
+        path: 'ionic/modal',
+        component: IonicModalComponent
     },
     {
         path: 'ionic/slider',

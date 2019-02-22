@@ -18,6 +18,7 @@ import { IonicButtonComponent } from './components/ionic/ionic-button/ionic-butt
 import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-toggle.component';
 import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-calendar.component';
 import { IonicSliderComponent } from './components/ionic/ionic-slider/ionic-slider.component';
+import { IonicModalComponent } from './components/ionic/ionic-modal/ionic-modal.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { IonicSliderComponent } from './components/ionic/ionic-slider/ionic-slid
   declarations: [
     COMPONENT_DECLARATIONS,
     IonicCalendarComponent,
-    IonicSliderComponent
+    IonicSliderComponent,
+    IonicModalComponent
 
   ]
 })
