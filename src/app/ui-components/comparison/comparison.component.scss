@@ -108,6 +108,7 @@ div.screenshot {
 
         &.button { background-image: url('/assets/screenshots/ios_button.png'); }
         &.toggle { background-image: url('/assets/screenshots/ios_toggle.png'); }
+        &.slider { background-image: url('/assets/screenshots/ios_slider.png'); }
         &.datepicker { background-image: url('/assets/screenshots/ios_datepicker.png'); }
         &.calendar { background-image: url('/assets/screenshots/ios_calendar.png'); }
 
@@ -116,6 +117,7 @@ div.screenshot {
     &.android {
         &.button { background-image: url('/assets/screenshots/android_button.png'); }
         &.toggle { background-image: url('/assets/screenshots/android_toggle.png'); }
+        &.slider { background-image: url('/assets/screenshots/android_slider.png'); }
         &.datepicker { background-image: url('/assets/screenshots/android_datepicker.png'); }
     }
 

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import {MatButtonModule,
         MatCheckboxModule,
+        MatSliderModule,
         MatSlideToggleModule,
         MatInputModule,
         MatNativeDateModule,
@@ -16,6 +17,7 @@ import { IonicDatepickerComponent } from './components/ionic/ionic-datepicker/io
 import { IonicButtonComponent } from './components/ionic/ionic-button/ionic-button.component';
 import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-toggle.component';
 import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-calendar.component';
+import { IonicSliderComponent } from './components/ionic/ionic-slider/ionic-slider.component';
 
 @NgModule({
   imports: [
@@ -24,6 +26,7 @@ import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-
     IonicModule.forRoot(),
     MatButtonModule,
     MatCheckboxModule,
+    MatSliderModule,
     MatSlideToggleModule,
     MatInputModule,
     MatNativeDateModule,
@@ -32,7 +35,8 @@ import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-
   ],
   declarations: [
     COMPONENT_DECLARATIONS,
-    IonicCalendarComponent
+    IonicCalendarComponent,
+    IonicSliderComponent
 
   ]
 })
