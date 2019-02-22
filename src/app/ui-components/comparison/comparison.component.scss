@@ -92,7 +92,8 @@ div.screenshot {
         background-position-x: right;
     }
     
-    &.datepicker {
+    &.datepicker,
+    &.calendar {
         height: 300px;
     }
 
@@ -108,6 +109,7 @@ div.screenshot {
         &.button { background-image: url('/assets/screenshots/ios_button.png'); }
         &.toggle { background-image: url('/assets/screenshots/ios_toggle.png'); }
         &.datepicker { background-image: url('/assets/screenshots/ios_datepicker.png'); }
+        &.calendar { background-image: url('/assets/screenshots/ios_calendar.png'); }
 
     }
 

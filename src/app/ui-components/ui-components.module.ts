@@ -15,6 +15,7 @@ import { COMPONENT_DECLARATIONS, ROUTES } from './ui-components.common';
 import { IonicDatepickerComponent } from './components/ionic/ionic-datepicker/ionic-datepicker.component';
 import { IonicButtonComponent } from './components/ionic/ionic-button/ionic-button.component';
 import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-toggle.component';
+import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-calendar.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-togg
     MatFormFieldModule
   ],
   declarations: [
-    COMPONENT_DECLARATIONS
+    COMPONENT_DECLARATIONS,
+    IonicCalendarComponent
 
   ]
 })
