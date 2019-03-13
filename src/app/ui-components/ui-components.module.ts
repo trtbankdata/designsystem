@@ -19,6 +19,7 @@ import { IonicToggleComponent } from './components/ionic/ionic-toggle/ionic-togg
 import { IonicCalendarComponent } from './components/ionic/ionic-calendar/ionic-calendar.component';
 import { IonicSliderComponent } from './components/ionic/ionic-slider/ionic-slider.component';
 import { IonicModalComponent } from './components/ionic/ionic-modal/ionic-modal.component';
+import { IonicModalExampleComponent } from './components/ionic/ionic-modal/ionic-modal.page';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import { IonicModalComponent } from './components/ionic/ionic-modal/ionic-modal.
     IonicCalendarComponent,
     IonicSliderComponent,
     IonicModalComponent
-
-  ]
+  ],
+  entryComponents: [IonicModalExampleComponent]
 })
 export class UiComponentsModule { }

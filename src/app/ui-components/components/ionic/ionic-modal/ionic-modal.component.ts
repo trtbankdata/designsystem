@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { IonicModalExampleComponent } from './ionic-modal.page';
 
 @Component({
   selector: 'kirby-ionic-modal',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IonicModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public modalController: ModalController) { }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: IonicModalExampleComponent,
+      componentProps: { value: 123 }
+    });
+    return await modal.present();
+  }
 
   ngOnInit() {
   }
