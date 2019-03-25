@@ -5,6 +5,7 @@ import { ChartHelper } from './chart-helper';
 import { DonutOptions, DONUT_OPTIONS } from './options/donut';
 import { AreaSplineOptions, AREASPLINE_OPTIONS } from './options/areaspline';
 import { ChartType } from './chart-type';
+import { PROGRESSBAR_OPTIONS, ProgressbarOptions } from './options/progressbar';
 
 @Component({
   selector: 'kirby-chart',
@@ -14,6 +15,7 @@ import { ChartType } from './chart-type';
     ChartHelper,
     { provide: DONUT_OPTIONS, useValue: DonutOptions },
     { provide: AREASPLINE_OPTIONS, useValue: AreaSplineOptions },
+    { provide: PROGRESSBAR_OPTIONS, useValue: ProgressbarOptions },
   ],
 })
 export class ChartComponent implements OnInit, OnChanges {
@@ -29,8 +31,9 @@ export class ChartComponent implements OnInit, OnChanges {
   constructor(
     private chartHelper: ChartHelper,
     @Inject(DONUT_OPTIONS) public donutOptions: Options,
-    @Inject(AREASPLINE_OPTIONS) public areasplineOptions: Options
-  ) {}
+    @Inject(AREASPLINE_OPTIONS) public areasplineOptions: Options,
+    @Inject(PROGRESSBAR_OPTIONS) public progressbarOptions: Options
+  ) { }
 
   ngOnInit() {
     this.setupChartType();
@@ -62,6 +65,11 @@ export class ChartComponent implements OnInit, OnChanges {
         this.options.chart.type = this.type;
         break;
       }
+      case ChartType.PROGRESSBAR: {
+        this.options = this.progressbarOptions;
+        this.options.chart.type = this.type;
+        break;
+      }
     }
   }
 
@@ -90,6 +98,38 @@ export class ChartComponent implements OnInit, OnChanges {
             },
           ];
           break;
+        }
+        case ChartType.PROGRESSBAR: {
+          console.log("Updating progress bar!");
+          const nonProgress = [this.data[0]];
+          const progress = [this.data[1]];
+
+          this.options.series = [
+            {
+              type: 'bar',
+              data: nonProgress,
+              grouping: false,
+              animation: { duration: 0 },
+              enableMouseTracking: false,
+              showInLegend: false,
+              color: '#bfd6ce',
+              pointWidth: 16,
+              borderWidth: 0,
+              borderRadius: 15,
+            },
+            {
+              type: 'bar',
+              data: progress,
+              borderRadius: 15,
+              color: '#005C3C',
+              borderWidth: 0,
+              pointWidth: 16,
+              animation: {
+                duration: 1000,
+              },
+              enableMouseTracking: false,
+            }
+          ]
         }
       }
     }
