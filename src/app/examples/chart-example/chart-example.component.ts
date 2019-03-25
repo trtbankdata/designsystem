@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart-example.component.scss'],
 })
 export class ChartExampleComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   data = [
     1600.9,
@@ -35,5 +35,7 @@ export class ChartExampleComponent implements OnInit {
     1700.4,
   ];
 
-  ngOnInit() {}
+  progressData = [100, 50];
+
+  ngOnInit() { }
 }

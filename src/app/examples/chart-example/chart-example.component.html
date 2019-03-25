@@ -1,7 +1,8 @@
-<kirby-card>
+<div class="container">
+  <kirby-card>
     <kirby-card-header [title]="'Donut'"></kirby-card-header>
-    <kirby-chart [height]="320" [type]="'donut'" [showDataLabels]="true" [description]="'Accessibility description goes here'"
-        [data]="[
+    <kirby-chart [height]="320" [type]="'donut'" [showDataLabels]="true"
+      [description]="'Accessibility description goes here'" [data]="[
         {
             name: 'Boomerangs 25%',
             y: 25,
@@ -23,12 +24,12 @@
             label: '< 1%'
         }]">
     </kirby-chart>
-</kirby-card>
+  </kirby-card>
 
-<kirby-card>
+  <kirby-card>
     <kirby-card-header [title]="'Pie'"></kirby-card-header>
-    <kirby-chart [height]="320" [type]="'pie'" [showDataLabels]="false" [description]="'Accessibility description goes here'"
-        [data]="[
+    <kirby-chart [height]="320" [type]="'pie'" [showDataLabels]="false"
+      [description]="'Accessibility description goes here'" [data]="[
             {
                 name: 'Boomerangs 25%',
                 y: 25,
@@ -50,19 +51,26 @@
                 label: '< 1%'
             }
         ]"></kirby-chart>
-</kirby-card>
+  </kirby-card>
 
-<kirby-card>
+  <kirby-card>
     <kirby-card-header [title]="'Areaspline'"></kirby-card-header>
-    <kirby-chart [height]="240" [type]="'areaspline'" [description]="'Accessibility description goes here'" [data]="data">
-        <!-- data = [1600.90, 1710.50, 1060.40, 1290.20, 1440.00, 1460.00, 1350.60, 1480.50, 1800.40, 1940.10, 1950.60, 1700.40, 1600.90, 1710.50, 1060.40, 1290.20, 1440.00, 1460.00, 1350.60, 1480.50, 1800.40, 1940.10, 1950.60, 1700.40] -->
+    <kirby-chart [height]="240" [type]="'areaspline'" [description]="'Accessibility description goes here'"
+      [data]="data">
+      <!-- data = [1600.90, 1710.50, 1060.40, 1290.20, 1440.00, 1460.00, 1350.60, 1480.50, 1800.40, 1940.10, 1950.60, 1700.40, 1600.90, 1710.50, 1060.40, 1290.20, 1440.00, 1460.00, 1350.60, 1480.50, 1800.40, 1940.10, 1950.60, 1700.40] -->
     </kirby-chart>
     <kirby-card-footer>
-        <!-- example period selector -->
-        <div>
-            <span (click)="data = [200, 100, 300, 100, 200, 300, 200]">Jan </span>
-            <span (click)="data = [100, 100, 100, 400, 200, 200, 200]">Feb </span>
-            <span (click)="data = [500, 400, 300, 200, 100, 200, 300]">Mar </span>
-        </div>
+      <!-- example period selector -->
+      <div>
+        <span (click)="data = [200, 100, 300, 100, 200, 300, 200]">Jan </span>
+        <span (click)="data = [100, 100, 100, 400, 200, 200, 200]">Feb </span>
+        <span (click)="data = [500, 400, 300, 200, 100, 200, 300]">Mar </span>
+      </div>
     </kirby-card-footer>
-</kirby-card>
+  </kirby-card>
+
+  <kirby-card>
+    <kirby-card-header title="Progress bar"></kirby-card-header>
+    <kirby-chart [height]="320" type="progressbar" [data]="progressData"></kirby-chart>
+  </kirby-card>
+</div>
