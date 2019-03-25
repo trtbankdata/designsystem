@@ -3,7 +3,7 @@ export enum ChartType {
   DONUT = 'donut',
   AREASPLINE = 'areaspline',
   ACTIVITYGAUGE = 'activitygauge',
-  PROGRESSBAR = 'progressbar'
+  PROGRESSBAR = 'progressbar',
 
   // SOLIDGAUGE = 'solidgauge',
 }

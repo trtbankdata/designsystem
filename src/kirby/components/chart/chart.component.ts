@@ -35,7 +35,7 @@ export class ChartComponent implements OnInit, OnChanges {
     @Inject(AREASPLINE_OPTIONS) public areasplineOptions: Options,
     @Inject(ACTIVITYGAUGE_OPTIONS) public activitygaugeOptions: Options,
     @Inject(PROGRESSBAR_OPTIONS) public progressbarOptions: Options
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.setupChartType();
@@ -132,7 +132,7 @@ export class ChartComponent implements OnInit, OnChanges {
           break;
         }
         case ChartType.PROGRESSBAR: {
-          console.log("Updating progress bar!");
+          console.log('Updating progress bar!');
           const nonProgress = [this.data[0]];
           const progress = [this.data[1]];
 
@@ -160,8 +160,8 @@ export class ChartComponent implements OnInit, OnChanges {
                 duration: 1000,
               },
               enableMouseTracking: false,
-            }
-          ]
+            },
+          ];
         }
       }
     }
