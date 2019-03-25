@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { LoadOnDemandEvent } from './list.event';
 import { GroupByPipe } from './pipes/group-by.pipe';
 import { ListComponent } from './list.component';
+import { SpinnerComponent } from '~/kirby';
+import { InfiniteScrollDirective } from './directives/infinite-scroll.directive';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -9,7 +12,7 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListComponent, GroupByPipe],
+      declarations: [ListComponent, GroupByPipe, SpinnerComponent, InfiniteScrollDirective],
     }).compileComponents();
   }));
 
@@ -21,29 +24,6 @@ describe('ListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  describe('item select event', () => {
-    it('should emit the clicked item', () => {
-      spyOn(component.itemSelect, 'emit');
-      const itemToBeSelected = { value: 'this is a dummy item' };
-
-      component.onItemClick(itemToBeSelected);
-
-      expect(component.itemSelect.emit).toHaveBeenCalledTimes(1);
-      expect(component.itemSelect.emit).toHaveBeenCalledWith(itemToBeSelected);
-    });
-
-    it('should emit the tapped item', () => {
-      spyOn(component.itemSelect, 'emit');
-      const itemToBeSelected = { value: 'item 2' };
-      component.items = [{ value: 'item 1' }, itemToBeSelected, { value: 'item 3' }];
-
-      component.onItemTap(itemToBeSelected);
-
-      expect(component.itemSelect.emit).toHaveBeenCalledTimes(1);
-      expect(component.itemSelect.emit).toHaveBeenCalledWith(itemToBeSelected);
-    });
   });
 
   describe('sections', () => {
@@ -91,37 +71,31 @@ describe('ListComponent', () => {
     });
   });
 
-  describe('Native: HeaderTemplate', () => {
-    it('should return the correct grid row definition, when there is a template', () => {
-      const expected = 'auto,*';
+  describe('function: onItemSelect', () => {
+    it('should emit the selected item', () => {
+      spyOn(component.itemSelect, 'emit');
+      const itemToBeSelected = { value: 'this is a dummy item' };
 
-      const actual = component.rowDefinition({});
+      component.onItemSelect(itemToBeSelected);
 
-      expect(actual).toEqual(expected);
+      expect(component.itemSelect.emit).toHaveBeenCalledTimes(1);
+      expect(component.itemSelect.emit).toHaveBeenCalledWith(itemToBeSelected);
+    });
+  });
+
+  describe('function: ngOnInit', () => {
+    it('should enable load more, if there is a subscriber to the loadMore event emitter', () => {
+      component.loadOnDemand.subscribe((loadMoreEvent: LoadOnDemandEvent) => {});
+
+      component.ngOnInit();
+
+      expect(component.isLoadOnDemandEnabled).toBeTruthy();
     });
 
-    it('should return the correct grid row definition, when there is no template', () => {
-      const expected = '*';
+    it('should disable load more, if there is no subscriber to the loadMore event emitter', () => {
+      component.ngOnInit();
 
-      const actual = component.rowDefinition(null);
-
-      expect(actual).toEqual(expected);
-    });
-
-    it('should return the correct row number, when there is a template', () => {
-      const expected = '1';
-
-      const actual = component.rowNumberForListView({});
-
-      expect(actual).toEqual(expected);
-    });
-
-    it('should return the correct row number, when there is no template', () => {
-      const expected = '0';
-
-      const actual = component.rowNumberForListView(null);
-
-      expect(actual).toEqual(expected);
+      expect(component.isLoadOnDemandEnabled).toBeFalsy();
     });
   });
 });

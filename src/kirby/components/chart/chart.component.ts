@@ -4,6 +4,7 @@ import { Options } from 'highcharts';
 import { ChartHelper } from './chart-helper';
 import { DonutOptions, DONUT_OPTIONS } from './options/donut';
 import { AreaSplineOptions, AREASPLINE_OPTIONS } from './options/areaspline';
+import { ACTIVITYGAUGE_OPTIONS, ActivityGaugeOptions } from './options/activitygauge';
 import { ChartType } from './chart-type';
 import { PROGRESSBAR_OPTIONS, ProgressbarOptions } from './options/progressbar';
 
@@ -15,6 +16,7 @@ import { PROGRESSBAR_OPTIONS, ProgressbarOptions } from './options/progressbar';
     ChartHelper,
     { provide: DONUT_OPTIONS, useValue: DonutOptions },
     { provide: AREASPLINE_OPTIONS, useValue: AreaSplineOptions },
+    { provide: ACTIVITYGAUGE_OPTIONS, useValue: ActivityGaugeOptions },
     { provide: PROGRESSBAR_OPTIONS, useValue: ProgressbarOptions },
   ],
 })
@@ -25,13 +27,13 @@ export class ChartComponent implements OnInit, OnChanges {
   @Input() description = '';
   @Input() showDataLabels = true;
   @ViewChild('chartContainer') chartContainer: ElementRef;
-
   options: Options = {};
 
   constructor(
     private chartHelper: ChartHelper,
     @Inject(DONUT_OPTIONS) public donutOptions: Options,
     @Inject(AREASPLINE_OPTIONS) public areasplineOptions: Options,
+    @Inject(ACTIVITYGAUGE_OPTIONS) public activitygaugeOptions: Options,
     @Inject(PROGRESSBAR_OPTIONS) public progressbarOptions: Options
   ) { }
 
@@ -65,10 +67,13 @@ export class ChartComponent implements OnInit, OnChanges {
         this.options.chart.type = this.type;
         break;
       }
-      case ChartType.PROGRESSBAR: {
-        this.options = this.progressbarOptions;
+      case ChartType.ACTIVITYGAUGE: {
+        this.options = this.activitygaugeOptions;
         this.options.chart.type = this.type;
         break;
+      }
+      case ChartType.PROGRESSBAR: {
+        this.options = this.progressbarOptions;
       }
     }
   }
@@ -97,6 +102,33 @@ export class ChartComponent implements OnInit, OnChanges {
               data: this.data as Array<Highcharts.SeriesAreasplineDataOptions>,
             },
           ];
+          break;
+        }
+        case ChartType.ACTIVITYGAUGE: {
+          const data = this.data[0];
+
+          this.options.title.text = data.title;
+          this.options.subtitle.text = data.subtitle;
+
+          if (data.paneBackgroundColor) {
+            this.options.pane.background = [
+              {
+                ...this.options.pane.background[0],
+                backgroundColor: data.paneBackgroundColor,
+              },
+            ];
+          }
+          if (data.color) {
+            this.options.title.style.color = data.color;
+            this.options.subtitle.style.color = data.color;
+          }
+          this.options.series = [
+            {
+              type: 'solidgauge',
+              data: data.series as Array<Highcharts.SeriesGaugeDataOptions>,
+            },
+          ];
+
           break;
         }
         case ChartType.PROGRESSBAR: {

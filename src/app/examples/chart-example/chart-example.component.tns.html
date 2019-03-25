@@ -81,10 +81,34 @@
 
     <FlexboxLayout>
       <kirby-card class="theme--cookbook">
-        <kirby-card-header [title]="'Progress bar'" [subtitle]="'Example'">
+        <kirby-card-header [title]="'Activity-Gauge'" [subtitle]="">
         </kirby-card-header>
-        <kirby-chart [height]="200" [type]="'progressbar'" [description]="'Accessibility description goes here'"
-          [data]="progressData"></kirby-chart>
+        <FlexboxLayout style="background-color: green;">
+          <kirby-chart [height]="320" [type]="'activitygauge'" [showDataLabels]="false"
+            [description]="'Accessibility description goes here'" [data]="[{
+                                 title: '1.234.567',
+                                 subtitle: 'Afdraget',
+                                 color: '#000',
+                                 paneBackgroundColor: {
+                                    linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                    stops: [
+                                        [1, 'rgba(0, 92, 60, 0.6)'],
+                                        [0, 'rgba(0, 92, 60, 0.6)']
+                                    ]
+                                },
+                                 series: [{
+                                    color: {
+                                        linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+                                        stops: [
+                                            [1, '#00e89a'],
+                                            [0, '#00a76f']
+                                        ]
+                                    },
+                                    radius: '112%',
+                                    innerRadius: '88%',
+                                    y: 75
+                                  }]}]"></kirby-chart>
+        </FlexboxLayout>
       </kirby-card>
     </FlexboxLayout>
 
