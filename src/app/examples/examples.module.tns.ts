@@ -19,13 +19,12 @@ const nativeScriptDeclarations = [
   ListSectionExampleComponent,
   ListCustomCellLinesExampleComponent,
   ListItemExampleComponent,
-  KirbyListByIonicExampleComponent
+  KirbyListByIonicExampleComponent,
 ];
 
 @NgModule({
   imports: [NativeScriptCommonModule, KirbyModule],
   declarations: nativeScriptDeclarations,
   exports: nativeScriptDeclarations,
-  schemas: [NO_ERRORS_SCHEMA],
 })
 export class ExamplesModule {}

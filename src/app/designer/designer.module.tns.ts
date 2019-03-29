@@ -9,6 +9,5 @@ import { CardDesignerComponent } from './card-designer/card-designer.component';
 @NgModule({
   imports: [NativeScriptCommonModule, ExamplesModule, DesignerRoutingModule],
   declarations: [CardDesignerComponent],
-  schemas: [NO_ERRORS_SCHEMA],
 })
 export class DesignerModule {}

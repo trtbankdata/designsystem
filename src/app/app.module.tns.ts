@@ -18,7 +18,6 @@ import { IntroComponent } from './intro/intro.component';
   imports: [NativeScriptModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {
   constructor() {

@@ -26,6 +26,5 @@ const nativeScriptDeclarations = [
   ],
   declarations: nativeScriptDeclarations,
   exports: nativeScriptDeclarations,
-  schemas: [NO_ERRORS_SCHEMA],
 })
 export class KirbyModule {}

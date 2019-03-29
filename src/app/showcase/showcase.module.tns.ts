@@ -7,6 +7,5 @@ import { COMPONENT_IMPORTS, COMPONENT_EXPORTS, COMPONENT_DECLARATIONS } from './
   imports: [...COMPONENT_IMPORTS, NativeScriptCommonModule],
   declarations: COMPONENT_DECLARATIONS,
   exports: COMPONENT_EXPORTS,
-  schemas: [NO_ERRORS_SCHEMA],
 })
 export class ShowcaseModule {}
