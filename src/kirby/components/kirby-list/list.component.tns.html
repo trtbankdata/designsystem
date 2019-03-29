@@ -1,3 +1,33 @@
+<GridLayout tkExampleTitle tkToggleNavButton>
+    <RadListView [items]="items">
+      
+        <ng-template tkListItemTemplate let-item="item">
+            …<StackLayout>
+                    <Label class="nameLabel" [text]="item.name"></Label>
+            </StackLayout>
+        <!-- <StackLayout orientation="vertical">
+          <Label class="nameLabel" [text]="item.name"></Label>
+          <Label class="descriptionLabel" [text]="item.id"></Label>
+          
+        </StackLayout> -->
+      </ng-template>
+
+    </RadListView>
+  </GridLayout>
+
+<!-- <ion-list lines="full">
+    <ion-list-header>
+        <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
+    </ion-list-header>
+
+    <ng-container *ngFor="let item of items">
+        <kirby-list-item-by-ionic (click)="onItemSelect(item)">
+            <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+        </kirby-list-item-by-ionic>
+    </ng-container>
+</ion-list> -->
+
+
 <!-- <GridLayout class="fab-wrapper {{ disabled ? 'fab-disabled' : '' }}">
     <StackLayout class="fab-shadow" (loaded)="onViewLoaded($event)">
         <StackLayout class="fab">
@@ -5,5 +35,3 @@
         </StackLayout>
     </StackLayout>
 </GridLayout> -->
-
-<Label text="I am the list.component.tns.html"></Label>

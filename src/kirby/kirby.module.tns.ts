@@ -4,7 +4,7 @@ import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { NativeScriptUIChartModule } from 'nativescript-ui-chart/angular';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
 
-import { declarations } from './kirby.common';
+import { declarations, imports } from './kirby.common';
 // tslint:disable-next-line:max-line-length
 import { NativeScriptDoughnutChartComponent } from './components/nativescript-only/doughnut-chart/doughnut-chart.component.tns-only';
 // tslint:disable-next-line:max-line-length
@@ -23,8 +23,9 @@ const nativeScriptDeclarations = [
     NativeScriptRouterModule,
     NativeScriptUIChartModule,
     NativeScriptUIListViewModule,
+    imports,
   ],
   declarations: nativeScriptDeclarations,
-  exports: nativeScriptDeclarations,
+  exports: [...nativeScriptDeclarations, imports],
 })
 export class KirbyModule {}
