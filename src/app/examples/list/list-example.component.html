@@ -10,6 +10,14 @@
   Supported values are 'top', 'center', 'bottom', 'stretch', 'baseline'.
   Default is 'center' 
 -->
+
+<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate">
+  <ng-template #itemTemplate let-item="item">
+    <p>{{item.title}}</p>
+  </ng-template>
+</kirby-list-by-ionic>
+
+
 <kirby-list [items]="items">
 
   <!-- HEADER -->
