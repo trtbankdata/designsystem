@@ -11,6 +11,7 @@ import { ListSectionExampleComponent } from './list/tns-list-examples/list-secti
 import { ListCustomCellLinesExampleComponent } from './list/tns-list-examples/list-custom-cell-lines-example/list-custom-cell-lines-example.component.tns';
 import { ListItemExampleComponent } from './list/tns-list-examples/list-item-example/list-item-example.component.tns';
 import { ListLoadOnDemandExampleComponent } from './list/load-on-demand/list-load-on-demand-example.component';
+import { KirbyListByIonicExampleComponent } from './list/tns-list-examples/list-by-ionic-example/list-by-ionic-example.component.tns';
 
 const nativeScriptRoutes = [
   ...routes,
@@ -45,6 +46,10 @@ const nativeScriptRoutes = [
       {
         path: 'load-on-demand',
         component: ListLoadOnDemandExampleComponent,
+      },
+      {
+        path: 'kirby-list-by-ionic',
+        component: KirbyListByIonicExampleComponent,
       },
     ],
   },

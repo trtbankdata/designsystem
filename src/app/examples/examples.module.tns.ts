@@ -10,6 +10,7 @@ import { NativeScriptLineChartExampleComponent } from './nativescript-only/line-
 import { ListSectionExampleComponent } from './list/tns-list-examples/list-section-example/list-section-example.component.tns';
 import { ListCustomCellLinesExampleComponent } from './list/tns-list-examples/list-custom-cell-lines-example/list-custom-cell-lines-example.component.tns';
 import { ListItemExampleComponent } from './list/tns-list-examples/list-item-example/list-item-example.component.tns';
+import { KirbyListByIonicExampleComponent } from './list/tns-list-examples/list-by-ionic-example/list-by-ionic-example.component.tns';
 
 const nativeScriptDeclarations = [
   ...COMPONENT_DECLARATIONS,
@@ -18,6 +19,7 @@ const nativeScriptDeclarations = [
   ListSectionExampleComponent,
   ListCustomCellLinesExampleComponent,
   ListItemExampleComponent,
+  KirbyListByIonicExampleComponent
 ];
 
 @NgModule({
