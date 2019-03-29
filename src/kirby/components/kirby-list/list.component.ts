@@ -1,22 +1,12 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  ContentChild,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'kirby-list-by-ionic',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements AfterContentInit {
+export class ListComponent {
   @Input() items: any[];
   @Input() itemTemplate: TemplateRef<any>;
-
-  ngAfterContentInit() {}
+  @Input() headerTemplate: TemplateRef<any>;
 }

@@ -11,12 +11,25 @@
   Default is 'center' 
 -->
 
-<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate">
-  <ng-template #itemTemplate let-item="item">
-    <p>{{item.title}}</p>
-  </ng-template>
-</kirby-list-by-ionic>
+<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate">
 
+  <ng-template #headerTemplate>
+    <kirby-label>Items</kirby-label>
+  </ng-template>
+
+  <ng-template #itemTemplate let-item="item">
+    <kirby-avatar [imageSrc]="imageSrc" [size]="'small'" slot="start"></kirby-avatar>
+    <kirby-label position="stacked" slot="start">
+      <h2>{{item.title}}</h2>
+      <h3>{{item.subTitle}}</h3>
+    </kirby-label>
+    <kirby-label position="stacked" slot="end">
+      <p><strong>{{item.amount}}</strong></p>
+      <p style="text-align: right;">EUR</p>
+    </kirby-label>
+  </ng-template>
+
+</kirby-list-by-ionic>
 
 <kirby-list [items]="items">
 

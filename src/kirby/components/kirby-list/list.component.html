@@ -1,6 +1,6 @@
 <ion-list lines="full">
     <ion-list-header>
-        <ion-label>Items</ion-label>
+        <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
     </ion-list-header>
 
     <ng-container *ngFor="let item of items">
