@@ -1,21 +1,26 @@
-<GridLayout tkExampleTitle tkToggleNavButton>
-    <RadListView [items]="items">
-      
-        <ng-template tkListItemTemplate let-item="item">
-            …<StackLayout>
-                    <Label class="nameLabel" [text]="item.name"></Label>
-            </StackLayout>
-        <!-- <StackLayout orientation="vertical">
-          <Label class="nameLabel" [text]="item.name"></Label>
-          <Label class="descriptionLabel" [text]="item.id"></Label>
-          
-        </StackLayout> -->
-      </ng-template>
+<RadListView [items]="items">
 
-    </RadListView>
-  </GridLayout>
+    <ng-template tkListItemTemplate let-item="item">
+        
+                <Label class="nameLabel" [text]="item.name"></Label>
+                
+        
+    </ng-template>
 
-<!-- <ion-list lines="full">
+    <ng-template tkListViewHeader>
+        <Label text="This is list header" class="header"></Label>
+    </ng-template>
+
+    <!-- <ng-template tkListViewFooter>
+        <Label text="This is list footer" class="footer"></Label>
+    </ng-template> -->
+        
+</RadListView>
+
+
+
+
+    <!--
     <ion-list-header>
         <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
     </ion-list-header>
