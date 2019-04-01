@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
-import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
 @Component({
   selector: 'kirby-list-by-ionic',
@@ -7,7 +6,7 @@ import { ObservableArray } from 'tns-core-modules/data/observable-array/observab
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  @Input() items: ObservableArray<any>;
+  @Input() items: any;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() headerTemplate: TemplateRef<any>;
 
