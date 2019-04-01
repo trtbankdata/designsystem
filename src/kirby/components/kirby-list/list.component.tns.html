@@ -1,10 +1,7 @@
 <RadListView [items]="items">
 
     <ng-template tkListItemTemplate let-item="item">
-        
-                <Label class="nameLabel" [text]="item.name"></Label>
-                
-        
+        <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
     </ng-template>
 
     <ng-template tkListViewHeader>
