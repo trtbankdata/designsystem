@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
 
-import { ListComponent } from '~/kirby/components/kirby-list/list.component';
-import { KirbyListItemComponent } from '~/kirby/components/kirby-list/item/item.component';
-import { KirbyLabelComponent } from '~/kirby/components/kirby-list/label/label.component';
+import {
+  commonImports,
+  commentDeclarations,
+  commonExports,
+} from '~/kirby/components/kirby-list/list.common';
 
 @NgModule({
-  imports: [CommonModule, IonicModule],
-  declarations: [ListComponent, KirbyListItemComponent, KirbyLabelComponent],
-  exports: [ListComponent, KirbyListItemComponent, KirbyLabelComponent],
+  imports: [...commonImports, IonicModule],
+  declarations: [...commentDeclarations],
+  exports: [...commonExports],
 })
 export class ListModule {}

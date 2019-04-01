@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 
-import { ListComponent } from '~/kirby/components/kirby-list/list.component';
-import { KirbyListItemComponent } from '~/kirby/components/kirby-list/item/item.component';
-import { KirbyLabelComponent } from '~/kirby/components/kirby-list/label/label.component';
+import {
+  commonImports,
+  commentDeclarations,
+  commonExports,
+} from '~/kirby/components/kirby-list/list.common';
 
 @NgModule({
-  imports: [CommonModule, NativeScriptUIListViewModule],
-  declarations: [ListComponent, KirbyListItemComponent, KirbyLabelComponent],
-  exports: [ListComponent, KirbyListItemComponent, KirbyLabelComponent],
+  imports: [...commonImports, NativeScriptUIListViewModule],
+  declarations: [...commentDeclarations],
+  exports: [...commonExports],
 })
 export class ListModule {}
