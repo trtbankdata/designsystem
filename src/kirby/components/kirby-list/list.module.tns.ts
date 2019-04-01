@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular/listview-directives';
 
 import {
   commonImports,
@@ -8,7 +8,7 @@ import {
 } from '~/kirby/components/kirby-list/list.common';
 
 @NgModule({
-  imports: [...commonImports, IonicModule],
+  imports: [...commonImports, NativeScriptUIListViewModule],
   declarations: [...commentDeclarations],
   exports: [...commonExports],
 })
