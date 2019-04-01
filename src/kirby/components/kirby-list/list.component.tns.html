@@ -1,39 +1,15 @@
 <RadListView [items]="items">
 
     <ng-template tkListItemTemplate let-item="item">
-        <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+        <GridLayout>
+            <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+        </GridLayout>
     </ng-template>
 
     <ng-template tkListViewHeader>
-        <Label text="This is list header" class="header"></Label>
+        <GridLayout>
+            <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
+        </GridLayout>
     </ng-template>
-
-    <!-- <ng-template tkListViewFooter>
-        <Label text="This is list footer" class="footer"></Label>
-    </ng-template> -->
         
 </RadListView>
-
-
-
-
-    <!--
-    <ion-list-header>
-        <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
-    </ion-list-header>
-
-    <ng-container *ngFor="let item of items">
-        <kirby-list-item-by-ionic (click)="onItemSelect(item)">
-            <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
-        </kirby-list-item-by-ionic>
-    </ng-container>
-</ion-list> -->
-
-
-<!-- <GridLayout class="fab-wrapper {{ disabled ? 'fab-disabled' : '' }}">
-    <StackLayout class="fab-shadow" (loaded)="onViewLoaded($event)">
-        <StackLayout class="fab">
-            <Image [src]="iconSrc"></Image>
-        </StackLayout>
-    </StackLayout>
-</GridLayout> -->
