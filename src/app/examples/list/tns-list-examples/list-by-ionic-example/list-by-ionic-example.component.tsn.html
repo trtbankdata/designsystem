@@ -1,13 +1,15 @@
 
 <kirby-list-by-ionic [items]="dataItems"  
-  [itemTemplate]="itemTemplate"[headerTemplate]="headerTemplate" ></kirby-list-by-ionic>
+  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" ></kirby-list-by-ionic>
 
 <ng-template #itemTemplate let-item="item">
+  <kirby-avatar [imageSrc]="imageSrc" [size]="'small'"></kirby-avatar>
+  <Label [text]="item.name"></Label>
   <Label [text]="item.name"></Label>
 </ng-template>
 
 <ng-template #headerTemplate>
-  <Label text="I am the header"></Label>
+    <Label text="Header from Examplex" class="listHeader"></Label>
 </ng-template>
 
 
