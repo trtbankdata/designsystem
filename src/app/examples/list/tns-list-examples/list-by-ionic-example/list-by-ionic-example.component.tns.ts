@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 
+import { BaseListComponent } from '../../base-list.component';
+
 @Component({
   templateUrl: './list-by-ionic-example.component.tsn.html',
   styleUrls: ['./list-by-ionic-example.component.tns.scss'],
 })
-export class KirbyListByIonicExampleComponent implements OnInit {
+export class KirbyListByIonicExampleComponent extends BaseListComponent implements OnInit {
   private _items: ObservableArray<any>;
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
     this._items = new ObservableArray(this.getItems());
@@ -18,6 +22,8 @@ export class KirbyListByIonicExampleComponent implements OnInit {
   }
 
   private getItems() {
+    return this.items;
+
     return [
       {
         id: 0,

@@ -1,16 +1,28 @@
 
+    
 <kirby-list-by-ionic [items]="dataItems"  
-  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" ></kirby-list-by-ionic>
+  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" >
+</kirby-list-by-ionic>
+  
+<!-- <kirby-list-by-ionic [items]="dataItems"  
+  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" >
+</kirby-list-by-ionic> -->
+
 
 <ng-template #itemTemplate let-item="item">
-  <kirby-avatar [imageSrc]="imageSrc" [size]="'small'"></kirby-avatar>
-  <Label [text]="item.name"></Label>
-  <Label [text]="item.name"></Label>
+  
+    <StackLayout orientation="horizontal" width="60%">
+      <kirby-avatar [imageSrc]="imageSrc" [size]="'small'"></kirby-avatar>
+      <StackLayout orientation="vertical" style="padding-left: 10">
+        <Label [text]="item.title" class="itemTitle"></Label>
+        <Label [text]="item.subTitle" class="itemSubTitle"></Label>
+      </StackLayout>
+    </StackLayout>
+    <Label [text]="item.amount"></Label>
+
 </ng-template>
 
 <ng-template #headerTemplate>
     <Label text="Header from Examplex" class="listHeader"></Label>
 </ng-template>
 
-
-  
