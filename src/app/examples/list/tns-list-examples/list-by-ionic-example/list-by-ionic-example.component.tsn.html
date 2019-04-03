@@ -1,7 +1,7 @@
 
     
 <kirby-list-by-ionic [items]="dataItems"  
-  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" >
+  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" [footerTemplate]="footerTemplate">
 </kirby-list-by-ionic>
   
 <!-- <kirby-list-by-ionic [items]="dataItems"  
@@ -26,3 +26,6 @@
     <Label text="Header from Examplex" class="listHeader"></Label>
 </ng-template>
 
+<ng-template #footerTemplate>
+    <Label text="FOOTER FOOTER" class="listFooter"></Label>
+</ng-template>
