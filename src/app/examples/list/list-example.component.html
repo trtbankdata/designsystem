@@ -11,7 +11,7 @@
   Default is 'center' 
 -->
 
-<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" (itemSelect)="onItemSelect($event)">
+<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" [footerTemplate]="footerTemplate" (itemSelect)="onItemSelect($event)">
 
   <ng-template #headerTemplate>
     <h3>Items</h3>
@@ -28,6 +28,10 @@
     </div>
     <p style="text-align: right">{{item.amount}}</p>
 
+  </ng-template>
+
+  <ng-template #footerTemplate let-item="item">
+    <p>footer</p>
   </ng-template>
 
 </kirby-list-by-ionic>

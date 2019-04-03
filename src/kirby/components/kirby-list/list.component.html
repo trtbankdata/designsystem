@@ -5,7 +5,11 @@
 
     <ng-container *ngFor="let item of items">
         <ion-item (click)="onItemSelect(item)">
-            <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+            <div class="list-item">
+                <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+            </div>
         </ion-item>
     </ng-container>
+
+    <ng-template [ngTemplateOutlet]="footerTemplate"></ng-template>
 </ion-list>
