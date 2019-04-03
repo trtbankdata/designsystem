@@ -24,4 +24,8 @@ export class ListComponent {
     //   okButtonText: 'OK',
     // });
   }
+
+  trackByFn(index) {
+    return index;
+  }
 }
