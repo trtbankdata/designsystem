@@ -11,6 +11,7 @@ export class ListComponent {
   @Input() items: any;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() headerTemplate: TemplateRef<any>;
+  @Input() footerTemplate: TemplateRef<any>;
 
   @Output() itemSelect = new EventEmitter<any>();
 
