@@ -1,14 +1,17 @@
 <ion-list lines="full">
+    <!-- List header -->
     <ion-list-header *ngIf="headerTemplate">
         <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
     </ion-list-header>
 
+    <!-- List items -->
     <ion-item *ngFor="let item of items;trackBy: trackByFn" (click)="onItemSelect(item)">
         <div class="list-item">
             <ng-template [ngTemplateOutlet]="itemTemplate || defaultListItemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
         </div>
     </ion-item>
 
+    <!-- List footer -->
     <ng-template [ngTemplateOutlet]="footerTemplate"></ng-template>
 </ion-list>
 
