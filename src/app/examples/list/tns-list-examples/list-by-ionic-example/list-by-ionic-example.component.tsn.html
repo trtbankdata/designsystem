@@ -1,24 +1,16 @@
 
-<kirby-list-by-ionic [items]="dataItems"></kirby-list-by-ionic>
+<kirby-list-by-ionic [items]="dataItems"  
+  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" ></kirby-list-by-ionic>
 
-<!-- 
-<kirby-list-by-ionic [items]="items" [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" (itemSelect)="onItemSelect($event)">
+<ng-template #itemTemplate let-item="item">
+  <kirby-avatar [imageSrc]="imageSrc" [size]="'small'"></kirby-avatar>
+  <Label [text]="item.name"></Label>
+  <Label [text]="item.name"></Label>
+</ng-template>
 
-    <ng-template #headerTemplate>
-      <kirby-label>Items</kirby-label>
-    </ng-template>
-  
-    <ng-template #itemTemplate let-item="item">
-      <kirby-avatar [imageSrc]="imageSrc" [size]="'small'" slot="start"></kirby-avatar>
-      <kirby-label position="stacked" slot="start">
-        <Label [text]="item.title"></Label>
-        <Label [text]="item.subTitle"></Label>
-      </kirby-label>
-      <kirby-label position="stacked" slot="end">
-        <Label [text]="item.amount"></Label>
-        <Label text="EUR"></Label>
-      </kirby-label>
-    </ng-template>
-  
-  </kirby-list-by-ionic> -->
+<ng-template #headerTemplate>
+    <Label text="Header from Examplex" class="listHeader"></Label>
+</ng-template>
+
+
   
