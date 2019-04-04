@@ -22,7 +22,7 @@ import { ListHeaderComponent } from './components/list/list-header/list-header.c
 import { ListCellComponent } from './components/list/list-cell/list-cell.component';
 import { ListCellLineComponent } from './components/list/list-cell-line/list-cell-line.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { ListModule } from '~/kirby/components/kirby-list/list.module';
+import { ListModule } from './components/kirby-list/list.module';
 
 export const declarations = [
   CardComponent,
