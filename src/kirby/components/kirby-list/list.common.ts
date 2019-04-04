@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ListComponent } from '~/kirby/components/kirby-list/list.component';
+
+import { ListComponent } from './list.component';
 
 export const commonImports = [CommonModule];
 export const commentDeclarations = [ListComponent];
