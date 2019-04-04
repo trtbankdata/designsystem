@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-import {
-  commonImports,
-  commentDeclarations,
-  commonExports,
-} from '~/kirby/components/kirby-list/list.common';
+import { commonImports, commentDeclarations, commonExports } from './list.common';
 
 @NgModule({
   imports: [...commonImports, IonicModule],

@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 
-// import { alert } from 'tns-core-modules/ui/dialogs';
-
 @Component({
   selector: 'kirby-list-by-ionic',
   templateUrl: './list.component.html',
@@ -17,12 +15,6 @@ export class ListComponent {
 
   onItemSelect(selectedItem: any) {
     this.itemSelect.emit(selectedItem);
-
-    // alert({
-    //   title: 'You clicked',
-    //   message: 'fede nar...',
-    //   okButtonText: 'OK',
-    // });
   }
 
   trackByFn(index) {
