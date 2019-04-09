@@ -1,7 +1,11 @@
 
     
-<kirby-list-by-ionic [items]="dataItems"  
-  [itemTemplate]="itemTemplate" [headerTemplate]="headerTemplate" [footerTemplate]="footerTemplate">
+<kirby-list-by-ionic [items]="dataItems" 
+  [propToGroupOn]="'title'"
+  [itemTemplate]="itemTemplate" 
+  [headerTemplate]="headerTemplate" 
+  [footerTemplate]="footerTemplate"
+  [sectionHeaderTemplate]="sectionHeaderTemplate">
 </kirby-list-by-ionic>
   
 <!-- <kirby-list-by-ionic [items]="dataItems"  
@@ -28,4 +32,8 @@
 
 <ng-template #footerTemplate>
     <Label text="FOOTER FOOTER" class="listFooter"></Label>
+</ng-template>
+
+<ng-template #sectionHeaderTemplate let-category="category">
+    <Label [text]="category" class="groupLabel"></Label>
 </ng-template>

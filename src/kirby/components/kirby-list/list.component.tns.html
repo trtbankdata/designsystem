@@ -1,4 +1,41 @@
-<RadListView [items]="items">
+<RadListView [items]="items" [groupingFunction]="propToGroupOn ? myGroupingFunc : null"
+    selectionBehavior="Press"
+    (itemSelected)="onItemSelect($event)"
+>
+    <ng-template tkListItemTemplate let-item="item">
+        <FlexboxLayout
+            justifyContent="space-between" 
+            flexWrap="nowrap"
+            alignItems="center"
+            style="padding-top: 20;">
+            <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
+        </FlexboxLayout>
+    </ng-template>
+
+    <ng-template tkGroupTemplate let-category="category" *ngIf="myGroupingFunc">
+    <GridLayout>
+            <ng-template [ngTemplateOutlet]="sectionHeaderTemplate" [ngTemplateOutletContext]="{category: category}"></ng-template>
+    </GridLayout>
+    </ng-template>
+
+    <!-- <ng-template tkListViewHeader>
+        <GridLayout>
+            <ng-template [ngTemplateOutlet]="headerTemplate"></ng-template>
+        </GridLayout>
+    </ng-template>
+
+    <ng-template tkListViewFooter>
+        <GridLayout>
+            <ng-template [ngTemplateOutlet]="footerTemplate"></ng-template>
+        </GridLayout>>
+    </ng-template> -->
+</RadListView>
+
+
+
+
+
+<!-- <RadListView [items]="items">
 
     <ng-template tkListItemTemplate let-item="item">
         <FlexboxLayout (tap)="onItemSelect(item)" 
@@ -22,4 +59,4 @@
         </GridLayout>>
     </ng-template>
         
-</RadListView>
+</RadListView> -->
