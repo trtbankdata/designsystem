@@ -30,6 +30,10 @@ export const routes: Routes = [
         path: 'component-status',
         loadChildren: './component-status/component-status.module#ComponentStatusModule',
       },
+      {
+        path: 'components',
+        loadChildren: './components-overview/components-overview.module#ComponentsOverviewModule',
+      },
     ],
   },
   {

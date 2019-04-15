@@ -6,6 +6,15 @@
     <a routerLink="/home/intro" [routerLinkActive]="'is-selected'" class="side-nav__item">Intro</a>
   </li>
   <li>
+    <a class="side-nav__item side-nav-header" routerLink="/home/components" [routerLinkActive]="'is-selected'"
+      [routerLinkActiveOptions]="{exact: false}">
+      <svg class="icon">
+        <use xlink:href="../../assets/icons/icon-sprite.svg#icon-components-overview"></use>
+      </svg>
+      Components
+    </a>
+  </li>
+  <li>
     <a class="side-nav__item side-nav-header" routerLink="/home/component-status" [routerLinkActive]="'is-selected'"
       [routerLinkActiveOptions]="{exact: false}">
       <svg class="icon">
@@ -23,12 +32,11 @@
       Actions
     </a>
     <ul class="side-nav side-nav--sub">
-      <li><a routerLink="showcase/button" [routerLinkActive]="'is-selected'" class="side-nav__item">Button</a></li>
-      <li><a routerLink="showcase/card" [routerLinkActive]="'is-selected'" class="side-nav__item">Card</a></li>
+      <li><a routerLink="showcase/button" [routerLinkActive]="'is-selected'" class="side-nav__item"><ion-icon src="../../assets/icons/components/CTA.svg"></ion-icon> Button</a></li>
+      <li><a routerLink="showcase/card" [routerLinkActive]="'is-selected'" class="side-nav__item"><ion-icon src="../../assets/icons/components/Cards.svg"></ion-icon> Card</a></li>
       <li><a routerLink="showcase/chip" [routerLinkActive]="'is-selected'" class="side-nav__item">Chip</a></li>
-      <li><a routerLink="showcase/floating-action-button" [routerLinkActive]="'is-selected'"
-          class="side-nav__item">Floating Action Button</a></li>
-      <li><a routerLink="showcase/list" [routerLinkActive]="'is-selected'" class="side-nav__item">List</a></li>
+      <li><a routerLink="showcase/floating-action-button" [routerLinkActive]="'is-selected'" class="side-nav__item"><ion-icon src="../../assets/icons/components/FAB.svg"></ion-icon> Floating Action Button</a></li>
+      <li><a routerLink="showcase/list" [routerLinkActive]="'is-selected'" class="side-nav__item"><ion-icon src="../../assets/icons/components/List.svg"></ion-icon> List</a></li>
       <li><a routerLink="showcase/list-load-on-demand" [routerLinkActive]="'is-selected'" class="side-nav__item">List -
         load on demand</a></li>
       <li><a routerLink="showcase/segmented-control" [routerLinkActive]="'is-selected'" class="side-nav__item">Segmented Control</a></li>
@@ -56,7 +64,7 @@
     </a>
     <ul class="side-nav side-nav--sub">
       <li><a routerLink="showcase/avatar" [routerLinkActive]="'is-selected'" class="side-nav__item">Avatar</a></li>
-      <li><a routerLink="showcase/badge" [routerLinkActive]="'is-selected'" class="side-nav__item">Badge</a></li>
+      <li><a routerLink="showcase/badge" [routerLinkActive]="'is-selected'" class="side-nav__item"><ion-icon src="../../assets/icons/components/Badge.svg"></ion-icon> Badge</a></li>
       <li><a routerLink="showcase/chart" [routerLinkActive]="'is-selected'" class="side-nav__item">Charts</a></li>
       <li><a routerLink="showcase/colors" [routerLinkActive]="'is-selected'" class="side-nav__item">Colors</a></li>
       <li><a routerLink="showcase/icon" [routerLinkActive]="'is-selected'" class="side-nav__item">Icon</a></li>

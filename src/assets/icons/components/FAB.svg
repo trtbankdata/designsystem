@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>FAB</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FAB">
+            <g id="fab-button/primary/normal">
+                <circle id="Background" fill="#20C598" fill-rule="nonzero" cx="8" cy="8" r="8"></circle>
+                <g id="add" transform="translate(5.000000, 5.000000)"></g>
+            </g>
+            <path d="M10.64,7.64 L8.36,7.64 L8.36,5.36 C8.36,5.16128 8.19872,5 8,5 C7.80128,5 7.64,5.16128 7.64,5.36 L7.64,7.64 L5.36,7.64 C5.16128,7.64 5,7.80128 5,8 C5,8.19872 5.16128,8.36 5.36,8.36 L7.64,8.36 L7.64,10.64 C7.64,10.83872 7.80128,11 8,11 C8.19872,11 8.36,10.83872 8.36,10.64 L8.36,8.36 L10.64,8.36 C10.83872,8.36 11,8.19872 11,8 C11,7.80128 10.83872,7.64 10.64,7.64" id="background-color" fill="#1C1C1C" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

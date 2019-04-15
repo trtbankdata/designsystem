@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="23px" viewBox="0 0 37 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Badge</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="4" width="29" height="13" rx="4"></rect>
+        <filter x="-24.1%" y="-38.5%" width="148.3%" height="207.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0715417395 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Badge" transform="translate(4.000000, 0.000000)">
+            <g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="badge/sm" transform="translate(13.000000, 0.000000)" fill-rule="nonzero">
+                    <circle id="color" fill="#00E89A" cx="3.5" cy="3.5" r="3.5"></circle>
+                    <g id="checkbox-noticication" fill="#1C1C1C">
+                        <path d="M5.101161,2.70720253 L3.630286,4.47251503 C3.567286,4.54776503 3.4775985,4.58626503 3.3865985,4.58626503 C3.3157235,4.58626503 3.2448485,4.56307753 3.185786,4.51451503 L2.3033485,3.79045253 C2.168161,3.67932753 2.1484735,3.47982753 2.259161,3.34464003 C2.371161,3.20901503 2.5702235,3.18976503 2.7049735,3.30045253 L3.3445985,3.82545253 L4.614661,2.30164003 C4.726661,2.16645253 4.926161,2.14939003 5.0604735,2.26095253 C5.1952235,2.37295253 5.2135985,2.57289003 5.101161,2.70720253" id="color"></path>
+                    </g>
+                </g>
+                <g id="badge/md" transform="translate(18.000000, 0.000000)">
+                    <g id="Group-5" transform="translate(5.000000, 0.000000)"></g>
+                    <g id="Group-5-Copy-2">
+                        <rect id="color" fill="#FFCA3A" fill-rule="nonzero" x="0" y="0" width="7" height="7" rx="3.5"></rect>
+                        <text id="text" font-family="Roboto-Bold, Roboto" font-size="4" font-weight="bold" fill="#FFFFFF">
+                            <tspan x="2.35253906" y="5">1</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <rect id="color" fill="#FF595E" fill-rule="nonzero" x="23" y="0" width="7" height="7" rx="3.5"></rect>
+            <text id="text" font-family="Roboto-Bold, Roboto" font-size="4" font-weight="bold" fill="#FFFFFF">
+                <tspan x="25.3525391" y="5">1</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
