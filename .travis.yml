@@ -30,7 +30,6 @@ matrix:
         - directories:
             - $HOME/.npm
         - cocoapods
-      before_script: ./.travis/setup-provisioning-profile.sh
       script:
         - npm run dist:ios
 
@@ -67,6 +66,7 @@ matrix:
         - npm run dist
       before_deploy:
         - echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}' > ~/.npmrc
+        - /.travis/install-kube-tools.sh
       deploy:
         - provider: script
           skip_cleanup: true
