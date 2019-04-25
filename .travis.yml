@@ -30,7 +30,7 @@ matrix:
         - directories:
             - $HOME/.npm
         - cocoapods
-      before_script: ./scripts/setup-provisioning-profile.sh
+      before_script: ./.travis/setup-provisioning-profile.sh
       script:
         - npm run dist:ios
 
@@ -70,7 +70,7 @@ matrix:
       deploy:
         - provider: script
           skip_cleanup: true
-          script: ./scripts/publish.js
+          script: ./.travis/publish.js
           on:
             tags: true
             condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+
@@ -82,4 +82,4 @@ matrix:
         - directories:
             - $HOME/.npm
       script: 
-        - ./scripts/version_bump.sh
+        - ./.travis/version_bump.sh
