@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ModalController } from '@kirbydesign/designsystem/modal';
 import { ActionSheetConfig } from '@kirbydesign/designsystem/modal';
@@ -9,7 +9,7 @@ import { ActionSheetItem } from '@kirbydesign/designsystem/modal';
   templateUrl: './action-sheet-example.component.html',
 })
 export class ActionSheetExampleComponent {
-  constructor(private modalController: ModalController, private vcRef: ViewContainerRef) {}
+  constructor(private modalController: ModalController) {}
 
   showActionSheet() {
     const config: ActionSheetConfig = {
@@ -21,7 +21,7 @@ export class ActionSheetExampleComponent {
         { id: '3', text: 'Option 3' },
       ],
     };
-    this.modalController.showActionSheet(config, this.vcRef, this.onActionSelected);
+    this.modalController.showActionSheet(config, this.onActionSelected);
   }
 
   private onActionSelected(selection: ActionSheetItem) {

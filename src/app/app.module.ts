@@ -10,11 +10,18 @@ import { SideNavComponent } from './page/side-nav/side-nav.component';
 import { HeaderComponent } from './page/header/header.component';
 import { IntroComponent } from './intro/intro.component';
 import { KirbyModule } from '@kirbydesign/designsystem';
+import { ExamplesModule } from './examples/examples.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SideNavComponent, HeaderComponent, IntroComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, KirbyModule],
-
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    KirbyModule,
+    ExamplesModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

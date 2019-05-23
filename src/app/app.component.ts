@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+
+import { ModalVcRef } from '@kirbydesign/designsystem/components/modal/services/modal-vc-ref';
 
 @Component({
   selector: 'kirby-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Kirby design system';
+  constructor(private vcRef: ViewContainerRef) {
+    ModalVcRef.setVcRef(this.vcRef);
+  }
 }

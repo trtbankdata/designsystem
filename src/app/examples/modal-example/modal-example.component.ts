@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ApplicationRef } from '@angular/core';
 
 import { ModalConfig } from '@kirbydesign/designsystem/modal';
 import { ModalController } from '@kirbydesign/designsystem/modal';
@@ -9,7 +9,7 @@ import { FirstEmbeddedModalExampleComponent } from './first-embedded-modal-examp
   templateUrl: './modal-example.component.html',
 })
 export class ModalExampleComponent {
-  constructor(private modalController: ModalController, private vcRef: ViewContainerRef) {}
+  constructor(private modalController: ModalController, private vcRef: ApplicationRef) {}
 
   showModal() {
     const config: ModalConfig = {
@@ -22,7 +22,7 @@ export class ModalExampleComponent {
       },
     };
 
-    this.modalController.showModal(config, this.vcRef, this.onModalClose);
+    this.modalController.showModal(config, this.onModalClose);
   }
 
   onModalClose(modalData: any): void {

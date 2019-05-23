@@ -9,13 +9,15 @@ import { HomeComponent } from './home/home.component';
 import { SideNavComponent } from './page/side-nav/side-nav.component';
 import { HeaderComponent } from './page/header/header.component';
 import { IntroComponent } from './intro/intro.component';
+import { KirbyModule } from '@kirbydesign/designsystem';
+import { ExamplesModule } from './examples/examples.module';
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, SideNavComponent, HeaderComponent, IntroComponent],
-  imports: [NativeScriptModule, AppRoutingModule],
+  imports: [NativeScriptModule, AppRoutingModule, KirbyModule, ExamplesModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
