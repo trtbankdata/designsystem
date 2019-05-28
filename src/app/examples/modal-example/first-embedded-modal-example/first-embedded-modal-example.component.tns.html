@@ -1,4 +1,18 @@
-<StackLayout>
+<GridLayout rows="auto, auto, auto, *">
+  <Label textWrap="true" text="Hello from the first embedded example component"></Label>
+  <Button row="1" kirby-button text="Hide me" (tap)="onHideFirst($event)"></Button>
+    <Button row="2" kirby-button text="Show second modal" (tap)="showSecondModal($event)"></Button>
+  <RadListView row="3" [items]="countries" (itemTap)="onItemTap($event)" style="height:1250px">
+      <ng-template let-country="item">
+          <FlexboxLayout flexDirection="row">
+              <!-- <Image [src]="country.imageSrc"></Image> -->
+              <Label [text]="country.name" verticalAlignment="center"
+                  style="width: 60%"></Label>
+          </FlexboxLayout>
+      </ng-template>
+  </RadListView>
+</GridLayout>
+<!-- <StackLayout>
     <Label text="Component properties:"></Label>
     <Label>
         <FormattedString>
@@ -64,4 +78,4 @@
       frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man
       therefore always holds in these matters to this principle of selection: he rejects pleasures
       to secure other greater pleasures, or else he endures pains to avoid worse pains.'"></Label>
-</StackLayout>
+</StackLayout> -->

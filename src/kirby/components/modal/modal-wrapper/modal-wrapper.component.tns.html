@@ -1,4 +1,5 @@
-<ModalStack class="modal-wrapper" android:style="padding-top: {{outerPaddingTop}};" dismissEnabled="true" (showingModally)="onShowingModally($event)">
+<!-- <ModalStack class="modal-wrapper" android:style="padding-top: {{outerPaddingTop}};" dismissEnabled="true" (showingModally)="onShowingModally($event)"> -->
+<GridLayout class="modal-wrapper" android:style="padding-top: {{outerPaddingTop}};" dismissEnabled="true" (showingModally)="onShowingModally($event)">
     <AbsoluteLayout *ngIf="config.closeBtnPosition === 'outside'" horizontalAlignment="right">
         <ng-container *ngTemplateOutlet="closeBtn"></ng-container>
     </AbsoluteLayout>
@@ -17,7 +18,8 @@
             </ScrollView>
         </GridLayout>
     </StackLayout>
-</ModalStack>
+</GridLayout>
+<!-- </ModalStack> -->
 
 <ng-template #closeBtn>
     <kirby-floating-action-button [showShadow]="false" (tap)="onModalDismiss()" [isFloating]="false">
