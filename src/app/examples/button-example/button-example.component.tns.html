@@ -7,4 +7,5 @@
   <Button kirby-button text="Primary Button" themeColor="primary"></Button>
   <Button kirby-button text="Secondary Button" themeColor="secondary"></Button>
   <Button kirby-button text="Disabled Button" isEnabled="false"></Button>
+  <button kirby-button text="Disabled on select" (tap)="onSelect()" [disableOnSelectUntil]="delayedObservable"></button>
 </StackLayout>

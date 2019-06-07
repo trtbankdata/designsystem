@@ -30,6 +30,13 @@ export class ButtonShowcaseComponent implements OnInit {
       defaultValue: 'md',
       inputValues: ['sm', 'md', 'lg'],
     },
+    {
+      name: 'disableOnSelectUntil',
+      description:
+        '(Optional) Disable the button on select until the passed Observable emits. The button can be selected again after that.',
+      defaultValue: '',
+      inputValues: ['Observable<any>'],
+    },
   ];
 
   constructor() {}

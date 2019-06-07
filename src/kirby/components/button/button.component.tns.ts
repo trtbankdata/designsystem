@@ -13,11 +13,13 @@ export class ButtonComponent {
 
   constructor(private renderer: Renderer2) {}
 
-  @HostListener('click', ['$event']) onClick(e: any) {
+  @HostListener('tap', ['$event']) onTap(e: EventData) {
     if (this.disableOnSelectUntil) {
-      this.renderer.addClass(e.target, 'disabled-on-select');
+      this.renderer.addClass(e.object, 'disabled-on-select');
+      this.renderer.setAttribute(e.object, 'isEnabled', 'false');
       this.disableOnSelectUntil.subscribe((_) => {
-        this.renderer.removeClass(e.target, 'disabled-on-select');
+        this.renderer.setAttribute(e.object, 'isEnabled', 'true');
+        this.renderer.removeClass(e.object, 'disabled-on-select');
       });
     }
   }

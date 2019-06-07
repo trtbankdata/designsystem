@@ -59,4 +59,7 @@
     pointer-events: none;
   }
 
+  &.disabled-on-select {
+    pointer-events: none;
+  }
 }

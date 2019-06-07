@@ -31,9 +31,9 @@ Button[kirby-button] {
     border-color: get-color('contrast-light');
   }
 
+  // todo: must not set a disabled background-color and border-color to elements, which have .disabled-on-select
   &[isEnabled=false] {
     background-color: get-color('light-tint');
     border-color: get-color('light-tint');
   }
-
 }
