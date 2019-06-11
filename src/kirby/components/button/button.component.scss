@@ -62,4 +62,24 @@
   &.disabled-on-select {
     pointer-events: none;
   }
+  
+  @mixin round-button($size) {
+    padding: 0;
+    width: #{$size}px;
+    height: #{$size}px; 
+    line-height: 100%;
+    vertical-align: middle;
+  } 
+
+  &[isIconBtn] {
+    @include round-button(40);
+  }
+
+  &[isFloating] {
+    @include round-button(60);
+  }
+
+  &[showShadow] {
+    box-shadow: 0 10px 20px -10px #{get-color('primary-shade')};
+  }
 }

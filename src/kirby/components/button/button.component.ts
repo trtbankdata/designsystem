@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, Input, HostListener, Renderer2 } from '@angular/core';
-import { EventData } from 'tns-core-modules/ui/core/view/view';
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'button[kirby-button],Button[kirby-button]',
@@ -10,6 +10,9 @@ import { EventData } from 'tns-core-modules/ui/core/view/view';
 export class ButtonComponent {
   @Input() expand?: 'full' | 'block';
   @Input() disableOnSelectUntil?: Observable<any>;
+  @Input() isFloating?: boolean = false;
+  @Input() isIconBtn?: boolean = false;
+  @Input() showShadow?: boolean = false;
 
   constructor(private renderer: Renderer2) {}
 

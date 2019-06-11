@@ -1,3 +1,4 @@
+<h4>Standard buttons:</h4>
 <button kirby-button>Kirby Button</button>
 <button kirby-button size="sm" expand="block">Small Button</button>
 <button kirby-button size="md" expand="block">Medium Button</button>
@@ -7,3 +8,9 @@
 <button kirby-button themeColor="secondary">Secondary Button</button>
 <button kirby-button disabled>Disabled Button</button>
 <button kirby-button (click)="onSelect()" [disableOnSelectUntil]="delayedObservable">Disabled on select</button>
+<h4>Floating action buttons:</h4>
+<button kirby-button isFloating="true" showShadow="true"><kirby-icon name="add"></kirby-icon></button>
+<button kirby-button isFloating="true" showShadow="true"><kirby-icon name="close"></kirby-icon></button>
+<button kirby-button isFloating="true"><kirby-icon name="add"></kirby-icon></button>
+<button kirby-button isFloating="true" disabled><kirby-icon name="add"></kirby-icon></button>
+<button kirby-button themeColor="secondary" isIconBtn="true"><kirby-icon name="close"></kirby-icon></button>
