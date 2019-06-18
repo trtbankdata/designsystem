@@ -1,3 +1,5 @@
+import { isAndroid } from 'tns-core-modules/platform';
+import { ShapeEnum } from 'nativescript-ng-shadow';
 import {
   Component,
   ContentChild,
@@ -129,6 +131,23 @@ export class ListComponent implements OnChanges {
 
   onLoadOnDemand(event?: LoadOnDemandEventData) {
     this.listHelper.onLoadOnDemand(this, event);
+  }
+
+  isAndroid(): boolean {
+    return isAndroid;
+  }
+
+  getShadow() {
+    if (isAndroid) {
+      return {
+        elevation: 8,
+        shape: ShapeEnum.RECTANGLE,
+        cornerRadius: 30,
+        bgcolor: '#AAFFFFFF',
+      };
+    } else {
+      return 8;
+    }
   }
 
   private createOrderMap(

@@ -22,23 +22,74 @@ RadListView {
   padding-top: 0;
 }
 
+@mixin border-top-radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin shadow-box($height) {
+  width: 100%;
+  height: $height;
+  background-color: get-color('contrast-light');
+}
+
+@mixin shadow($height, $radius, $position, $translation) {
+  .shadow {
+    transform: translate(0, $translation);
+    @include shadow-box($height);
+    @if $position=='top' {
+      @include border-top-radius($radius);
+    } @else {
+      @include border-bottom-radius($radius);
+    }
+  }
+}
+
+.top-shadow-container {
+  &.android {
+    $height: 40;
+    margin-bottom: -$height/2;
+    @include shadow($height, $border-radius, 'top', $height/2);
+  }
+
+  &.ios {
+    $height: 20;
+    @include shadow($height, $border-radius, 'top', $height);
+  }
+}
+
+.bottom-shadow-container {
+  &.android {
+    $height: 40;
+    margin-top: -$height/2;
+    @include shadow($height, $border-radius, 'bottom', -$height/2);
+  }
+
+  &.ios {
+    $height: 20;
+    @include shadow($height, $border-radius, 'bottom', -$height);
+  }  
+}
+
 .row {
   background-color: get-color('contrast-light');
-  //TODO: Add shadow on each section for list WITH sections
 
   &.first {
 
     &.rounded {
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
+      @include border-top-radius($border-radius);
     }
   }
 
   &.last {
 
     &.rounded {
-      border-bottom-left-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
+      @include border-bottom-radius($border-radius);
     }
   }
 }

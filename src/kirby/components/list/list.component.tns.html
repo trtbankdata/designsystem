@@ -10,24 +10,43 @@
     style="padding: {{padding}}">
     <!-- ITEM -->
     <ng-template tkListItemTemplate let-item="item">
-      <StackLayout class="row"
-                [class.divider]="showDivider"
-                [class.rounded]="shape === 'rounded'"
-                [class.first]="isFirstInSection(item)"
-                [class.last]="isLastInSection(item)">
-        <ng-container
-          *ngTemplateOutlet="listItemTemplate; context: { $implicit: item }">
-        </ng-container>
-        <ng-container
-          *ngTemplateOutlet="listFlexItemTemplate; context: { $implicit: item }">
-        </ng-container>
-      </StackLayout>
+      <GridLayout rows="auto, *, auto">
+        
+        <!-- Shadows on android -->
+        <AbsoluteLayout row="0" *ngIf="isFirstInSection(item) && isAndroid()" class="top-shadow-container android">
+          <AbsoluteLayout class="shadow" [shadow]="getShadow()"></AbsoluteLayout>
+        </AbsoluteLayout>
+        <AbsoluteLayout row="2" *ngIf="isLastInSection(item) && isAndroid()" class="bottom-shadow-container android">
+          <AbsoluteLayout class="shadow" [shadow]="getShadow()"></AbsoluteLayout>
+        </AbsoluteLayout>
+
+        <!-- Shadows on ios -->
+        <AbsoluteLayout row="0" *ngIf="isFirstInSection(item) && !isAndroid()" class="top-shadow-container ios" [shadow]="getShadow()">
+          <AbsoluteLayout class="shadow"></AbsoluteLayout>
+        </AbsoluteLayout>
+        <AbsoluteLayout row="2" *ngIf="isLastInSection(item) && !isAndroid()" class="bottom-shadow-container ios" [shadow]="getShadow()">
+          <AbsoluteLayout class="shadow"></AbsoluteLayout>
+        </AbsoluteLayout>
+        
+        <StackLayout row="1" class="row"
+                  [class.divider]="showDivider"
+                  [class.rounded]="shape === 'rounded'"
+                  [class.first]="isFirstInSection(item)"
+                  [class.last]="isLastInSection(item)">
+          <ng-container
+            *ngTemplateOutlet="listItemTemplate; context: { $implicit: item }">
+          </ng-container>
+          <ng-container
+            *ngTemplateOutlet="listFlexItemTemplate; context: { $implicit: item }">
+          </ng-container>
+        </StackLayout>
+      </GridLayout>
     </ng-template>
 
     <!-- SECTION HEADER-->
     <ng-template let-section="category" tkGroupTemplate *ngIf="isSectionsEnabled">
       <StackLayout>
-            <ng-container
+          <ng-container
             *ngTemplateOutlet="
               sectionHeaderTemplate;
               context: { $implicit: section }
@@ -45,6 +64,6 @@
     <ng-template tkListViewFooter *ngIf="!isLoadOnDemandEnabled && noMoreItemsText">
       <Label class="footer" text="{{noMoreItemsText}}"></Label>
     </ng-template>
-
+    
   </RadListView>
 </GridLayout>
