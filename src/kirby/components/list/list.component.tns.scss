@@ -40,8 +40,11 @@ RadListView {
   height: 67; // TODO: needs to be dynamic
   margin-left: 10; 
   margin-right: 10; 
-  // background-color: yellow;
+  // background-color: transparent;
   background-color: get-color('contrast-light');
+  // border-color: get-color('contrast-light');
+  // border-color: red;
+  // border-width: 1;
 
   &.first {
     margin-top: 10;

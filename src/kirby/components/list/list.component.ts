@@ -1,5 +1,4 @@
 import { isAndroid } from 'tns-core-modules/platform';
-import { ShapeEnum } from 'nativescript-ng-shadow';
 import {
   Component,
   ContentChild,
@@ -20,6 +19,9 @@ import {
 import { LoadOnDemandEvent, LoadOnDemandEventData } from './list.event';
 import { ListHelper } from './helpers/list-helper';
 import { GroupByPipe } from './pipes/group-by.pipe';
+import { IOSShadow } from './../../directives/native-shadow/ios-shadow.model';
+import { AndroidShadow } from './../../directives/native-shadow/android-shadow.model';
+
 export type ListShape = 'square' | 'rounded';
 
 @Component({
@@ -137,17 +139,17 @@ export class ListComponent implements OnChanges {
     return isAndroid;
   }
 
-  getShadow() {
-    if (isAndroid) {
-      return {
-        elevation: 8,
-        shape: ShapeEnum.RECTANGLE,
-        cornerRadius: 30,
-        bgcolor: '#AAFFFFFF',
-      };
-    } else {
-      return 8;
-    }
+  getIOSShadow(): IOSShadow {
+    return {
+      elevation: 8,
+      maskToBounds: true,
+    };
+  }
+
+  getAndroidShadow(): AndroidShadow {
+    return {
+      elevation: 8,
+    };
   }
 
   private createOrderMap(

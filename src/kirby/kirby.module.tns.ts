@@ -4,7 +4,6 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { NativeScriptUIChartModule } from 'nativescript-ui-chart/angular';
 import { NativeScriptUIListViewModule } from 'nativescript-ui-listview/angular';
-import { NgShadowModule } from 'nativescript-ng-shadow';
 
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 // tslint:disable-next-line:import-line-spacing
@@ -17,6 +16,7 @@ import { NativeScriptDoughnutChartComponent } from './components/nativescript-on
 import { NativeScriptLineChartComponent } from './components/nativescript-only/line-chart/line-chart.component.tns-only';
 import { ModalWrapperComponent } from './components/modal/modal-wrapper/modal-wrapper.component';
 import { ActionSheetComponent } from './components/modal/action-sheet/action-sheet.component';
+import { NativeShadowDirective } from './directives/native-shadow/native-shadow.directive';
 
 overrideModalViewMethod();
 registerElement('ModalStack', () => ModalStack);
@@ -26,6 +26,7 @@ const nativeScriptDeclarations = [
   ...declarations,
   NativeScriptDoughnutChartComponent,
   NativeScriptLineChartComponent,
+  NativeShadowDirective,
 ];
 
 @NgModule({
@@ -35,7 +36,6 @@ const nativeScriptDeclarations = [
     NativeScriptUIChartModule,
     NativeScriptUIListViewModule,
     TNSCheckBoxModule,
-    NgShadowModule,
   ],
   providers: providerDeclarations,
   entryComponents: [ModalWrapperComponent, ActionSheetComponent],
