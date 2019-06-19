@@ -6,29 +6,29 @@
     (loadMoreDataRequested)="onLoadOnDemand($event)"
     [groupingFunction]="getSectionName"
     [items]="items"
-    (itemTap)="onItemSelect($event)"
-    style="padding: {{padding}}">
+    (itemTap)="onItemSelect($event)">
     <!-- ITEM -->
     <ng-template tkListItemTemplate let-item="item">
-      <GridLayout rows="auto, *, auto">
-        
+      <GridLayout>
         <!-- Shadows on android -->
-        <AbsoluteLayout row="0" *ngIf="isFirstInSection(item) && isAndroid()" class="top-shadow-container android">
-          <AbsoluteLayout class="shadow" [shadow]="getShadow()"></AbsoluteLayout>
-        </AbsoluteLayout>
-        <AbsoluteLayout row="2" *ngIf="isLastInSection(item) && isAndroid()" class="bottom-shadow-container android">
-          <AbsoluteLayout class="shadow" [shadow]="getShadow()"></AbsoluteLayout>
-        </AbsoluteLayout>
+        <GridLayout *ngIf="isAndroid()" class="shadow-container">
+          <StackLayout class="shadow-row" [shadow]="getShadow()"
+                      [class.rounded]="shape === 'rounded'"
+                      [class.first]="isFirstInSection(item)" 
+                      [class.last]="isLastInSection(item)">
+          </StackLayout>
+        </GridLayout>
 
         <!-- Shadows on ios -->
-        <AbsoluteLayout row="0" *ngIf="isFirstInSection(item) && !isAndroid()" class="top-shadow-container ios" [shadow]="getShadow()">
-          <AbsoluteLayout class="shadow"></AbsoluteLayout>
-        </AbsoluteLayout>
-        <AbsoluteLayout row="2" *ngIf="isLastInSection(item) && !isAndroid()" class="bottom-shadow-container ios" [shadow]="getShadow()">
-          <AbsoluteLayout class="shadow"></AbsoluteLayout>
-        </AbsoluteLayout>
+        <GridLayout *ngIf="!isAndroid()" class="shadow-container" [shadow]="getShadow()">
+          <StackLayout class="shadow-row" 
+                      [class.rounded]="shape === 'rounded'"
+                      [class.first]="isFirstInSection(item)" 
+                      [class.last]="isLastInSection(item)">
+          </StackLayout>
+        </GridLayout>
         
-        <StackLayout row="1" class="row"
+        <StackLayout class="row"
                   [class.divider]="showDivider"
                   [class.rounded]="shape === 'rounded'"
                   [class.first]="isFirstInSection(item)"
