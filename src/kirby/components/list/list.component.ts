@@ -21,6 +21,7 @@ import { ListHelper } from './helpers/list-helper';
 import { GroupByPipe } from './pipes/group-by.pipe';
 import { IOSShadow } from './../../directives/native-shadow/ios-shadow.model';
 import { AndroidShadow } from './../../directives/native-shadow/android-shadow.model';
+import { EventData, View } from 'tns-core-modules/ui/page/page';
 
 export type ListShape = 'square' | 'rounded';
 
@@ -149,6 +150,8 @@ export class ListComponent implements OnChanges {
   getAndroidShadow(): AndroidShadow {
     return {
       elevation: 8,
+      cornerRadius: 30,
+      bgcolor: '#AAFFFFFF',
     };
   }
 

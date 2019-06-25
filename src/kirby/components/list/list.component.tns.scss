@@ -33,49 +33,37 @@ RadListView {
 }
 
 .shadow-container {
-  background-color: transparent;
-}
-
-.shadow-row {
-  height: 67; // TODO: needs to be dynamic
-  margin-left: 10; 
-  margin-right: 10; 
-  // background-color: transparent;
-  background-color: get-color('contrast-light');
-  // border-color: get-color('contrast-light');
-  // border-color: red;
-  // border-width: 1;
-
-  &.first {
-    margin-top: 10;
-    &.rounded {
-      @include border-top-radius($border-radius);
-    }
-  }
-
-  &.last {
-    &.rounded {
-      @include border-bottom-radius($border-radius);
+  $shadow-overhead: 15;
+  background-color:  transparent;
+  
+  .shadow-row {
+    $row-height: 65; // TODO: this is static now, need to make it dynamic
+    $shadow-height: $row-height + $shadow-overhead; 
+    height: $shadow-height;
+    margin-top: -$shadow-overhead;
+    
+    // first shadow row needs to be smaller, as its margin-top is not standard 
+    &.first {
+      height: $row-height;
     }
   }
 }
 
 .row {
+  $row-margin: 10;
+  margin-left: $row-margin;
+  margin-right: $row-margin;
   background-color: get-color('contrast-light');
-  // background-color:  rgba(25, 250, 25, .3);
-  // background-color:  transparent;
-  margin-left: 10;
-  margin-right: 10;
 
   &.first {
-    margin-top: 10;
+    margin-top: $row-margin;
     &.rounded {
       @include border-top-radius($border-radius);
     }
   }
   
   &.last {
-    margin-bottom: 10;
+    margin-bottom: $row-margin;
     &.rounded {
       @include border-bottom-radius($border-radius);
     }

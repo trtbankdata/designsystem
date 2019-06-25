@@ -11,17 +11,17 @@
     <ng-template tkListItemTemplate let-item="item">
       <GridLayout>
         <!-- Shadows on android -->
-        <GridLayout *ngIf="isAndroid()" class="shadow-container">
-          <StackLayout class="shadow-row" kirbyShadow [shadow]="getAndroidShadow()"
+        <!-- <GridLayout *ngIf="isAndroid()" class="shadow-container">
+          <StackLayout class="row shadow-row" kirbyShadow [shadow]="getAndroidShadow()"
                       [class.rounded]="shape === 'rounded'"
                       [class.first]="isFirstInSection(item)" 
                       [class.last]="isLastInSection(item)">
           </StackLayout>
-        </GridLayout>
+        </GridLayout> -->
 
         <!-- Shadows on ios -->
         <GridLayout *ngIf="!isAndroid()" class="shadow-container" kirbyShadow shadow="8" maskToBounds="true" rasterize="true">
-          <StackLayout class="shadow-row" 
+          <StackLayout class="row shadow-row" 
                       [class.rounded]="shape === 'rounded'"
                       [class.first]="isFirstInSection(item)" 
                       [class.last]="isLastInSection(item)">
