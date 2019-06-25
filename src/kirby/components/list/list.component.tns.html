@@ -20,7 +20,7 @@
         </GridLayout> -->
 
         <!-- Shadows on ios -->
-        <GridLayout *ngIf="!isAndroid()" class="shadow-container" kirbyShadow shadow="8" maskToBounds="true" rasterize="true">
+        <GridLayout *ngIf="!isAndroid()" class="shadow-container" kirbyShadow shadow="8">
           <StackLayout class="row shadow-row" 
                       [class.rounded]="shape === 'rounded'"
                       [class.first]="isFirstInSection(item)" 

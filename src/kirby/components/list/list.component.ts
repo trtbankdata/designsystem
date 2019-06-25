@@ -1,4 +1,5 @@
-import { isAndroid } from 'tns-core-modules/platform';
+// import { isAndroid } from 'tns-core-modules/platform';
+
 import {
   Component,
   ContentChild,
@@ -21,7 +22,6 @@ import { ListHelper } from './helpers/list-helper';
 import { GroupByPipe } from './pipes/group-by.pipe';
 import { IOSShadow } from './../../directives/native-shadow/ios-shadow.model';
 import { AndroidShadow } from './../../directives/native-shadow/android-shadow.model';
-import { EventData, View } from 'tns-core-modules/ui/page/page';
 
 export type ListShape = 'square' | 'rounded';
 
@@ -137,7 +137,8 @@ export class ListComponent implements OnChanges {
   }
 
   isAndroid(): boolean {
-    return isAndroid;
+    // return isAndroid;
+    return false; // TODO: create list.component.tns.ts, this doens't work here otherwise...
   }
 
   getIOSShadow(): IOSShadow {

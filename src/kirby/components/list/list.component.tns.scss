@@ -32,6 +32,8 @@ RadListView {
   border-bottom-right-radius: $radius;
 }
 
+$row-margin: 10;
+
 .shadow-container {
   $shadow-overhead: 15;
   background-color:  transparent;
@@ -45,12 +47,16 @@ RadListView {
     // first shadow row needs to be smaller, as its margin-top is not standard 
     &.first {
       height: $row-height;
+      margin-top: $row-margin;
+      &.rounded {
+        @include border-top-radius($border-radius);
+      }
     }
+    background-color: red;
   }
 }
 
 .row {
-  $row-margin: 10;
   margin-left: $row-margin;
   margin-right: $row-margin;
   background-color: get-color('contrast-light');
