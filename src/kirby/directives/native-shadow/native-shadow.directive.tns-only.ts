@@ -9,10 +9,10 @@ import {
 } from '@angular/core';
 import { isAndroid, isIOS } from 'tns-core-modules/platform';
 
-import { AndroidShadow } from './android-shadow.model';
-import { IOSShadow } from './ios-shadow.model';
-import { Shadow } from './shadow';
-import { Shape, ShapeEnum } from './shape.enum';
+import { AndroidShadow } from './android-shadow.model.tns-only';
+import { IOSShadow } from './ios-shadow.model.tns-only';
+import { Shadow } from './shadow.tns-only';
+import { Shape } from './shape.enum.tns-only';
 
 @Directive({ selector: '[kirbyShadow]' })
 export class NativeShadowDirective implements OnInit, OnChanges {

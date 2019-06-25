@@ -16,7 +16,7 @@ import { NativeScriptDoughnutChartComponent } from './components/nativescript-on
 import { NativeScriptLineChartComponent } from './components/nativescript-only/line-chart/line-chart.component.tns-only';
 import { ModalWrapperComponent } from './components/modal/modal-wrapper/modal-wrapper.component';
 import { ActionSheetComponent } from './components/modal/action-sheet/action-sheet.component';
-import { NativeShadowDirective } from './directives/native-shadow/native-shadow.directive';
+import { NativeShadowDirective } from './directives/native-shadow/native-shadow.directive.tns-only';
 
 overrideModalViewMethod();
 registerElement('ModalStack', () => ModalStack);

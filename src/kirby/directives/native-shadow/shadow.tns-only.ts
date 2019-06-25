@@ -1,8 +1,8 @@
 import { Color } from 'tns-core-modules/color';
 
-import { AndroidShadow } from './android-shadow.model';
-import { IOSShadow } from './ios-shadow.model';
-import { ShapeEnum } from './shape.enum';
+import { AndroidShadow } from './android-shadow.model.tns-only';
+import { IOSShadow } from './ios-shadow.model.tns-only';
+import { ShapeEnum } from './shape.enum.tns-only';
 
 declare const android: any;
 declare const java: any;

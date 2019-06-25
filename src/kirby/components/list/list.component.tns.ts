@@ -1,3 +1,5 @@
+import { isAndroid } from 'tns-core-modules/platform';
+
 import {
   Component,
   ContentChild,
@@ -18,6 +20,8 @@ import {
 import { LoadOnDemandEvent, LoadOnDemandEventData } from './list.event';
 import { ListHelper } from './helpers/list-helper';
 import { GroupByPipe } from './pipes/group-by.pipe';
+import { IOSShadow } from '../../directives/native-shadow/ios-shadow.model.tns-only';
+import { AndroidShadow } from '../../directives/native-shadow/android-shadow.model.tns-only';
 
 export type ListShape = 'square' | 'rounded';
 
@@ -130,6 +134,25 @@ export class ListComponent implements OnChanges {
 
   onLoadOnDemand(event?: LoadOnDemandEventData) {
     this.listHelper.onLoadOnDemand(this, event);
+  }
+
+  isAndroid(): boolean {
+    return isAndroid;
+  }
+
+  getIOSShadow(): IOSShadow {
+    return {
+      elevation: 8,
+      maskToBounds: true,
+    };
+  }
+
+  getAndroidShadow(): AndroidShadow {
+    return {
+      elevation: 8,
+      cornerRadius: 30,
+      bgcolor: '#AAFFFFFF',
+    };
   }
 
   private createOrderMap(

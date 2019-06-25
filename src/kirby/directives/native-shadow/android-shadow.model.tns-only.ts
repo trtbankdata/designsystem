@@ -1,4 +1,4 @@
-import { Shape } from './shape.enum';
+import { Shape } from './shape.enum.tns-only';
 
 export class AndroidShadow {
   elevation: number;
