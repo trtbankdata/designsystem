@@ -127,11 +127,11 @@ export class NativeShadowDirective implements OnInit, OnChanges {
   private initializeCommonData() {
     const tShadow = typeof this.shadow;
     if ((tShadow === 'string' || tShadow === 'number') && !this.elevation) {
-      this.elevation = this.shadow ? parseInt(this.shadow as string, 10) : 2;
+      this.elevation = this.shadow ? parseInt(this.shadow as string, 10) : 0;
     }
     const tElevation = typeof this.elevation;
-    if (tElevation === 'string' || tElevation === 'number') {
-      this.elevation = this.elevation ? parseInt(this.elevation as string, 10) : 2;
+    if (tElevation && (tElevation === 'string' || tElevation === 'number')) {
+      this.elevation = this.elevation ? parseInt(this.elevation as string, 10) : 0;
     }
   }
 
@@ -165,6 +165,7 @@ export class NativeShadowDirective implements OnInit, OnChanges {
   }
 
   private loadFromIOSData(data: IOSShadow) {
+    this.elevation = data.elevation || this.elevation;
     this.maskToBounds = data.maskToBounds || this.maskToBounds;
     this.shadowColor = data.shadowColor || this.shadowColor;
     this.shadowOffset = data.shadowOffset || this.shadowOffset;

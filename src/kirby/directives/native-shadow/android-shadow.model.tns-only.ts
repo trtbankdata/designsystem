@@ -2,11 +2,8 @@ import { Shape } from './shape.enum.tns-only';
 
 export class AndroidShadow {
   elevation: number;
-  pressedElevation?: number;
   shape?: Shape;
   bgcolor?: string;
   cornerRadius?: number;
   translationZ?: number;
-  pressedTranslationZ?: number;
-  forcePressAnimation?: boolean;
 }

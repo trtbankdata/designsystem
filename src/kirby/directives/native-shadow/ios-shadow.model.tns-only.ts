@@ -5,6 +5,4 @@ export class IOSShadow {
   shadowOffset?: number;
   shadowOpacity?: number;
   shadowRadius?: number;
-  rasterize?: boolean;
-  useShadowPath?: boolean;
 }
