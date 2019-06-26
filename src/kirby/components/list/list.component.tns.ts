@@ -143,7 +143,6 @@ export class ListComponent implements OnChanges {
   getIOSShadow(): IOSShadow {
     return {
       elevation: 8,
-      maskToBounds: true,
     };
   }
 
