@@ -3,6 +3,10 @@
   <RadListView
     row="0"
     loadOnDemandMode="Auto"
+    (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+    (itemSwipeProgressStarted)="onSwipeCellStarted($event)" 
+    (itemSwipeProgressChanged)="onCellSwiping($event)"
+    swipeActions="true"
     (loadMoreDataRequested)="onLoadOnDemand($event)"
     [groupingFunction]="getSectionName"
     [items]="items"
@@ -47,6 +51,18 @@
     </ng-template>
     <ng-template tkListViewFooter *ngIf="listFooterTemplate">
       <ng-container *ngTemplateOutlet="listFooterTemplate"></ng-container>
+    </ng-template>
+
+    <!-- SWIPE ACTIONS -->
+    <ng-template tkListItemSwipeTemplate>
+      <GridLayout columns="auto, *, auto" class="gridLayoutLayout">
+        <StackLayout id="mark-view" col="0" class="markViewStackLayout" (tap)="onSwipeActionSelected($event)">
+            <Label text="mark" class="swipeTemplateLabel" verticalAlignment="center" horizontalAlignment="center"></Label>
+        </StackLayout>
+        <StackLayout id="delete-view" col="2" class="deleteViewStackLayout" (tap)="onSwipeActionSelected($event)">
+            <Label text="delete" class="swipeTemplateLabel" verticalAlignment="center" horizontalAlignment="center"></Label>
+        </StackLayout>
+      </GridLayout>
     </ng-template>
     
 
