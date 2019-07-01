@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { ListViewEventData } from 'nativescript-ui-listview';
 import { View } from 'tns-core-modules/ui/page/page';
+import { layout } from 'tns-core-modules/utils/utils';
 
 import {
   ListHeaderDirective,
@@ -135,6 +136,10 @@ export class ListComponent implements OnChanges {
     this.listHelper.onLoadOnDemand(this, event);
   }
 
+  public onSwipeActionSelected(args: ListViewEventData) {
+    console.log(`Tapped on a button...`);
+  }
+
   private createOrderMap(
     groupedItems: { name: string; items: any[] }[]
   ): WeakMap<any, { isFirst: boolean; isLast: boolean }> {
@@ -148,5 +153,136 @@ export class ListComponent implements OnChanges {
       });
     });
     return orderMap;
+  }
+
+  firstSwipeThresholdPassed: boolean = false;
+  fullSwipeThresholdPassed: boolean = false;
+  swipeDirection: 'ltr' | 'rtl' | undefined = undefined;
+  swipeLimits: any;
+
+  private resetSwipeState() {
+    this.firstSwipeThresholdPassed = false;
+    this.fullSwipeThresholdPassed = false;
+    this.swipeDirection = undefined;
+  }
+
+  private printSwipeState() {
+    console.log(
+      `1: ${this.firstSwipeThresholdPassed}; 2: ${this.fullSwipeThresholdPassed}; direction: ${
+        this.swipeDirection
+      }`
+    );
+  }
+
+  public onSwipeCellStarted(args: ListViewEventData) {
+    this.swipeLimits = args.data.swipeLimits;
+    const swipeView = args['object'];
+    const leftSide = swipeView.getViewById<View>('mark-view');
+    const rightSide = swipeView.getViewById<View>('delete-view');
+
+    this.swipeLimits.left = leftSide.getMeasuredWidth();
+    this.swipeLimits.right = rightSide.getMeasuredWidth();
+    this.swipeLimits.threshold = leftSide.getMeasuredWidth() / 3;
+
+    if (this.firstSwipeThresholdPassed) {
+      const x = swipeView.getMeasuredWidth();
+      this.swipeLimits.left = x;
+      this.swipeLimits.right = x;
+      this.swipeLimits.threshold = swipeView.getMeasuredWidth() / 2;
+      this.resetSwipeState();
+    }
+  }
+
+  public onSwipeCellFinished(args: ListViewEventData) {
+    // const swipeLimits = args.data.swipeLimits;
+    const swipeView = args['object'];
+    const mainView = args['mainView'];
+    const leftSide = swipeView.getViewById<View>('mark-view');
+    const rightSide = swipeView.getViewById<View>('delete-view');
+
+    // this.printSwipeState();
+    // if (this.swipeLeftFirstThresholdPassed) {
+    //   swipeLimits.left = leftSide.getMeasuredWidth();
+    //   console.log('should have set the swiper in position..');
+    // } else if (this.swipeLeftSecondThresholdPassed) {
+    //   console.log('Perform left action');
+    // } else if (this.swipeRightThresholdPassed) {
+    //   console.log('Perform right action');
+    // }
+    // this.swipeLeftFirstThresholdPassed = false;
+    // this.swipeLeftSecondThresholdPassed = false;
+    // this.swipeRightThresholdPassed = false;
+  }
+
+  public onCellSwiping(args: ListViewEventData) {
+    console.log(`onSwipeCellStarted`);
+    // const swipeLimits = args.data.swipeLimits;
+    const swipeView = args['swipeView'];
+    const leftSide = swipeView.getViewById('mark-view');
+    const rightSide = swipeView.getViewById('delete-view');
+
+    // const mainView = args['mainView'];
+
+    const posX = args.data.x;
+    this.swipeDirection = posX > 0 ? 'ltr' : 'rtl';
+    // console.log(`posX: ${posX}; swipeDir: ${this.swipeDirection}`);
+    const itemSideWidth = posX > 0 ? leftSide.getMeasuredWidth() : rightSide.getMeasuredWidth();
+    const swipeWidth = Math.abs(posX);
+    const fullWidth = swipeView.getMeasuredWidth();
+
+
+
+    // TODO: must have the items move together with the swiping action...
+    if (args.data.x > 0) {
+      const leftDimensions = View.measureChild(
+        leftSide.parent,
+        leftSide,
+        layout.makeMeasureSpec(Math.abs(args.data.x), layout.EXACTLY),
+        layout.makeMeasureSpec(swipeView.getMeasuredHeight(), layout.EXACTLY)
+      );
+      View.layoutChild(
+        leftSide.parent,
+        leftSide,
+        0,
+        0,
+        leftDimensions.measuredWidth,
+        leftDimensions.measuredHeight
+      );
+    } else {
+      const rightDimensions = View.measureChild(
+        rightSide.parent,
+        rightSide,
+        layout.makeMeasureSpec(Math.abs(args.data.x), layout.EXACTLY),
+        layout.makeMeasureSpec(swipeView.getMeasuredHeight(), layout.EXACTLY)
+      );
+
+      View.layoutChild(
+        rightSide.parent,
+        rightSide,
+        swipeView.getMeasuredWidth() - rightDimensions.measuredWidth,
+        0,
+        swipeView.getMeasuredWidth(),
+        rightDimensions.measuredHeight
+      );
+    }
+
+    // swipeLimits.threshold = leftSide.getMeasuredWidth();
+    if (swipeWidth >= itemSideWidth / 3 && swipeWidth < fullWidth / 2) {
+      // reached first threshold, but not a full swipe
+      this.firstSwipeThresholdPassed = true;
+      this.fullSwipeThresholdPassed = false;
+      this.swipeLimits.threshold = fullWidth / 2;
+      this.swipeLimits.left = itemSideWidth;
+      this.swipeLimits.right = itemSideWidth;
+      return;
+    } else if (swipeWidth >= fullWidth / 2) {
+      // full swipe
+      // console.log(`full threshold passed`);
+      this.fullSwipeThresholdPassed = true;
+      return;
+    }
+
+    // reset swipe state
+    this.resetSwipeState();
   }
 }
