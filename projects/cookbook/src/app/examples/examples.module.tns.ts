@@ -12,7 +12,7 @@ import { ListSectionExampleComponent } from './nativescript-only/list-section-ex
 import { FirstEmbeddedModalExampleComponent } from './modal-example/first-embedded-modal-example/first-embedded-modal-example.component';
 import { SecondEmbeddedModalExampleComponent } from './modal-example/second-embedded-modal-example/second-embedded-modal-example.component';
 import { ListHeaderAndFooterExampleComponent } from './nativescript-only/list-header-and-footer/list-header-and-footer-example.component.tns';
-import { KirbyModule } from '@kirbydesign/designsystem/kirby.module.tns';
+import { KirbyModule } from '@kirbydesign/designsystem/kirby.module';
 
 const nativeScriptDeclarations = [
   ...COMPONENT_DECLARATIONS,
