@@ -14,7 +14,7 @@
 }
   
 .kirby-modal {
-    --background: #{get-color('base-color')};
+    --background: #{get-color('background-color')};
     --border-radius: #{$border-radius};
     position: fixed;
 
@@ -45,10 +45,10 @@
 
 .kirby-alert-btn {
     cursor: pointer;
-    --ion-color-primary: #{get-color(contrast-dark)};
+    --ion-color-primary: #{get-color('black')};
 
     &.cancel {
-        --ion-color-primary: #{get-color(danger)};
+        --ion-color-primary: #{get-color('danger')};
     }
 }
 

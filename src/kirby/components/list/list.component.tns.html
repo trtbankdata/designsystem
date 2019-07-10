@@ -1,7 +1,5 @@
-
 <GridLayout rows="*"> <!-- GridLayout kept for iOS compability -->
   <RadListView
-    row="0"
     loadOnDemandMode="Auto"
     (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
     (itemSwipeProgressStarted)="onSwipeCellStarted($event)" 
@@ -10,21 +8,22 @@
     (loadMoreDataRequested)="onLoadOnDemand($event)"
     [groupingFunction]="getSectionName"
     [items]="items"
-    (itemTap)="onItemSelect($event)"
-    style="padding: {{padding}}">
+    (itemTap)="onItemSelect($event)">
     <!-- ITEM -->
-    <ng-template tkListItemTemplate let-item="item">
-      <StackLayout class="row"
-                [class.divider]="showDivider"
-                [class.rounded]="shape === 'rounded'"
-                [class.first]="isFirstInSection(item)"
-                [class.last]="isLastInSection(item)">
-        <ng-container
-          *ngTemplateOutlet="listItemTemplate; context: { $implicit: item }">
-        </ng-container>
-        <ng-container
-          *ngTemplateOutlet="listFlexItemTemplate; context: { $implicit: item }">
-        </ng-container>
+    <ng-template tkListItemTemplate let-item="item" let-index="index">
+      <StackLayout (loaded)="onRowLoaded($event)">
+        <StackLayout class="row"
+          [class.divider]="showDivider"
+          [class.rounded]="shape === 'rounded'"
+          [class.first]="isFirstItem(item, index)"
+          [class.last]="isLastItem(item, index)">
+          <ng-container
+            *ngTemplateOutlet="listItemTemplate; context: { $implicit: item }">
+          </ng-container>
+          <ng-container
+            *ngTemplateOutlet="listFlexItemTemplate; context: { $implicit: item }">
+          </ng-container>  
+        </StackLayout>
       </StackLayout>
     </ng-template>
 
@@ -42,7 +41,9 @@
 
     <!-- HEADER -->
     <ng-template tkListViewHeader *ngIf="listHeaderTemplate">
-      <ng-container *ngTemplateOutlet="listHeaderTemplate"></ng-container>
+      <StackLayout>
+        <ng-container *ngTemplateOutlet="listHeaderTemplate"></ng-container>
+      </StackLayout>
     </ng-template>
 
     <!-- FOOTER -->
@@ -52,35 +53,5 @@
     <ng-template tkListViewFooter *ngIf="listFooterTemplate">
       <ng-container *ngTemplateOutlet="listFooterTemplate"></ng-container>
     </ng-template>
-
-    <!-- SWIPE ACTIONS -->
-    <ng-template tkListItemSwipeTemplate>
-      <GridLayout columns="auto, *, auto">
-        <GridLayout columns="*, *, *" col="0" id="left-stack">
-            <GridLayout col="0" style="background-color: #0099ff;" tap="onLeftSwipeClick" id="btnMark"  >
-                <Label text="mark" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-             <GridLayout col="1" style="background-color: #ffcc99;" tap="onLeftSwipeClick" id="btnArchive" >
-                <Label text="archive" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-             <GridLayout col="2" style="background-color:  #ff3300;" tap="onLeftSwipeClick" id="btnUnread" >
-                <Label text="unread" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-        </GridLayout>
-        <GridLayout columns="*, *, *" col="2" id="right-stack">
-            <GridLayout col="0" style="background-color: red;" tap="onRightSwipeClick" id="btnDelete"  >
-                <Label text="delete" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-            <GridLayout col="1" style="background-color: #ff66ff;" tap="onRightSwipeClick" id="btnRead" >
-                <Label text="read" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-            <GridLayout col="2" style="background-color: #9966ff;" tap="onRightSwipeClick" id="btnForward" >
-                <Label text="forward" fontSize="15" verticalAlignment="center" horizontalAlignment="center"></Label>
-            </GridLayout>
-        </GridLayout>
-    </GridLayout>
-    </ng-template>
-    
-
   </RadListView>
 </GridLayout>

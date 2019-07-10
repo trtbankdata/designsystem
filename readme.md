@@ -27,6 +27,7 @@ The Kirby Cookbook, containing samples, status of components etc. can be accesse
   * [Typescript Configuration](#typescript-configuration)
   * [NativeScript Webpack Configuration](#nativescript-webpack-configuration)
   * [Ionic](#ionic)
+  * [Icons](#icons)
 * [NativeScript-Only Components](#nativescript-only-components)
 * [Polyfills](#polyfills)
 * [Chart Components](#chart-components)
@@ -87,8 +88,8 @@ The Kirby web components are build on top of [Ionic](https://ionicframework.com/
 ```bash
 npm install @ionic/angular
 ```
-#### Ionicons
-Ionic comes bundled with [Ionicons](https://ionicons.com/). Make sure the `.svg` files used by Ionic are copied to your output folder by adding the following to `build > options > assets` in `angular.json`:
+### Icons
+Kirby comes bundled with a default set of icons. Make sure the `.svg` files used by Kirby are copied to your output folder by adding the following to `build > options > assets` in `angular.json`:
 ```json
 {
   ...
@@ -96,6 +97,11 @@ Ionic comes bundled with [Ionicons](https://ionicons.com/). Make sure the `.svg`
     "options": {
       "assets": [
         ...
+        {
+          "glob": "**/*.svg",
+          "input": "node_modules/@kirbydesign/designsystem/icons/svg",
+          "output": "./assets/kirby/icons/svg"
+        },
         {
           "glob": "**/*.svg",
           "input": "node_modules/ionicons/dist/ionicons/svg",
@@ -108,12 +114,12 @@ Ionic comes bundled with [Ionicons](https://ionicons.com/). Make sure the `.svg`
 }
 ```
 
-As the native platforms not support `.svg` files, the `ionicons.ttf` file will have to be copied to your `fonts` folder. This is done by adding the following line to your `webpack.config.js` file:
+As the native platforms do not support `.svg` files, the `kirby.ttf` file will have to be copied to your `fonts` folder. This is done by adding the following line to your `webpack.config.js` file:
 
 ```json
 new CopyWebpackPlugin([
   ...
-  { "from": "../node_modules/ionicons/dist/fonts/ionicons.ttf", "to": "fonts" },
+  { from: "../node_modules/@kirbydesign/designsystem/icons/fonts/kirby.ttf", to: "fonts" },
   ...
 ],...
 ```
@@ -195,8 +201,10 @@ The Kirby chart components use Highcharts. Note that this is a licensed product.
   ...
     { from: "../node_modules/@kirbydesign/designsystem/components/chart/chart.webview.html", to: "chart" },
     { from: "../node_modules/@kirbydesign/designsystem/components/chart/css/styles.css", to: "chart" },
-    { from: "../node_modules/@kirbydesign/designsystem/node_modules/highcharts/highcharts.js", to: "chart" },
-    { from: "../node_modules/@kirbydesign/designsystem/node_modules/nativescript-webview-interface/www/nativescript-webview-interface.js", to: "chart" }
+    { from: "../node_modules/highcharts/highcharts.js", to: "chart" },
+    { from: "../node_modules/highcharts/highcharts-more.js", to: "chart" },
+    { from: "../node_modules/highcharts/modules/solid-gauge.js", to: "chart" },
+    { from: "../node_modules/nativescript-webview-interface/www/nativescript-webview-interface.js", to: "chart" }
   ]...
 ...
 ```
@@ -209,7 +217,7 @@ On iOS and Android the calendar is rendered inside a webview. To use the calenda
   ...
     { from: "../node_modules/@kirbydesign/designsystem/components/calendar/calendar.webview.html", to: "calendar" },
     { from: "../node_modules/@kirbydesign/designsystem/components/calendar/calendar.webview.css", to: "calendar" },
-    { from: "../node_modules/@kirbydesign/designsystem/node_modules/nativescript-webview-interface/www/nativescript-webview-interface.js", to: "calendar" }
+    { from: "../node_modules/nativescript-webview-interface/www/nativescript-webview-interface.js", to: "calendar" }
   ]...
 ...
 ```
