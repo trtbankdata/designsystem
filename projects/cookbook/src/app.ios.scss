@@ -1,0 +1,12 @@
+// Import app variables
+@import '../../kirby/src/scss/native/native-variables';
+
+// Import the theme’s main ruleset - both index and platform specific.
+// @import '~nativescript-theme-core/scss/index';
+// @import '~nativescript-theme-core/scss/platforms/index.ios';
+
+// Import common styles
+@import '../../kirby/src/scss/native/native-common';
+@import "../../kirby/src/scss/base/typography";
+
+// Place any CSS rules you want to apply only on iOS here

@@ -1,0 +1,57 @@
+/* 
+  You can add global styles to this file, and also import other style files 
+
+  ******
+  NOTE: THIS FILE DOES NOT APPLY STYLES TO NATIVESCRIPT
+  ******
+*/
+$native: false;
+// Import common styles
+@import "../../kirby/src/scss/web/web-styles";
+
+@import "~prismjs/themes/prism";
+@import "../../kirby/src/scss/web-imports";
+@import "../../kirby/src/scss/themes/colors";
+@import "../../kirby/src/scss/base/typography";
+
+@font-face { 
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("/assets/fonts/roboto-regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url("/assets/fonts/roboto-light-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("/assets/fonts/roboto-bold-webfont.woff2") format("woff2");
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: get-color('white');
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-size: font-size("n");
+  color: get-color('black');  
+}
+
+*, 
+*:before, *:after {
+  box-sizing: inherit; 
+}

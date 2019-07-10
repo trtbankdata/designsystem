@@ -1,6 +1,6 @@
 {
   "appResourcesPath": "App_Resources",
-  "appPath": "src",
+  "appPath": "projects/cookbook/src",
   "nsext": ".tns",
   "webext": "",
   "shared": true,

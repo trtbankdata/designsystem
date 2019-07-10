@@ -1,0 +1,9 @@
+@import "../../../../../kirby/src/scss/web-imports";
+
+:host {
+  display: inline-flex;
+
+  kirby-floating-action-button {
+    margin-left: size("s");
+  }
+}

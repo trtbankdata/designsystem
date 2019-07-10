@@ -32,7 +32,7 @@
     "postversion": "git push && git push --tags",
     "coverage-report": "cat ./coverage/lcov.info | coveralls",
     "transpile:tools": "tsc -p tools/tslint-rules",
-    "transpile:styles": "sass --style=compressed --no-source-map src/kirby/components/calendar/calendar.webview.scss src/kirby/components/calendar/calendar.webview.css"
+    "transpile:styles": "sass --style=compressed --no-source-map projects/kirby/src/components/calendar/calendar.webview.scss projects/kirby/src/components/calendar/calendar.webview.css"
   },
   "private": true,
   "dependencies": {

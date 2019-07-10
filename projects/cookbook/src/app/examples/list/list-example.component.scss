@@ -1,0 +1,19 @@
+@import "../../../../../kirby/src/scss/web-imports";
+
+:host {
+    padding: 2px;
+    width: 800px;
+}
+
+hr {
+    visibility: hidden;
+}
+
+h2 {
+    margin-top: size('xl');
+}
+
+.footer {
+  font-size: size('l');
+  text-align: center;
+}

@@ -5,8 +5,8 @@ module.exports = env => {
     const config = {
         mode: "production",
         entry: {
-            'resize-observer-polyfill': './src/polyfills/resize-observer-polyfill.js',
-            'resize-observer-polyfill-loader': './src/polyfills/resize-observer-polyfill-loader',
+            'resize-observer-polyfill': './projects/cookbook/src/polyfills/resize-observer-polyfill.js',
+            'resize-observer-polyfill-loader': './projects/cookbook/src/polyfills/resize-observer-polyfill-loader',
         },
         output: {
             filename: '[name].min.js',
@@ -14,7 +14,7 @@ module.exports = env => {
         },
         plugins: [
             new CopyWebpackPlugin([
-                { from: "./src/polyfills/resize-observer-polyfill-loader.js" },
+                { from: "./projects/cookbook/src/polyfills/resize-observer-polyfill-loader.js" },
             ]),
         ]
     };

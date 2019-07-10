@@ -1,0 +1,9 @@
+@import '../../../../../kirby/src/scss/web-imports';
+
+.segment-data {
+    margin-top:30px;
+    padding-top:80px;
+    height: 200px;
+    text-align: center;
+    background:get-color('white');
+  }

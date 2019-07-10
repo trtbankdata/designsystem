@@ -1,0 +1,7 @@
+@import "../../../../../kirby/src/scss/web-imports";
+
+:host {
+    kirby-toggle {
+        margin-right: size("s");
+    }
+}

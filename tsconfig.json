@@ -19,16 +19,16 @@
         "baseUrl": ".",
         "paths": {
             "~/app/*": [
-                "src/app/*"
+                "projects/cookbook/src/app/*"
             ],
             "~/environments/*": [
-                "src/environments/*"
+                "projects/cookbook/src/environments/*"
             ],
             "@kirbydesign/designsystem": [
-                "src/kirby/index.ts"
+                "projects/kirby/src/index.ts"
             ],
             "@kirbydesign/designsystem/*": [
-                "src/kirby/*"
+                "projects/kirby/src/*"
             ],
             "~/*": [
                 "tilde-imports-are-not-allowed-as-it-breaks-compilation-in-target-project"
