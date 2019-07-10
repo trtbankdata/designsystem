@@ -85,4 +85,15 @@ export class ListHelper {
     // only native implementation
     return;
   }
+
+  // Only NativeScript implementation
+  onSwipeStarted(_: any) {
+    return;
+  }
+  onCellSwiping(_: any) {
+    return;
+  }
+  onSwipeFinished(_: any) {
+    return;
+  }
 }

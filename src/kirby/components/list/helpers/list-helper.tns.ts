@@ -1,5 +1,4 @@
 import { Subject } from 'rxjs';
-import { IonList, IonItemSliding } from '@ionic/angular';
 import { RadListView, ListViewEventData } from 'nativescript-ui-listview';
 import { isIOS } from 'tns-core-modules/platform';
 import { View, EventData } from 'tns-core-modules/ui/page/page';
@@ -73,5 +72,17 @@ export class ListHelper {
       iosView.layer.shadowOffset = CGSizeMake(0, 0.54 * elevation - 0.14);
       iosView.layer.shadowOpacity = 0.006 * elevation + 0.25;
     }
+  }
+
+  onSwipeStarted(event: ListViewEventData) {
+    console.log(`on swipe started`);
+  }
+
+  onCellSwiping(event: ListViewEventData) {
+    console.log(`on swiping`);
+  }
+
+  onSwipeFinished(event: ListViewEventData) {
+    console.log(`on swipe finished`);
   }
 }

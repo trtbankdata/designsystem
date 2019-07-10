@@ -168,6 +168,17 @@ export class ListComponent implements OnInit, OnChanges, OnDestroy {
     this.listHelper.renderShadow(event);
   }
 
+  // Only used in {N}
+  onSwipeStarted(event: any) {
+    this.listHelper.onSwipeStarted(event);
+  }
+  onCellSwiping(event: any) {
+    this.listHelper.onCellSwiping(event);
+  }
+  onSwipeFinished(event: any) {
+    this.listHelper.onSwipeFinished(event);
+  }
+
   private createOrderMap(
     groupedItems: { name: string; items: any[] }[]
   ): WeakMap<any, { isFirst: boolean; isLast: boolean }> {

@@ -1,5 +1,9 @@
 <GridLayout rows="*"> <!-- GridLayout kept for iOS compability -->
   <RadListView
+    (itemSwipeProgressEnded)="onSwipeFinished($event)"
+    (itemSwipeProgressStarted)="onSwipeStarted($event)"
+    (itemSwipeProgressChanged)="onCellSwiping($event)"
+    swipeActions="true"
     loadOnDemandMode="Auto"
     (loadMoreDataRequested)="onLoadOnDemand($event)"
     [groupingFunction]="getSectionName"
