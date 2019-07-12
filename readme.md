@@ -58,31 +58,6 @@ As devDependencies don't get installed with the package in the target project, y
 npm i sass-extract sass-extract-loader -D
 ```
 
-### Typescript Configuration
-
-**Please note:** To enable typescript compilation of the package in your project, you need to add the following to your `tsconfig.json`:
-
-```json
-...
-  "include": [
-    "./src/**/*",
-    "./node_modules/@kirbydesign/designsystem/**/*.ts"
-  ],
-...
-```
-### NativeScript Webpack Configuration
-
-For Webpack to resolve `.tns` files also add `["designsystem"]` to the `explicitResolve` parameter for `nsWebpack.getResolver` to your `webpack.config.js`:
-
-```js
-...
-  const ngCompilerPlugin = new AngularCompilerPlugin({
-        hostReplacementPaths: nsWebpack.getResolver([platform, "tns"], ["designsystem"]),
-        ...
-    });
-...
-```
-
 ### Ionic
 The Kirby web components are build on top of [Ionic](https://ionicframework.com/docs/components). The [`@ionic/angular`](https://www.npmjs.com/package/@ionic/angular) package should automatically be installed as a dependency of Kirby. If not, please execute the following:
 ```bash
@@ -114,15 +89,43 @@ Kirby comes bundled with a default set of icons. Make sure the `.svg` files used
 }
 ```
 
+**NOTICE:** If you **don't** need to utilize Kirby Design System in a NativeScript context, the installation process ends here!
+
 As the native platforms do not support `.svg` files, the `kirby.ttf` file will have to be copied to your `fonts` folder. This is done by adding the following line to your `webpack.config.js` file:
 
-```json
+```js
 new CopyWebpackPlugin([
   ...
   { from: "../node_modules/@kirbydesign/designsystem/icons/fonts/kirby.ttf", to: "fonts" },
   ...
 ],...
 ```
+
+### Typescript Configuration
+
+**Please note:** To enable typescript compilation of the package in your project, you need to add the following to your `tsconfig.json`:
+
+```json
+...
+  "include": [
+    "./src/**/*",
+    "./node_modules/@kirbydesign/designsystem/**/*.ts"
+  ],
+...
+```
+### NativeScript Webpack Configuration
+
+For Webpack to resolve `.tns` files also add `["designsystem"]` to the `explicitResolve` parameter for `nsWebpack.getResolver` to your `webpack.config.js`:
+
+```js
+...
+  const ngCompilerPlugin = new AngularCompilerPlugin({
+        hostReplacementPaths: nsWebpack.getResolver([platform, "tns"], ["designsystem"]),
+        ...
+    });
+...
+```
+
 
 ## NativeScript-Only Components
 

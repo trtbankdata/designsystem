@@ -12,7 +12,11 @@ import {
   LOCALE_ID,
   Inject,
 } from '@angular/core';
-import * as moment from 'moment';
+
+// Unable to bundle using "ng-packagr" (rollup) unless using importing moment as follows...
+// (additional details can be found: https://github.com/ng-packagr/ng-packagr/issues/217)
+import * as momentNamespace from 'moment';
+const moment = momentNamespace;
 
 import { CalendarHelper } from './helpers/calendar.helper';
 import { CalendarOptions } from './helpers/calendar-options.model';
@@ -44,7 +48,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() maxDate: Date;
   public month: CalendarCell[][];
   public weekDays: string[];
-  private activeMonth: moment.Moment;
+  private activeMonth: momentNamespace.Moment;
   private selectedDay: CalendarCell;
   private _selectedDate: Date;
 
@@ -140,7 +144,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
     return !this.isSameDay(newDate, previousDate);
   }
 
-  private isSameDay(date1: Date | moment.Moment, date2: Date | moment.Moment): boolean {
+  private isSameDay(
+    date1: Date | momentNamespace.Moment,
+    date2: Date | momentNamespace.Moment
+  ): boolean {
     // Moment will return a new moment with the current time from `undefined`,
     // so `moment(date1).isSame(undefined, 'day')` will return `true` if date1 equals current time:
     if (!date1 || !date2) {
@@ -149,7 +156,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
     return moment(date1).isSame(date2, 'day');
   }
 
-  private isDisabledDate(date: Date | moment.Moment) {
+  private isDisabledDate(date: Date | momentNamespace.Moment) {
     let isDisabled = false;
 
     if (this.disabledDates && this.disabledDates.length > 0) {
@@ -195,9 +202,9 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   private getCalendarDay(
-    date: moment.Moment,
-    today: moment.Moment,
-    monthStart: moment.Moment
+    date: momentNamespace.Moment,
+    today: momentNamespace.Moment,
+    monthStart: momentNamespace.Moment
   ): CalendarDay {
     return {
       isToday: date.isSame(today, 'day'),
@@ -209,7 +216,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
     };
   }
 
-  private isSelectable(day: CalendarDay, date: moment.Moment) {
+  private isSelectable(day: CalendarDay, date: momentNamespace.Moment) {
     return (
       !day.isDisabled &&
       day.isCurrentMonth &&
@@ -284,7 +291,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
     this.changeActiveView(index, 'year');
   }
 
-  private changeActiveView(index: number, unit: moment.unitOfTime.Base) {
+  private changeActiveView(index: number, unit: momentNamespace.unitOfTime.Base) {
     if (index != 0) {
       this.activeMonth.add(index, unit);
       this.refreshActiveMonth();
