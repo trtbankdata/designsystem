@@ -48,7 +48,7 @@ Thumbs.db
 
 scripts/manifest.plist
 scripts/install-ipa.html
-src/kirby/polyfills
+projects/kirby/src/polyfills/*.min.js
 
 # ts-lint
 /tools/tslint-rules/dist

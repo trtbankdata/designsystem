@@ -1,0 +1,4 @@
+{
+  "__notice": "Leave this file in, to allow ng-packagr to generate secondary entrypoints",
+  "ngPackage": {}
+}

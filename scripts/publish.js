@@ -41,8 +41,8 @@ function copySource() {
     cpx.copySync('readme.md', dest);
 
     // Copy package.json (if not already produced by ng-packagr)
-    if (!fs.existsSync()) {
-      cpx.copySync('projects/kirby/package.json', dest);
+    if (!fs.existsSync(path.join(dest, 'package.json'))) {
+      cpx.copySync('projects/kirby/src/package.json', dest);
     }
 
     // Copy source files
