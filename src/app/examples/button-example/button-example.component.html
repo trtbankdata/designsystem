@@ -1,16 +1,27 @@
-<h4>Standard buttons:</h4>
+<h2>Standalone button</h2>
 <button kirby-button>Kirby Button</button>
 <button kirby-button size="sm" expand="block">Small Button</button>
 <button kirby-button size="md" expand="block">Medium Button</button>
 <button kirby-button size="lg" expand="block">Large Button</button>
 <button kirby-button expand="block">Kirby Block Button</button>
-<button kirby-button themeColor="primary">Primary Button</button>
-<button kirby-button themeColor="secondary">Secondary Button</button>
+<button kirby-button attentionLevel="1" isDestructive="true">Destructive Level 1</button>
+<button kirby-button attentionLevel="2" isDestructive="true">Destructive Level 2</button>
+<button kirby-button attentionLevel="3" isDestructive="true">Destructive Level 3</button>
+<button kirby-button attentionLevel="4" isDestructive="true">Destructive Level 4</button>
 <button kirby-button disabled>Disabled Button</button>
 <button kirby-button (click)="onSelect()" [disableOnSelectUntil]="delayedObservable">Disabled on select</button>
-<h4>Floating action buttons:</h4>
+
+<h2>Floating action buttons:</h2>
 <button kirby-button isFloating="true" showShadow="true"><kirby-icon name="add"></kirby-icon></button>
 <button kirby-button isFloating="true" showShadow="true"><kirby-icon name="close"></kirby-icon></button>
 <button kirby-button isFloating="true"><kirby-icon name="add"></kirby-icon></button>
 <button kirby-button isFloating="true" disabled><kirby-icon name="add"></kirby-icon></button>
 <button kirby-button themeColor="secondary" isIconBtn="true"><kirby-icon name="close"></kirby-icon></button>
+
+<h2>Button with attention level</h2>
+<kirby-card [themeColor]="themeColor">
+  <button kirby-button attentionLevel="1">Attention Level 1</button>
+  <button kirby-button attentionLevel="2">Attention Level 2</button>
+  <button kirby-button attentionLevel="3">Attention Level 3</button>
+  <button kirby-button attentionLevel="4">Attention Level 4</button>
+</kirby-card>

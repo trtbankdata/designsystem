@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
+
+import { ThemeColor } from './../../../kirby/helpers/theme-color.type';
+import { Color, ColorHelper } from '@kirbydesign/designsystem/helpers/color-helper';
 
 @Component({
   selector: 'kirby-button-example',
@@ -10,7 +13,24 @@ import { delay } from 'rxjs/operators';
 export class ButtonExampleComponent {
   delayedObservable: Observable<any> = of(undefined).pipe(delay(3000));
 
+  activeTab = 'default';
+  @Input() themeColor: ThemeColor | '' = '';
+  colors: Color[] = ColorHelper.getMainColors();
+  items = [
+    { text: 'Card color: None', value: '' },
+    ...this.colors.map((color) => {
+      return {
+        text: `Card color: ${color.name}`,
+        value: color.name,
+      };
+    }),
+  ];
+
   onSelect() {
     console.log(`button selected`);
+  }
+
+  onSegmentClick(segment) {
+    this.activeTab = segment.id;
   }
 }
