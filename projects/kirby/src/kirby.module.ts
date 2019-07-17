@@ -9,7 +9,7 @@ import { ModalWrapperComponent } from './components/modal/modal-wrapper/modal-wr
 import { ActionSheetComponent } from './components/modal/action-sheet/action-sheet.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, IonicModule.forRoot()],
+  imports: [CommonModule, RouterModule, IonicModule],
   declarations: [InfiniteScrollDirective, ...declarations],
   providers: [...providerDeclarations],
   entryComponents: [ModalWrapperComponent, ActionSheetComponent],
