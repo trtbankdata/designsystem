@@ -9,6 +9,9 @@ import { ActionSheetItem } from './config/action-sheet-item';
 @Component({
   templateUrl: './action-sheet.component.html',
   styleUrls: ['./action-sheet.component.scss'],
+  host: {
+    class: 'kirby-action-sheet',
+  },
 })
 export class ActionSheetComponent extends ContentView {
   config: ActionSheetConfig;
