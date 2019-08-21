@@ -53,6 +53,34 @@ export class ButtonShowcaseComponent {
       defaultValue: 'true',
       inputValues: ['boolean'],
     },
+    {
+      name: 'isFloating',
+      description:
+        '(Optional) Determine if the button is going to be a floating action button. Notes: Floating action buttons have an elevation of z8 by default. Floating action buttons have only an icon and no text. Floating action buttons always have a size of 64x64.',
+      defaultValue: 'false',
+      inputValues: ['boolean'],
+    },
+    {
+      name: 'isIconButton',
+      description:
+        "(Optional) Determine if the button is going to be an icon button. Notes: Icon buttons have only an icon and no text. Icon buttons always have a size of 48x48 corresponding to kirby size('xxl'). Icon buttons always have a light background color.",
+      defaultValue: 'false',
+      inputValues: ['boolean'],
+    },
+    {
+      name: 'hideShadow',
+      description:
+        '(Optional) Hides the shadow. Note: This input property is only used on floating action buttons.',
+      defaultValue: 'false',
+      inputValues: ['boolean'],
+    },
+    {
+      name: 'iconName',
+      description:
+        '(Optional) Name of the kirby icon that will be shown inside the button. Note: This input property is required on floating action buttons and icon buttons and if unspecified, the default "cog" icon will be displayed.',
+      defaultValue: '',
+      inputValues: ['string'],
+    },
   ];
 
   onChange(value) {
