@@ -38,6 +38,14 @@ export class ButtonComponent {
 
   @Input() isOutlinedOnFocus?: boolean = true;
 
+  @Input() isFloating?: boolean;
+
+  @Input() isIconButton?: boolean = false;
+
+  @Input() iconName?: string;
+
+  @Input() hideShadow?: boolean;
+
   @Output() tap = new EventEmitter();
 
   isHighlighted: boolean = false;

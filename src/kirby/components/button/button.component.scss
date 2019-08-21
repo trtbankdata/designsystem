@@ -139,6 +139,30 @@
         }
       }
     }
+
+    &.floating {
+      $floating-btn-size: 64px;
+      width: $floating-btn-size;
+      height: $floating-btn-size;
+      box-shadow: #{get-elevation(8)};
+      
+      &.no-shadow {
+        box-shadow: none;
+      }
+      
+      &.disabled {
+        box-shadow: none;
+      }
+    }
+
+    &.icon-button {
+      box-shadow: none; 
+      width: size('xxl');
+      height: size('xxl');
+      background-color: #{get-color('light')};
+      border-color: #{get-color('light')};
+      @include highlighted('light-shade');
+    }
   }
 }
 

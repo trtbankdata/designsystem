@@ -11,6 +11,13 @@
 <kirby-button attentionLevel="4" isDestructive="true" text="Destructive Level 4"></kirby-button>
 <kirby-button text="Disabled for 3s on select" (click)="onDisabledBtnSelect()" [disabled]="disabled"></kirby-button>
 
+<h2>Floating action buttons:</h2>
+<kirby-button text="Text that will not render here..." [isFloating]="true" iconName="add"></kirby-button>
+<kirby-button text="Text that will not render here..." [isFloating]="true" [hideShadow]="true" iconName="add"></kirby-button>
+<kirby-button text="Text that will not render here..." [isFloating]="true" iconName="add" disabled></kirby-button>
+<kirby-button text="Text that will not render here..." [isFloating]="true" iconName="close"></kirby-button>
+<kirby-button text="Text that will not render here..." [isIconButton]="true" iconName="close"></kirby-button>
+
 <h2>Button with attention level</h2>
 <kirby-card [themeColor]="themeColor">
   <kirby-button attentionLevel="1" expand="block" text="Attention Level 1"></kirby-button>

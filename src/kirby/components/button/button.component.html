@@ -5,9 +5,15 @@
         [class.attention-level3]="attentionLevel === '3'"
         [class.attention-level4]="attentionLevel === '4'"
         [class.destructive]="isDestructive"
+        [class.floating]="isFloating"
+        [class.icon-button]="isIconButton"
+        [class.no-shadow]="hideShadow"
         [class.disabled]="isDisabled"
         [disabled]="isDisabled"
         (mousedown)="onMouseDown()" 
         (mouseup)="onMouseUp()">
-    {{text}}
+    <ng-container *ngIf="!isFloating && !isIconButton">{{text}}</ng-container>
+    <ng-container *ngIf="isFloating || isIconButton">
+        <kirby-icon [name]="iconName"></kirby-icon>
+    </ng-container>
 </button>
