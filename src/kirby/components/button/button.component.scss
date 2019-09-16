@@ -98,9 +98,9 @@
   :host-context(.default),
   :host-context(.kirby-color-brightness-white) {
     &.attention-level2 {
-      --kirby-button-background-color: #{get-color('light')};
-      --kirby-button-border-color: #{get-color('light')};
-      --kirby-button-color: #{get-color('light-contrast')};
+      --kirby-button-background-color: #{get-color('black')};
+      --kirby-button-border-color: #{get-color('black')};
+      --kirby-button-color: #{get-color('light')};
     }
   }
 
