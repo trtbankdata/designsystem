@@ -9,7 +9,7 @@ import { IconComponent } from '../../icon/icon.component';
 import { ModalWrapperComponent } from './modal-wrapper.component';
 import { IModalController } from '../services/modal.controller.interface';
 
-describe('ModalWrapperComponent', () => {
+fdescribe('ModalWrapperComponent', () => {
   let component: ModalWrapperComponent;
   let fixture: ComponentFixture<ModalWrapperComponent>;
 
@@ -62,25 +62,25 @@ describe('ModalWrapperComponent', () => {
       expect(component.config.title).toEqual('Test title');
     });
 
-    it('should be aligned left by default', () => {
+    it('should use a h2 by default', () => {
       const rootElement: HTMLElement = fixture.debugElement.nativeElement;
-      const title = rootElement.querySelector('span');
-      expect(title.classList).toContain('text-left');
+      const title = rootElement.querySelector('.title');
+      expect(title.nodeName).toEqual('H2');
     });
 
-    it('should be aligned center when drawer flavor is used', () => {
+    it('should use a h3 when drawer flavor is used', () => {
       component.config.flavor = 'drawer';
       fixture.detectChanges();
       const rootElement: HTMLElement = fixture.debugElement.nativeElement;
-      const title = rootElement.querySelector('span');
-      expect(title.classList).toContain('text-center');
+      const title = rootElement.querySelector('.title');
+      expect(title.nodeName).toEqual('H3');
     });
   });
 
   describe('close button', () => {
     it('should render as a close icon by default', () => {
       var el = fixture.debugElement.query(By.directive(IconComponent));
-      expect(el.componentInstance.name).toBe('close');
+      expect(el.componentInstance.name).toEqual('close');
     });
 
     it("should render arrow-down when flavor is set to 'drawer'", () => {
