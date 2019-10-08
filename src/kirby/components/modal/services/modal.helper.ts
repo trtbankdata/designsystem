@@ -4,6 +4,7 @@ import { Animation } from '@ionic/core';
 
 import { ModalConfig } from '../modal-wrapper/config/modal-config';
 import { ModalWrapperComponent } from '../modal-wrapper/modal-wrapper.component';
+import { scaleMorphAnimation } from '../animations/scale-morph';
 
 @Injectable()
 export class ModalHelper {
@@ -13,12 +14,33 @@ export class ModalHelper {
     config: ModalConfig,
     registerModal: (modal: { close: (data?: any) => {} }) => void
   ): Promise<any> {
+    console.log('🐌 Old Stuff.');
+
     const modal = await this.ionicModalController.create({
       component: ModalWrapperComponent,
       cssClass: 'kirby-modal',
       componentProps: { config: config },
       enterAnimation: this.animate.bind(this, true, config.flavor),
       leaveAnimation: this.animate.bind(this, false, config.flavor),
+    });
+
+    registerModal({ close: modal.dismiss.bind(modal) });
+
+    modal.present();
+    return modal.onDidDismiss();
+  }
+
+  public async showModalWindow2(
+    fromBounds: DOMRect,
+    config: ModalConfig,
+    registerModal: (modal: { close: (data?: any) => {} }) => void
+  ): Promise<any> {
+    const modal = await this.ionicModalController.create({
+      component: ModalWrapperComponent,
+      cssClass: 'kirby-modal',
+      componentProps: { config: config },
+      enterAnimation: scaleMorphAnimation.bind(this, fromBounds),
+      leaveAnimation: scaleMorphAnimation.bind(this, fromBounds),
     });
 
     registerModal({ close: modal.dismiss.bind(modal) });

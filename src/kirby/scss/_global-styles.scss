@@ -17,6 +17,10 @@
     --box-shadow: #{get-elevation(8)};
     position: fixed;
 
+    .modal-wrapper.sc-ion-modal-md {
+        transform: none;
+    }
+
     @include media(">=medium") {
         //TODO Hardcoded magic numbers: Jakob + Jonathan, revisit!!!
         --width: 720px;
