@@ -5,6 +5,7 @@ import { Animation } from '@ionic/core';
 import { ModalConfig } from '../modal-wrapper/config/modal-config';
 import { ModalWrapperComponent } from '../modal-wrapper/modal-wrapper.component';
 import { scaleMorphAnimation } from '../animations/scale-morph';
+import { scaleMorphLeaveAnimation } from '../animations/scale-morph-leave';
 
 @Injectable()
 export class ModalHelper {
@@ -40,7 +41,7 @@ export class ModalHelper {
       cssClass: 'kirby-modal',
       componentProps: { config: config },
       enterAnimation: scaleMorphAnimation.bind(this, fromBounds),
-      leaveAnimation: scaleMorphAnimation.bind(this, fromBounds),
+      leaveAnimation: scaleMorphLeaveAnimation.bind(this, fromBounds),
     });
 
     registerModal({ close: modal.dismiss.bind(modal) });
