@@ -12,10 +12,28 @@ import { KeyHandlerDirective } from '@kirbydesign/designsystem/directives/key-ha
 import { FullscreenLoadingOverlayComponent } from './components/loading-overlay/fullscreen-loading-overlay/fullscreen-loading-overlay.component';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { ListItemColorDirective } from './components/list/directives/list-item-color.directive';
+import { AlertComponent } from './components/modal/alert/alert.component';
+import { PageModule } from '@kirbydesign/designsystem/components/page/page.module';
 import { FormFieldMessageComponent } from './components/form-field/form-field-message/form-field-message.component';
+import { AppModule } from '@kirbydesign/designsystem/components/app/app.module';
+import { RouterOutletModule } from '@kirbydesign/designsystem/components/router-outlet/router-outlet.module';
+import { TabsModule } from '@kirbydesign/designsystem/components/tabs/tabs.module';
+import { IconModule } from '@kirbydesign/designsystem/components/icon/icon.module';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, OverlayModule, IonicModule.forRoot()],
+  imports: [
+    CommonModule,
+    RouterModule,
+    IonicModule.forRoot({
+      mode: 'ios',
+    }),
+    AppModule,
+    RouterOutletModule,
+    PageModule,
+    OverlayModule,
+    TabsModule,
+    IconModule,
+  ],
   declarations: [
     InfiniteScrollDirective,
     ListItemColorDirective,
@@ -23,10 +41,25 @@ import { FormFieldMessageComponent } from './components/form-field/form-field-me
     LoadingOverlayComponent,
     KeyHandlerDirective,
     FormFieldMessageComponent,
+    AlertComponent,
     ...declarations,
   ],
   providers: [...providerDeclarations],
-  entryComponents: [ModalWrapperComponent, ActionSheetComponent, FullscreenLoadingOverlayComponent],
-  exports: [InfiniteScrollDirective, LoadingOverlayComponent, ...declarations],
+  entryComponents: [
+    ModalWrapperComponent,
+    ActionSheetComponent,
+    FullscreenLoadingOverlayComponent,
+    AlertComponent,
+  ],
+  exports: [
+    InfiniteScrollDirective,
+    LoadingOverlayComponent,
+    AppModule,
+    RouterOutletModule,
+    PageModule,
+    TabsModule,
+    IconModule,
+    ...declarations,
+  ],
 })
 export class KirbyModule {}

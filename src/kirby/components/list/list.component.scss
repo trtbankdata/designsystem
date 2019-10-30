@@ -5,6 +5,32 @@ $background-color-hover: get-color('background-color');
 $shadow: get-elevation(2);
 $item-height: size('xxxl');
 
+ion-list,
+.list-items {
+  > ion-item {
+    &:first-of-type {
+      --padding-top: #{size('s')};
+    }
+
+    &:last-of-type {
+      --padding-bottom: #{size('s')};
+    }
+  }
+
+  ion-item-sliding {
+    &:first-of-type {
+      ion-item {
+        --padding-top: #{size('s')};
+      }
+    }
+    &:last-of-type {
+      ion-item {
+        --padding-bottom: #{size('s')};
+      }
+    }
+  }
+}
+
 ion-list {
   box-shadow: $shadow;
   background: transparent;
@@ -42,9 +68,9 @@ ion-item {
   @each $color-name, $color-value in $list-colors {
     &.#{$color-name} {
       background-color: #{get-color($color-name)};
-      color: #{get-color($color-name+'-contrast')};
+      color: #{get-color($color-name + '-contrast')};
       &:focus {
-        background-color: #{get-color($color-name+'-shade')};
+        background-color: #{get-color($color-name + '-shade')};
       }
     }
   }
@@ -54,6 +80,12 @@ ion-list-header {
   background-color: get-color('white');
   border-bottom: 1px solid $divider-color;
   padding: 0;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  min-height: 0;
+  overflow: inherit;
 }
 
 .footer {
@@ -63,8 +95,6 @@ ion-list-header {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  
-
 }
 
 :host(.has-sections) {
@@ -85,8 +115,7 @@ ion-list-header {
   ion-list-header {
     background-color: transparent;
     border-bottom: none;
-  }  
-  
+  }
 }
 
 :host(.shape-rounded) {
@@ -101,7 +130,7 @@ ion-list-header {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
   }
- 
+
   ion-list ion-item-sliding > ion-item,
   &:not(.has-sections) ion-list.has-header ion-item,
   &:not(.has-sections) ion-list.has-header ion-item-sliding {
@@ -158,7 +187,6 @@ ion-list-header {
         margin-bottom: 0;
       }
     }
-
   }
 }
 
@@ -172,6 +200,7 @@ ion-item-divider {
 ion-item {
   display: flex;
   width: 100%;
+  --ion-safe-area-right: 0;
   --padding-top: #{size('xxs')};
   --padding-bottom: #{size('xxs')};
   --padding-start: #{size('s')};
@@ -185,10 +214,12 @@ ion-item {
 
 .section-header {
   background-color: transparent;
-  padding: size('m');
+  padding: size('m') size('s') size('xxs') size('s');
+  min-height: 0;
 }
 
-.no-more-items, .loading {
+.no-more-items,
+.loading {
   width: 100%;
   padding: size('m');
   text-align: center;

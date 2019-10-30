@@ -19,6 +19,7 @@ fdescribe('ModalWrapperComponent', () => {
       'showModalAnimateIn',
       'hideModal',
       'registerModalCloseRef',
+      'blurNativeWrapper',
     ]);
 
     const navParamsSpy = jasmine.createSpyObj('NavParams', {

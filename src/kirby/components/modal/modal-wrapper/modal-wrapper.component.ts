@@ -2,15 +2,16 @@ import { Component, ElementRef, ViewChild, AfterViewInit, Injector } from '@angu
 import { NavParams } from '@ionic/angular';
 
 import { ModalConfig } from './config/modal-config';
-import { COMPONENT_PROPS, ModalConfigHelper } from './config/modal-config.helper';
+import { COMPONENT_PROPS } from './config/modal-config.helper';
 import { IModalController } from '../services/modal.controller.interface';
+import { ModalHelper } from '../services/modal.helper';
 
 @Component({
   templateUrl: './modal-wrapper.component.html',
   styleUrls: ['./modal-wrapper.component.scss'],
 })
 export class ModalWrapperComponent implements AfterViewInit {
-  @ViewChild('modalWrapper') modalWrapper: ElementRef;
+  @ViewChild('modalWrapper', { static: true }) modalWrapper: ElementRef;
   scrollY: number = Math.abs(window.scrollY);
   config: ModalConfig;
   componentPropsInjector: Injector;
@@ -28,11 +29,7 @@ export class ModalWrapperComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const el = this.modalWrapper.nativeElement;
-    setTimeout(() => {
-      el.focus();
-      el.blur();
-    }, 50);
+    this.modalController.blurNativeWrapper(this.modalWrapper.nativeElement);
   }
 
   onFocusChange() {

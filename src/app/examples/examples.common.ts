@@ -32,7 +32,14 @@ import { ToolbarExampleComponent } from './toolbar-example/toolbar-example.compo
 import { ListSwipeExampleComponent } from './list/swipe/list-swipe-example.component';
 import { ListNoShapeExampleComponent } from './list/no-shape/list-no-shape-example.component';
 import { FabSheetExampleComponent } from './fab-sheet-example/fab-sheet-example.component';
+import { PageSimpleExampleComponent } from './page-example/simple/page-simple-example.component';
+import { PageAlignmentAndToolbarTitleExampleComponent } from './page-example/alignment-and-toolbar-title/page-alignment-and-toolbar-title-example.component';
+import { PageFixedTitleAndActionsExampleComponent } from './page-example/fixed-title-and-actions/page-fixed-title-and-actions-example.component';
+import { PageAdvancedExampleComponent } from './page-example/advanced/page-advanced-example.component';
 import { FormFieldExampleComponent } from './form-field-example/form-field-example.component';
+import { ExamplesComponent } from './examples.component';
+import { TabsExampleComponent } from './tabs/tabs-example.component';
+import { TabExampleComponent } from './tabs/tab/tab-example.component';
 
 // Example of "custom" icons
 export const iconSettings: IconSettings = {
@@ -49,6 +56,7 @@ export const iconSettings: IconSettings = {
 };
 
 export const COMPONENT_DECLARATIONS: any[] = [
+  ExamplesComponent,
   ButtonExampleComponent,
   SlideButtonExampleComponent,
   CardExampleComponent,
@@ -82,6 +90,12 @@ export const COMPONENT_DECLARATIONS: any[] = [
   ToolbarExampleComponent,
   FabSheetExampleComponent,
   FormFieldExampleComponent,
+  PageSimpleExampleComponent,
+  PageAlignmentAndToolbarTitleExampleComponent,
+  PageFixedTitleAndActionsExampleComponent,
+  PageAdvancedExampleComponent,
+  TabsExampleComponent,
+  TabExampleComponent,
 ];
 
 // Configure custom icons (used by example to show the usage of custom icons)

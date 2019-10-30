@@ -29,11 +29,90 @@ import { ListSwipeExampleComponent } from './list/swipe/list-swipe-example.compo
 import { ListLoadOnDemandExampleComponent } from './list/load-on-demand/list-load-on-demand-example.component';
 import { FormFieldExampleComponent } from './form-field-example/form-field-example.component';
 import { FabSheetExampleComponent } from './fab-sheet-example/fab-sheet-example.component';
+import { PageSimpleExampleComponent } from './page-example/simple/page-simple-example.component';
+import { PageAlignmentAndToolbarTitleExampleComponent } from './page-example/alignment-and-toolbar-title/page-alignment-and-toolbar-title-example.component';
+import { PageFixedTitleAndActionsExampleComponent } from './page-example/fixed-title-and-actions/page-fixed-title-and-actions-example.component';
+import { PageAdvancedExampleComponent } from './page-example/advanced/page-advanced-example.component';
+import { ExamplesComponent } from './examples.component';
+import { TabsExampleComponent } from './tabs/tabs-example.component';
+import { TabExampleComponent } from './tabs/tab/tab-example.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'grid',
+    component: ExamplesComponent,
+    children: [
+      {
+        path: 'page',
+        children: [
+          {
+            path: '',
+            redirectTo: 'simple',
+            pathMatch: 'full',
+          },
+          {
+            path: 'simple',
+            component: PageSimpleExampleComponent,
+          },
+          {
+            path: 'alignment-toolbar-title',
+            component: PageAlignmentAndToolbarTitleExampleComponent,
+          },
+          {
+            path: 'fixed',
+            component: PageFixedTitleAndActionsExampleComponent,
+          },
+          {
+            path: 'advanced',
+            component: PageAdvancedExampleComponent,
+          },
+        ],
+      },
+      {
+        path: 'tabs',
+        component: TabsExampleComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: 'dashboard',
+            pathMatch: 'full',
+          },
+          {
+            path: 'dashboard',
+            component: TabExampleComponent,
+            data: {
+              title: 'Dashboard',
+            },
+          },
+          {
+            path: 'account',
+            children: [
+              {
+                path: '',
+                component: TabExampleComponent,
+                data: {
+                  title: 'Account',
+                },
+              },
+              {
+                path: 'sub',
+                component: TabExampleComponent,
+                data: {
+                  title: 'Account Sub',
+                },
+              },
+            ],
+          },
+          {
+            path: 'inbox',
+            component: TabExampleComponent,
+            data: {
+              title: 'Inbox',
+            },
+          },
+        ],
+      },
+    ],
   },
   {
     path: 'button',
