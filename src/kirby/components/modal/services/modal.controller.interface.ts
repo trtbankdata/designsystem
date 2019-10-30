@@ -4,12 +4,9 @@ import { AlertConfig } from '../alert/config/alert-config';
 
 export abstract class IModalController {
   abstract showModal(config: ModalConfig, onCloseModal?: (data?: any) => any): void;
-  abstract showModalAnimateIn(
-    config: ModalConfig,
-    fromX: Number,
-    fromY: Number,
-    fromW: Number,
-    fromH: Number,
+  abstract showModalFromElm(
+    scaleFromElm: HTMLElement,
+    ModalConfig,
     onCloseModal?: (data?: any) => any
   ): void;
   abstract showActionSheet(config: ActionSheetConfig, onCloseModal?: (data?: any) => any): void;

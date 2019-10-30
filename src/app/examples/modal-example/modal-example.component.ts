@@ -36,8 +36,8 @@ export class ModalExampleComponent {
         prop2: 'value2',
       },
     };
-
-    this.modalController.showModalAnimateIn(config, 60, 60, 100, 80, this.onModalClose);
+    const scaleFromElm = <HTMLElement>document.querySelector('.showcase-cta-box');
+    this.modalController.showModalFromElm(scaleFromElm, config, this.onModalClose);
   }
 
   showDrawer() {

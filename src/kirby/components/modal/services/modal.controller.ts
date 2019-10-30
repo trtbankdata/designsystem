@@ -33,15 +33,14 @@ export class ModalController implements IModalController {
     });
   }
 
-  public showModalAnimateIn(
+  public showModalFromElm(
+    scaleFromElm: HTMLElement,
     config: ModalConfig,
-    fromX: Number,
-    fromY: Number,
-    fromW: Number,
-    fromH: Number,
     onCloseModal?: (data?: any) => void
   ): void {
-    const modalCloseEvent: Promise<any> = this.modalHelper.showModalWindow(
+    const fromBounds = <DOMRect>scaleFromElm.getBoundingClientRect();
+    const modalCloseEvent: Promise<any> = this.modalHelper.showModalWindow2(
+      fromBounds,
       config,
       this.register.bind(this)
     );

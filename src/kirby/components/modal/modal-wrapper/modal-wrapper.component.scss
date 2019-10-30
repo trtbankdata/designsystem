@@ -6,6 +6,7 @@
   display: flex;
   flex-flow: column;
   height: 100%;
+  transform-origin: top center;
 
   .modal-header {
     display: grid;
