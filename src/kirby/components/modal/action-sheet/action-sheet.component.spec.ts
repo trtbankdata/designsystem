@@ -119,7 +119,7 @@ describe('ActionSheetComponent', () => {
         .queryAll(By.directive(ButtonComponent));
       expect(actionSheetItems.length).toBe(3);
       Array.from(actionSheetItems).forEach((item, index) => {
-        expect(item.nativeElement.innerText).toEqual(`Action ${index + 1}`);
+        expect(item.nativeElement.innerHTML.trim()).toEqual(`Action ${index + 1}`);
       });
     });
 
@@ -136,7 +136,7 @@ describe('ActionSheetComponent', () => {
         .query(By.directive(CardComponent))
         .queryAll(By.directive(ButtonComponent));
       const actionSheetItemsText = Array.from(actionSheetItems).map((item) => {
-        return item.nativeElement.innerText;
+        return item.nativeElement.innerHTML.trim();
       });
       expect(actionSheetItemsText).not.toContain('Action 1');
       expect(actionSheetItemsText).toContain('New Action 1');
@@ -152,7 +152,7 @@ describe('ActionSheetComponent', () => {
       fixture.detectChanges();
       const cancelButton = fixture.debugElement.query(By.css('.cancel-btn'));
       expect(component.cancelButtonText).toEqual(expected);
-      expect(cancelButton.nativeElement.innerText).toEqual(expected);
+      expect(cancelButton.nativeElement.innerHTML.trim()).toEqual(expected);
     });
   });
 });

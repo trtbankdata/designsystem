@@ -2,8 +2,12 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
-    "types": ["jasmine", "node"]
+    "types": ["jest", "node"],
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "allowJs": true
   },
-  "files": ["test.ts", "polyfills.ts"],
-  "include": ["**/*.ts", "**/*.d.ts"]
+  "files": ["polyfills.ts"],
+  "include": ["**/*.ts", "**/*.d.ts"],
+  "exclude": ["**/jasmine/*.ts", "**/jasmine/*.d.ts"]
 }

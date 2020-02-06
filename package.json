@@ -6,10 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "build-polyfills": "webpack --config webpack.polyfills.config.js",
-    "test": "ng test",
-    "test:headless-browser": "ng test --browsers=ChromeCustom",
-    "test:headless-browser:single": "npm run test:headless-browser -- --watch=false",
-    "ci-test": "ng test --progress false --watch false --code-coverage",
+    "test": "npm run test:watch",
+    "test:single": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --runInBand",
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:ts": "tslint './src/**/*.ts'",
     "lint:ts:fix": "npm run lint:ts -- --fix",
@@ -37,6 +37,7 @@
     "@angular/platform-browser": "8.2.10",
     "@angular/platform-browser-dynamic": "8.2.10",
     "@angular/router": "8.2.10",
+    "@briebug/jest-schematic": "^2.1.1",
     "@ionic/angular": "4.11.0",
     "@types/prismjs": "1.9.0",
     "core-js": "2.5.4",
@@ -52,9 +53,10 @@
     "@angular-devkit/build-angular": "~0.803.9",
     "@angular/cli": "8.3.9",
     "@angular/compiler-cli": "8.2.10",
-    "@ngneat/spectator": "^4.10.0",
+    "@ngneat/spectator": "^4.11.1",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
+    "@types/jest": "25.1.1",
     "@types/node": "8.9.4",
     "codelyzer": "^5.0.1",
     "coveralls": "3.0.2",
@@ -64,11 +66,9 @@
     "is-docker": "1.1.0",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
-    "karma": "4.1.0",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-coverage-istanbul-reporter": "2.0.0",
-    "karma-jasmine": "1.1.1",
-    "karma-jasmine-html-reporter": "0.2.2",
+    "jest": "25.1.0",
+    "jest-createspyobj": "^1.2.2",
+    "jest-preset-angular": "8.0.0",
     "karma-junit-reporter": "1.2.0",
     "karma-spec-reporter": "0.0.32",
     "lint-staged": "^9.4.2",
@@ -94,6 +94,34 @@
       "pre-commit": "lint-staged",
       "pre-push": "npm run test:headless-browser:single",
       "post-merge": "post-npm-install"
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "roots": [
+      "src"
+    ],
+    "transform": {
+      "^.+\\.(ts|js|html)$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setup-jest.ts"
+    ],
+    "moduleNameMapper": {
+      "~/app/*": "<rootDir>/src/app/$1",
+      "~/environments/(.*)": "<rootDir>/src/environments/$1",
+      "@kirbydesign/designsystem": "<rootDir>/src/kirby/index.ts",
+      "@kirbydesign/designsystem/(.*)": "<rootDir>/src/kirby/$1"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/src/tsconfig.spec.json",
+        "stringifyContentPathRegex": "\\.html$",
+        "astTransformers": [
+          "jest-preset-angular/build/InlineFilesTransformer",
+          "jest-preset-angular/build/StripStylesTransformer"
+        ]
+      }
     }
   }
 }

@@ -1,44 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavParams } from '@ionic/angular';
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
+
+import { ModalController } from '@kirbydesign/designsystem/modal';
 
 import { AlertComponent } from './alert.component';
-import { ButtonComponent } from '../../button/button.component';
-import { IModalController } from '../services/modal.controller.interface';
-import { SizeDirective } from '@kirbydesign/designsystem/directives/size/size.directive';
 
 describe('AlertComponent', () => {
+  const createComponent = createComponentFactory({
+    component: AlertComponent,
+    mocks: [ModalController, NavParams],
+  });
+
+  let spectator: Spectator<AlertComponent>;
   let component: AlertComponent;
   let fixture: ComponentFixture<AlertComponent>;
 
-  beforeEach(async(() => {
-    const modalControllerSpy = jasmine.createSpyObj('IModalController', [
-      'showAlert',
-      'blurNativeWrapper',
-    ]);
-
-    const navParamsSpy = jasmine.createSpyObj('NavParams', {
-      get: {
-        title: 'Test title',
+  beforeEach(() => {
+    spectator = createComponent({
+      props: {
+        okBtnText: 'Test OK Button Text',
       },
     });
-
-    TestBed.configureTestingModule({
-      declarations: [AlertComponent, ButtonComponent, SizeDirective],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        { provide: IModalController, useValue: modalControllerSpy },
-        { provide: NavParams, useValue: navParamsSpy },
-      ],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AlertComponent);
-    component = fixture.componentInstance;
-    component.okBtnText = 'Test OK Button Text';
-    fixture.detectChanges();
+    component = spectator.component;
   });
 
   it('should create', () => {

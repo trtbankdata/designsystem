@@ -1,5 +1,5 @@
 import { MockComponent } from 'ng-mocks';
-import { createHostFactory, SpectatorHost } from '@ngneat/spectator';
+import { createHostFactory, SpectatorHost } from '@ngneat/spectator/jest';
 
 import { DesignTokenHelper } from '../../helpers/design-token-helper';
 import { IconComponent } from '../icon/icon.component';

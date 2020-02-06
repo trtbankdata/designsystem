@@ -1,30 +1,28 @@
 import { ElementRef, NgZone } from '@angular/core';
 import { fakeAsync, tick } from '@angular/core/testing';
-import { SpyObject } from '@ngneat/spectator';
+import { createSpyObj } from 'jest-createspyobj';
 
 import { WindowRef } from './../../shared/window-ref/window-ref.service';
-import { InfiniteScrollDirective, INFINITE_SCROLL_DEBOUNCE } from './infinite-scroll.directive';
+import { INFINITE_SCROLL_DEBOUNCE, InfiniteScrollDirective } from './infinite-scroll.directive';
+import Mocked = jest.Mocked;
 
 describe('InfiniteScrollDirective', () => {
-  let nativeElement: SpyObject<any>;
-  let document: SpyObject<Document>;
+  let nativeElement: Mocked<HTMLElement>;
+  let document: Mocked<Document>;
 
   const createDirective = (scrollPercentage: number): InfiniteScrollDirective => {
     const height = 800;
     const bottom = height * (1 - scrollPercentage);
     const viewHeight = 0;
 
-    nativeElement.getBoundingClientRect.and.returnValue({ height, bottom });
-    nativeElement.closest.and.returnValue(null);
-    document.getElementsByTagName.and.returnValue([]);
+    nativeElement.getBoundingClientRect.mockReturnValue({ height, bottom } as any);
+    nativeElement.closest.mockReturnValue(null);
+    document.getElementsByTagName.mockReturnValue([] as any);
 
-    const mockNgZone: SpyObject<NgZone> = jasmine.createSpyObj('ngZone', [
-      'runOutsideAngular',
-      'run',
-    ]);
+    const mockNgZone: Mocked<NgZone> = createSpyObj(NgZone);
 
-    mockNgZone.run.and.callFake((fn) => fn());
-    mockNgZone.runOutsideAngular.and.callFake((fn) => fn());
+    mockNgZone.run.mockImplementation((fn) => fn());
+    mockNgZone.runOutsideAngular.mockImplementation((fn) => fn());
 
     const directive = new InfiniteScrollDirective(
       { nativeElement } as ElementRef,
@@ -38,8 +36,11 @@ describe('InfiniteScrollDirective', () => {
   };
 
   beforeEach(() => {
-    nativeElement = jasmine.createSpyObj('nativeElement', ['getBoundingClientRect', 'closest']);
-    document = jasmine.createSpyObj('document', ['getElementsByTagName']);
+    nativeElement = (createSpyObj('nativeElement', [
+      'getBoundingClientRect',
+      'closest',
+    ]) as unknown) as Mocked<HTMLElement>;
+    document = (createSpyObj('document', ['getElementsByTagName']) as unknown) as Mocked<Document>;
   });
 
   it('should create an instance', () => {

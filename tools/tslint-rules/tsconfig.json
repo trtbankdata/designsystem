@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "typeRoots": [],
     "outDir": "./dist",
     "lib": ["es2017", "dom"]
-  }
+  },
+  "exclude": ["**/jasmine/*.ts", "**/jasmine/*.d.ts"]
 }

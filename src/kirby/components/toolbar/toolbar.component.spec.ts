@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { MockComponent } from 'ng-mocks';
 import * as ionic from '@ionic/angular';
 
