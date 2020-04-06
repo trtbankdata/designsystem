@@ -1,0 +1,28 @@
+{
+  "timestamp": "2020-04-06T13:24:52",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/badge/badge.tsx",
+      "encapsulation": "shadow",
+      "tag": "kirby-badge",
+      "readme": "# kirby-badge\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ]
+}

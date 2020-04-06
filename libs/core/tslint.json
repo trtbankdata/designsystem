@@ -1,0 +1,8 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "component-class-suffix": false,
+    "directive-class-suffix": false,
+    "import-line-spacing": false
+  }
+}
