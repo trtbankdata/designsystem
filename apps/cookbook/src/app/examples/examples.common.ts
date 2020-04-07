@@ -1,4 +1,4 @@
-import { ICON_SETTINGS, IconSettings } from '@kirbydesign/designsystem';
+import { ICON_SETTINGS, IconSettings } from '@kirbydesign/angular';
 
 import { AvatarExampleComponent } from './avatar-example/avatar-example.component';
 import { ButtonExampleComponent } from './button-example/button-example.component';

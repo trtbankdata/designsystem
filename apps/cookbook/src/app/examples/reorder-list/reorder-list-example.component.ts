@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ReorderEvent } from '@kirbydesign/designsystem/components/reorder-list/reorder-event';
+import { ReorderEvent } from '@kirbydesign/angular/components/reorder-list/reorder-event';
 
 @Component({
   selector: 'cookbook-reorder-list-example',

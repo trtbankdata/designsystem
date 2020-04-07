@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AlertConfig, ModalController } from '@kirbydesign/designsystem';
-import { LoadingOverlayService } from '@kirbydesign/designsystem';
+import { AlertConfig, ModalController } from '@kirbydesign/angular';
+import { LoadingOverlayService } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-loading-overlay-example',

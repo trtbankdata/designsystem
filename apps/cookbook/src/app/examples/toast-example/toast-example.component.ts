@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { ToastConfig } from '@kirbydesign/designsystem';
-import { ToastController } from '@kirbydesign/designsystem';
+import { ToastConfig } from '@kirbydesign/angular';
+import { ToastController } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-toast-example',

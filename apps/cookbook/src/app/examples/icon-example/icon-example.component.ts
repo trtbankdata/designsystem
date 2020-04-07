@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { defaultIcons } from '@kirbydesign/designsystem';
-import { Sizes } from '@kirbydesign/designsystem';
-import { Color, ColorHelper } from '@kirbydesign/designsystem';
+import { defaultIcons } from '@kirbydesign/angular';
+import { Sizes } from '@kirbydesign/angular';
+import { Color, ColorHelper } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-icon-example',

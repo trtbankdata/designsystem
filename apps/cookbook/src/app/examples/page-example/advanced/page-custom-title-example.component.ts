@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { ActionSheetItem, ActionSheetConfig } from '@kirbydesign/designsystem';
-import { ToastConfig, ToastController } from '@kirbydesign/designsystem';
-import { ModalController } from '@kirbydesign/designsystem';
+import { ActionSheetItem, ActionSheetConfig } from '@kirbydesign/angular';
+import { ToastConfig, ToastController } from '@kirbydesign/angular';
+import { ModalController } from '@kirbydesign/angular';
 
 import { BasePageExampleComponent } from '../base-page-example.component';
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ThemeColor } from '@kirbydesign/designsystem';
+import { ThemeColor } from '@kirbydesign/angular';
 
 const config = {
   template: `<kirby-card hasPadding="true" [themeColor]="themeColor">

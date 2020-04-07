@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { KirbyModule } from '@kirbydesign/designsystem';
+import { KirbyModule } from '@kirbydesign/angular';
 import { DropdownExampleDefaultComponent } from './examples/default';
 import { DropdownExampleScrollComponent } from './examples/scroll';
 import { DropdownExamplePreSelectedComponent } from './examples/pre-selected';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ColorHelper, KirbyColor } from '@kirbydesign/designsystem';
+import { ColorHelper, KirbyColor } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-colors-showcase',

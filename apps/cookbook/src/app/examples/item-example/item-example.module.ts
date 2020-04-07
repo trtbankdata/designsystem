@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { KirbyModule } from '@kirbydesign/designsystem';
+import { KirbyModule } from '@kirbydesign/angular';
 import { ItemExampleSimpleComponent } from './examples/simple/default';
 import { ItemExampleLongTitleComponent } from './examples/simple/long-title';
 import { ItemExampleSimpleTwoLinesComponent } from './examples/simple/two-lines';

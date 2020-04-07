@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-import { ColorHelper } from '@kirbydesign/designsystem';
+import { ColorHelper } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-iphone',

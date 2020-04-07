@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { KirbyModule } from '@kirbydesign/designsystem';
+import { KirbyModule } from '@kirbydesign/angular';
 import { COMPONENT_IMPORTS, COMPONENT_EXPORTS, COMPONENT_DECLARATIONS } from './showcase.common';
 import { CodeViewerComponent } from '../shared/code-viewer/code-viewer.component';
 import { ExampleViewerComponent } from '../shared/example-viewer/example-viewer.component';

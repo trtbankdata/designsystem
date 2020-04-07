@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { ModalController } from '@kirbydesign/designsystem';
-import { ActionSheetConfig } from '@kirbydesign/designsystem';
-import { ActionSheetItem } from '@kirbydesign/designsystem';
+import { ModalController } from '@kirbydesign/angular';
+import { ActionSheetConfig } from '@kirbydesign/angular';
+import { ActionSheetItem } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-action-sheet-example',

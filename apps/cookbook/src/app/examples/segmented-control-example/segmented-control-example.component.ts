@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
-import { SegmentItem } from '@kirbydesign/designsystem';
+import { SegmentItem } from '@kirbydesign/angular';
 
 const config = {
   template: `<kirby-segmented-control

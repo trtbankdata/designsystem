@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Sizes } from '@kirbydesign/designsystem';
+import { Sizes } from '@kirbydesign/angular';
 
 import { ShowcaseProperty } from '~/app/shared/showcase-properties/showcase-property';
 declare var require: any;

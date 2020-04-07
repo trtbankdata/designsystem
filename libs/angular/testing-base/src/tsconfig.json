@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@kirbydesign/angular": ["libs/angular/src/lib/index.ts"]
+    }
+  }
+}

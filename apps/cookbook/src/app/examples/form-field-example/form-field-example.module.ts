@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { KirbyModule } from '@kirbydesign/designsystem';
+import { KirbyModule } from '@kirbydesign/angular';
 import { FormFieldInputDefaultExampleComponent } from './examples/input/default';
 import { FormFieldInputLabelExampleComponent } from './examples/input/label';
 import { FormFieldInputLabelMessageExampleComponent } from './examples/input/label-message';

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { ActionSheetItem } from '@kirbydesign/designsystem';
-import { ToastConfig, ToastController } from '@kirbydesign/designsystem';
+import { ActionSheetItem } from '@kirbydesign/angular';
+import { ToastConfig, ToastController } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-fab-sheet-example',

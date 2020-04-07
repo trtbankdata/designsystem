@@ -30,8 +30,7 @@
           "options": {
             "main": "libs/designsystem/src/test.ts",
             "tsConfig": "libs/designsystem/tsconfig.spec.json",
-            "karmaConfig": "libs/designsystem/karma.conf.js",
-            "styles": ["libs/designsystem/src/lib/scss/_global-styles.scss"]
+            "karmaConfig": "libs/designsystem/karma.conf.js"
           }
         }
       },
@@ -59,12 +58,12 @@
               "path": "./webpack.sass-to-ts.config.ts",
               "sassToTs": {
                 "watchGlob": [
-                  "libs/designsystem/src/lib/helpers/**/*.scss",
-                  "libs/designsystem/src/lib/scss/**/*.scss"
+                  "libs/angular/src/lib/helpers/**/*.scss",
+                  "libs/angular/src/lib/scss/**/*.scss"
                 ],
                 "transform": [
-                  "libs/designsystem/src/lib/helpers/color-helper.scss",
-                  "libs/designsystem/src/lib/helpers/design-token-helper.scss"
+                  "libs/angular/src/lib/helpers/color-helper.scss",
+                  "libs/angular/src/lib/helpers/design-token-helper.scss"
                 ]
               }
             },
@@ -79,12 +78,12 @@
               "apps/cookbook/src/assets",
               {
                 "glob": "**/*.js",
-                "input": "libs/designsystem/src/lib/polyfills",
+                "input": "libs/angular/src/lib/polyfills",
                 "output": "./kirby/polyfills"
               },
               {
                 "glob": "**/*.svg",
-                "input": "libs/designsystem/src/lib/icons/svg",
+                "input": "libs/angular/src/lib/icons/svg",
                 "output": "./assets/kirby/icons/svg"
               },
               {
@@ -218,7 +217,8 @@
           "options": {
             "main": "libs/angular/src/test.ts",
             "tsConfig": "libs/angular/tsconfig.spec.json",
-            "karmaConfig": "libs/angular/karma.conf.js"
+            "karmaConfig": "libs/angular/karma.conf.js",
+            "styles": ["libs/angular/src/lib/scss/_global-styles.scss"]
           }
         }
       },

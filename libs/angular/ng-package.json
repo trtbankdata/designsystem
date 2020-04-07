@@ -4,8 +4,17 @@
   "lib": {
     "entryFile": "src/index.ts",
     "umdModuleIds": {
+      "moment": "moment",
+      "highcharts": "highcharts",
+      "@ionic/angular": "ionic",
       "@kirbydesign/core/loader": "loader"
     }
   },
-  "whitelistedNonPeerDependencies": ["@ionic/angular", "@kirbydesign/core"]
+  "whitelistedNonPeerDependencies": [
+    "@angular/cdk",
+    "@ionic/angular",
+    "@kirbydesign/core",
+    "highcharts",
+    "moment"
+  ]
 }

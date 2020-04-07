@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Sizes } from '@kirbydesign/designsystem';
+import { Sizes } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-avatar-example',

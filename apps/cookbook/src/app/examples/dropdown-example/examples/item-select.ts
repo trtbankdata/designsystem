@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ToastConfig, ToastController } from '@kirbydesign/designsystem';
+import { ToastConfig, ToastController } from '@kirbydesign/angular';
 
 const config = {
   selector: 'cookbook-dropdown-example-item-select',

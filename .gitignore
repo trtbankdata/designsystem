@@ -7,7 +7,7 @@
 /dist-lib
 /test-reports
 *.styles.ts
-/libs/designsystem/src/lib/polyfills/*.min.js
+/libs/angular/src/lib/polyfills/*.min.js
 /libs/core/dist
 /libs/core/loader
 

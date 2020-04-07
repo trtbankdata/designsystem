@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { KirbyModule } from '@kirbydesign/designsystem';
+import { KirbyModule } from '@kirbydesign/angular';
 import { ListBoldTextOnRowSelectionExampleComponent } from './components/bold-text-on-row-selection';
 import { ListWithDividersExampleComponent } from './components/dividers';
 import { ListSelectableItemsExampleComponent } from './components/selectable-items';

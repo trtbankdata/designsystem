@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { defaultIcons, Sizes } from '@kirbydesign/designsystem';
+import { defaultIcons, Sizes } from '@kirbydesign/angular';
 
 import { ShowcaseProperty } from '~/app/shared/showcase-properties/showcase-property';
 

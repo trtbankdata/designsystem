@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AlertConfig, ModalController } from '@kirbydesign/designsystem';
+import { AlertConfig, ModalController } from '@kirbydesign/angular';
 
 @Component({
   selector: 'cookbook-slide-button-example',

@@ -226,7 +226,7 @@ export class ${mockClassName} {${propertiesString}}
 
     const kirbyImports = components.map((metaData) => metaData.className);
     importStatements.push(
-      `${newLine}import { ${kirbyImports.join(', ')} } from '@kirbydesign/designsystem';`
+      `${newLine}import { ${kirbyImports.join(', ')} } from '@kirbydesign/angular';`
     );
 
     return importStatements;

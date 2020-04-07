@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { timer, of, Subject } from 'rxjs';
 import { map, takeWhile, takeUntil } from 'rxjs/operators';
 
-import { ModalController } from '@kirbydesign/designsystem';
-import { AlertConfig } from '@kirbydesign/designsystem';
-import { ToastConfig, ToastController } from '@kirbydesign/designsystem';
+import { ModalController } from '@kirbydesign/angular';
+import { AlertConfig } from '@kirbydesign/angular';
+import { ToastConfig, ToastController } from '@kirbydesign/angular';
 
 const alertConfigWithIcon = {
   title: 'Alert With Icon',

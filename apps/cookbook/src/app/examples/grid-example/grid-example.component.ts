@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { GridCardConfiguration } from '@kirbydesign/designsystem';
+import { GridCardConfiguration } from '@kirbydesign/angular';
 import { CardExampleComponent } from '../card-example/card-example.component';
 
 @Component({
