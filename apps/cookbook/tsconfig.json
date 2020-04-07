@@ -8,7 +8,9 @@
       "~/app/*": ["apps/cookbook/src/app/*"],
       "~/environments/*": ["apps/cookbook/src/environments/*"],
       "@kirbydesign/designsystem": ["libs/designsystem/src/lib/index.ts"],
-      "@kirbydesign/designsystem/*": ["libs/designsystem/src/lib/*"]
+      "@kirbydesign/designsystem/*": ["libs/designsystem/src/lib/*"],
+      "@kirbydesign/angular": ["libs/angular/src/lib/index.ts"],
+      "@kirbydesign/angular/*": ["libs/angular/src/lib/*"]
     }
   },
   "include": ["**/*.ts"]
