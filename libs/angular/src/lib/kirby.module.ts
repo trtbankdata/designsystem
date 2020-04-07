@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { appInitialize } from './app-initialize';
-import { KirbyBadge } from './directives/proxies';
+import { KirbyBadge } from './components/proxies';
 
 const DECLARATIONS = [
   // proxies

@@ -3,4 +3,4 @@
 /libs/core/stuff*.*
 /libs/core/src/components.d.ts
 /libs/core/src/components/**/readme.md
-/libs/angular/src/lib/directives/proxies.ts
+/libs/angular/src/lib/components/proxies.ts

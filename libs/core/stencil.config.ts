@@ -8,7 +8,7 @@ export const config: Config = {
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@kirbydesign/core',
-      directivesProxyFile: '../angular/src/lib/directives/proxies.ts',
+      directivesProxyFile: '../angular/src/lib/components/proxies.ts',
     }),
     {
       type: 'dist',
