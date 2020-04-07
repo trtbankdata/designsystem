@@ -1,5 +1,5 @@
 {
-  "timestamp": "2020-04-06T13:24:52",
+  "timestamp": "2020-04-07T08:37:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.12.2",
@@ -10,7 +10,7 @@
       "filePath": "./src/components/badge/badge.tsx",
       "encapsulation": "shadow",
       "tag": "kirby-badge",
-      "readme": "# kirby-badge\r\n\r\n\r\n\r",
+      "readme": "# kirby-badge\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},

@@ -1,2 +1,6 @@
 /src/kirby/scss/base/_include-media.scss
 /.github/
+/libs/core/stuff*.*
+/libs/core/src/components.d.ts
+/libs/core/src/components/**/readme.md
+/libs/angular/src/lib/directives/proxies.ts
