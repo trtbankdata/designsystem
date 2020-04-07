@@ -2,7 +2,7 @@ import { MockComponents, MockDirective } from 'ng-mocks';
 import { IonicModule } from '@ionic/angular';
 import { SpectatorHost, createHostFactory } from '@ngneat/spectator';
 
-import { BadgeComponent } from '@kirbydesign/angular';
+import { BadgeComponent } from '../../../lib';
 
 import { TestHelper } from '../../testing/test-helper';
 import { ThemeColorDirective } from '../../directives';
