@@ -1,6 +1,6 @@
 import { forwardRef, Component, Input } from '@angular/core';
 
-import { BadgeComponent } from '@kirbydesign/designsystem';
+import { BadgeComponent } from '@kirbydesign/angular';
 
 // #region AUTO-GENERATED - PLEASE DON'T EDIT CONTENT WITHIN!
 @Component({

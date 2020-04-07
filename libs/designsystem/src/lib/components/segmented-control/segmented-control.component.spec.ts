@@ -2,9 +2,10 @@ import { MockComponents, MockDirective } from 'ng-mocks';
 import { IonicModule } from '@ionic/angular';
 import { SpectatorHost, createHostFactory } from '@ngneat/spectator';
 
+import { BadgeComponent } from '@kirbydesign/angular';
+
 import { TestHelper } from '../../testing/test-helper';
 import { ThemeColorDirective } from '../../directives';
-import { BadgeComponent } from '../badge/badge.component';
 import { ChipComponent } from '../chip/chip.component';
 import { SegmentedControlComponent } from './segmented-control.component';
 import { SegmentItem } from './segment-item';

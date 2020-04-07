@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+import { KirbyModule as KirbyAngularModule } from '@kirbydesign/angular';
+
 import { InfiniteScrollDirective } from './components/list/directives/infinite-scroll.directive';
 import { ModalWrapperComponent } from './components/modal/modal-wrapper/modal-wrapper.component';
 import { ModalCompactWrapperComponent } from './components/modal/modal-wrapper/compact/modal-compact-wrapper.component';
@@ -21,7 +23,6 @@ import { ItemModule } from './components/item/item.module';
 import { AppModule } from './components/app/app.module';
 import { ReorderListComponent } from './components/reorder-list/reorder-list.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
-import { BadgeComponent } from './components/badge/badge.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CardFooterComponent } from './components/card/card-footer/card-footer.component';
@@ -97,7 +98,6 @@ const exportedDeclarations = [
   ActionSheetComponent,
   SegmentedControlComponent,
   ChipComponent,
-  BadgeComponent,
   SizeDirective,
   ThemeColorDirective,
   SlideButtonComponent,
@@ -134,6 +134,7 @@ const exportedModules = [
   TabsModule,
   IconModule,
   ItemModule,
+  KirbyAngularModule,
 ];
 
 const exports = [...exportedModules, ...exportedDeclarations];

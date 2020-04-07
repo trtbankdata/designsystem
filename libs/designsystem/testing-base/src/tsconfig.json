@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@kirbydesign/designsystem": ["libs/designsystem/src/lib/index.ts"]
+      "@kirbydesign/designsystem": ["libs/designsystem/src/lib/index.ts"],
+      "@kirbydesign/angular": ["libs/angular/src/lib/index.ts"]
     }
   }
 }

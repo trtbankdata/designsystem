@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@kirbydesign/angular": ["libs/angular/src/lib/index.ts"]
+    }
   },
   "include": ["**/*.ts"]
 }

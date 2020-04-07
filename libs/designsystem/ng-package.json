@@ -6,7 +6,8 @@
     "umdModuleIds": {
       "moment": "moment",
       "highcharts": "highcharts",
-      "@ionic/angular": "ionic"
+      "@ionic/angular": "ionic",
+      "@kirbydesign/angular": "kirbydesign-angular"
     }
   },
   "whitelistedNonPeerDependencies": ["@angular/cdk", "@ionic/angular", "highcharts", "moment"]
