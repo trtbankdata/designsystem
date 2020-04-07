@@ -4,7 +4,7 @@ import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-outpu
 
 export const config: Config = {
   namespace: 'kirby',
-  plugins: [sass({ injectGlobalPaths: ['../designsystem/src/lib/scss/utils'] })],
+  plugins: [sass({ injectGlobalPaths: ['../angular/src/lib/scss/utils'] })],
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@kirbydesign/core',
