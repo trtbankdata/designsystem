@@ -1,5 +1,5 @@
 {
-  "timestamp": "2020-04-07T08:37:05",
+  "timestamp": "2020-04-07T20:52:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.12.2",
@@ -14,7 +14,24 @@
       "docs": "",
       "docsTags": [],
       "usage": {},
-      "props": [],
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "listeners": [],

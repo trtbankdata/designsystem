@@ -44,8 +44,8 @@ export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
 import { Components } from '@kirbydesign/core'
 
 export declare interface KirbyBadge extends Components.KirbyBadge {}
-
-@Component({ selector: 'kirby-badge', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+@ProxyCmp({inputs: ['text']})
+@Component({ selector: 'kirby-badge', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['text'] })
 export class KirbyBadge {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
