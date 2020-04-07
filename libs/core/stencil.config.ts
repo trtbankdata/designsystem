@@ -13,9 +13,9 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-      dir: '../../dist/libs/core',
+      dir: '../../dist/libs/core/dist',
     },
-    { type: 'experimental-dist-module', dir: '../../dist/libs/core/module' },
+    { type: 'experimental-dist-module', dir: '../../dist/libs/core/dist/module' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: './stuff.json' },
     // {
