@@ -8,6 +8,8 @@
 /test-reports
 *.styles.ts
 /libs/designsystem/src/lib/polyfills/*.min.js
+/libs/core/dist
+/libs/core/loader
 
 # dependencies
 /node_modules

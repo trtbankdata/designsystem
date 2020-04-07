@@ -13,9 +13,15 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-      dir: '../../dist/libs/core/dist',
+      // dir: '../../dist/libs/core/dist',
+      // copy: [
+      //   { src: '../dist', dest: '../../../../dist/libs/core/dist' },
+      //   { src: '../loader', dest: '../../../../dist/libs/core/loader' },
+      //   { src: '../package.json', dest: '../../../../dist/libs/core/package.json' },
+      // ],
     },
-    { type: 'experimental-dist-module', dir: '../../dist/libs/core/dist/module' },
+    { type: 'experimental-dist-module', dir: 'dist/module' },
+    // { type: 'experimental-dist-module', dir: '../../dist/libs/core/dist/module' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: './stuff.json' },
     // {

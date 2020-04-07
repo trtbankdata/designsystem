@@ -1,5 +1,7 @@
 /src/kirby/scss/base/_include-media.scss
 /.github/
+/libs/core/dist
+/libs/core/loader
 /libs/core/stuff*.*
 /libs/core/src/components.d.ts
 /libs/core/src/components/**/readme.md
