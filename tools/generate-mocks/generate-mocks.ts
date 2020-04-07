@@ -3,6 +3,8 @@ import * as prettier from 'prettier';
 
 import { posix as path, resolve } from 'path';
 
+import { JsonDocs } from '../../libs/core/stuff';
+
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'fs';
 const { readdir, readFile } = require('fs').promises;
 
@@ -16,7 +18,12 @@ type ComponentMetaData = {
 };
 
 export class GenerateMocks {
-  async renderMocks(rootPath: string, outputPath: string, subPath: string) {
+  async renderMocks(
+    rootPath: string,
+    outputPath: string,
+    subPath: string,
+    proxyComponentsMetaData: JsonDocs
+  ) {
     const inputPath = path.join(rootPath, subPath);
     const outputPathNormalized = path.normalize(outputPath);
     const classMap = new Map<string, string[]>();
@@ -28,7 +35,69 @@ export class GenerateMocks {
       classMap,
       exportedComponents
     );
+    await this.renderProxyMocks(
+      outputPathNormalized,
+      subPath,
+      classMap,
+      exportedComponents,
+      proxyComponentsMetaData
+    );
     await this.renderMockComponentDeclaration(classMap, outputPathNormalized);
+  }
+
+  private async renderProxyMocks(
+    outputPath: string,
+    subPath: string,
+    classMap: Map<string, string[]>,
+    exportedComponents: string[],
+    proxyComponentsMetaData: JsonDocs
+  ) {
+    const pascalCaseToKebabCase = (string) => {
+      return string.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+    };
+    const proxyComponents = exportedComponents.filter(
+      (componentName) => componentName.indexOf(' as ') > -1
+    );
+    for (const proxyComponent of proxyComponents) {
+      const [componentName, aliasName] = proxyComponent.split(' as ');
+      const selector = pascalCaseToKebabCase(componentName);
+      const componentMetaData = proxyComponentsMetaData.components.find((c) => c.tag === selector);
+      if (componentMetaData) {
+        const props = componentMetaData.props.map((prop) => {
+          return {
+            name: prop.name,
+            type: prop.type,
+            initializer: undefined,
+            direction: 'Input',
+            bindingProperty: prop.name != prop.attr ? `'${prop.attr}'` : undefined,
+          };
+        });
+        const events = componentMetaData.events.map((event) => {
+          return {
+            name: event.event,
+            type: `EventEmitter<${event.detail}>`,
+            initializer: `new EventEmitter<${event.detail}>()`,
+            direction: 'Output',
+            bindingProperty: undefined,
+          };
+        });
+        const outputMetadata = {
+          className: aliasName,
+          decorator: 'Component',
+          selector: `'${selector}'`,
+          properties: [...props, ...events],
+        };
+        const originalFileName = path.basename(componentMetaData.filePath, '.tsx');
+        const mockFilename = `mock.${originalFileName}.component.ts`;
+        const newFilename = path.join(outputPath, subPath, mockFilename);
+
+        const classNames = await this.renderMock([outputMetadata], [aliasName], newFilename);
+
+        if (classNames) {
+          classMap.set(newFilename, classNames);
+        }
+      }
+    }
   }
 
   private async renderMockComponentDeclaration(
@@ -36,6 +105,7 @@ export class GenerateMocks {
     outputPath: string
   ) {
     const imports = Array.from(classMap.entries())
+      .sort()
       .map((keyValue) => {
         const filepath = keyValue[0];
         const classNames = keyValue[1];
@@ -44,6 +114,7 @@ export class GenerateMocks {
       })
       .join(newLine);
     const components = Array.from(classMap.values())
+      .sort()
       .map((classNames) => classNames.join(`,${newLine}  `))
       .join(`,${newLine}  `);
     const filename = path.join(outputPath, '/mock-components.ts');
@@ -109,9 +180,13 @@ export const MOCK_COMPONENTS = [
         await this.traverseFolder(fullPath, outputPath, subPath, classMap, exportedComponents);
       } else {
         if (fileOrFolder.endsWith('.component.ts')) {
-          // console.log('Rendering mock for: ', fullPath);
           const newFilename = path.join(outputPath, subPath, 'mock.' + fileOrFolder);
-          const classNames = await this.renderMock(fullPath, newFilename, exportedComponents);
+          const componentsMetaData = this.generateMetaData(fullPath);
+          const classNames = await this.renderMock(
+            componentsMetaData,
+            exportedComponents,
+            newFilename
+          );
           if (classNames) {
             classMap.set(newFilename, classNames);
           }
@@ -120,19 +195,24 @@ export const MOCK_COMPONENTS = [
     }
   }
 
-  private async renderMock(fileName: string, newFilename: string, exportedComponents: string[]) {
-    const components = this.generateMetaData(fileName);
-    if (!components.find((metaData) => metaData.decorator)) {
+  private async renderMock(
+    componentsMetaData: any[],
+    exportedComponents: string[],
+    newFilename: string
+  ) {
+    if (!componentsMetaData.find((metaData) => metaData.decorator)) {
       // Nothing to generate:
       return;
     }
-    if (!components.some((metaData) => exportedComponents.indexOf(metaData.className) > -1)) {
+    if (
+      !componentsMetaData.some((metaData) => exportedComponents.indexOf(metaData.className) > -1)
+    ) {
       // Nothing to generate:
       return;
     }
     const rendered = [];
     const classNames = [];
-    components.forEach((metaData) => {
+    componentsMetaData.forEach((metaData) => {
       const mockClassName = 'Mock' + metaData.className;
       classNames.push(mockClassName);
       const classDeclaration = this.renderClass(metaData.className, mockClassName, metaData);
@@ -145,7 +225,7 @@ export const MOCK_COMPONENTS = [
 ${rendered.join(newLine)}
 ${endRegion}
 `;
-    const importStatements = this.getImports(components).join(newLine) + newLine + newLine;
+    const importStatements = this.getImports(componentsMetaData).join(newLine) + newLine + newLine;
     let content = importStatements + autoGeneratedContent;
     if (existsSync(newFilename)) {
       const existingContent = readFileSync(newFilename).toString();
