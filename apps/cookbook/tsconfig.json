@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["jasmine"],
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "paths": {
       "~/app/*": ["apps/cookbook/src/app/*"],
