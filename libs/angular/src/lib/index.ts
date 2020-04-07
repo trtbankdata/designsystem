@@ -1,5 +1,3 @@
-export { KirbyBadge as BadgeComponent } from './components/proxies';
-
 export * from './animation/kirby-animation';
 export * from './components';
 export * from './directives';
