@@ -76,6 +76,22 @@
             "assets": [
               "apps/cookbook/src/favicon.ico",
               "apps/cookbook/src/assets",
+              "apps/cookbook/src/vue.html",
+              {
+                "glob": "**/*.*",
+                "input": "libs/core/dist",
+                "output": "./kirby/core/dist"
+              },
+              {
+                "glob": "**/*.*",
+                "input": "node_modules/@ionic/core/dist",
+                "output": "./ionic/core/dist"
+              },
+              {
+                "glob": "**/*.css",
+                "input": "node_modules/@ionic/core/css",
+                "output": "./ionic/core/css"
+              },
               {
                 "glob": "**/*.js",
                 "input": "libs/angular/src/lib/polyfills",
