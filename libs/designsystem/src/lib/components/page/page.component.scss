@@ -71,6 +71,10 @@ ion-back-button {
   margin-top: size('xxs');
   margin-bottom: var(--kirby-page-title-margin-bottom, #{size('xl')});
 
+  &:focus {
+    background-color: red;
+  }
+
   &.has-actions {
     display: flex;
     justify-content: space-between;

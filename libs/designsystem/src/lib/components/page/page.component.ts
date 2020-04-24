@@ -214,6 +214,10 @@ export class PageComponent
     if (this.pageTitle) {
       this.pageTitleIntersectionObserverRef.observe(this.pageTitle.nativeElement);
     }
+
+    setTimeout(() => {
+      this.pageTitle.nativeElement.focus();
+    }, 2000);
   }
 
   private onLeave() {
