@@ -6,19 +6,21 @@ $page-header-height: 7rem;
 $page-gutter: 1rem;
 $page-side-nav-width: 16.625rem;
 
+:host {
+  display: block;
+  background-color: get-color('white');
+}
+
 .side-menu {
   display: none;
   width: $page-side-nav-width;
   background-color: get-color('white');
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 0;
-  bottom: 0;
   z-index: 900;
   @include media('>=large') {
     display: block;
-    position: static;
-    background-color: transparent;
+    position: relative;
     box-shadow: none;
   }
   &.is-open {
