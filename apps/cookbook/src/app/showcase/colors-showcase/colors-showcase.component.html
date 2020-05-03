@@ -28,6 +28,16 @@
   </div>
 </div>
 
+<kirby-item>
+  <kirby-icon name="cog" slot="start"></kirby-icon>
+  <h3>Toggle Dark Mode</h3>
+  <kirby-toggle
+    slot="end"
+    [checked]="darkModeEnabled"
+    (checkedChange)="setDarkMode($event)"
+  ></kirby-toggle>
+</kirby-item>
+
 <h2>Brand colors</h2>
 <ng-container *ngTemplateOutlet="colorPalette; context: { $implicit: brandColors }"></ng-container>
 

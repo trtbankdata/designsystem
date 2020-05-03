@@ -158,3 +158,11 @@
   overflow-x: auto;
   margin-bottom: size('s');
 }
+
+kirby-item {
+  margin-bottom: size('xl');
+
+  kirby-icon {
+    color: #{get-text-color('black')};
+  }
+}
