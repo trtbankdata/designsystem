@@ -93,10 +93,7 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "apps/cookbook/src/styles.scss",
-              "node_modules/prismjs/themes/prism-dark.css"
-            ],
+            "styles": ["apps/cookbook/src/styles.scss"],
             "scripts": []
           },
           "configurations": {

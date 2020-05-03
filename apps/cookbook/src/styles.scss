@@ -4,6 +4,14 @@
 // Import common styles
 @import './libs/designsystem/src/lib/scss/global-styles';
 
+body:not(.dark) {
+  @import '~prismjs/themes/prism';
+}
+
+body.dark {
+  @import '~prismjs/themes/prism-okaidia';
+}
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
