@@ -20,6 +20,15 @@
   --kirby-tab-bar-height: 50px;
 }
 
+body.dark {
+  @each $color, $color-name in $kirby-colors-dark {
+    --kirby-#{$color}: #{$color-name};
+  }
+  @each $color, $color-name in $text-colors-dark {
+    --kirby-text-color-#{$color}: #{$color-name};
+  }
+}
+
 ion-modal.kirby-overlay {
   position: fixed;
 

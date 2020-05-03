@@ -30,6 +30,36 @@ $text-colors: (
 
 $focus-ring-color: rgb(77, 144, 254);
 
+$dark-theme: (
+  brand-colors: (
+    'primary': #00e89a,
+    'secondary': #005c3c,
+    'tertiary': #01352c,
+  ),
+  notification-colors: (
+    'success': #2cf287,
+    'warning': #ffca3a,
+    'danger': #ff595e,
+  ),
+  system-colors: (
+    'background-color': #000000,
+    'white': #2b2b2e,
+    'light': #0d0d0d,
+    'semi-light': #141414,
+    // Make lighter:
+      'medium': #555555,
+    'semi-dark': #717171,
+    'dark': #cacaca,
+    'black': #ffffff,
+  ),
+  text-colors: (
+    'white': #2b2b2e,
+    'semi-dark': #8f8f8f,
+    'black': #ffffff,
+    'danger': #ee0d0d,
+  ),
+);
+
 @function getAllColors() {
   @return map-merge(map-merge($brand-colors, $notification-colors), $system-colors);
 }
@@ -112,3 +142,18 @@ $main-colors: map-remove(
 }
 
 $kirby-colors: generate-colors();
+$kirby-colors-dark: generate-colors(
+  map-merge(
+    map-merge(map-get($dark-theme, 'brand-colors'), map-get($dark-theme, 'notification-colors')),
+    map-get($dark-theme, 'system-colors')
+  )
+);
+$text-colors-dark: map-get($dark-theme, 'text-colors');
+
+@function flatten-colors($map) {
+  $flattened: ();
+  @each $color, $sub-map in $map {
+    $flattened: map-merge($kirby-dark-colors, $sub-map);
+  }
+  @return $flattened;
+}
