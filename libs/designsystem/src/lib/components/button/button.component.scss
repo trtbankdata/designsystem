@@ -61,7 +61,7 @@
 
 @mixin button-attentionlevel4 {
   --kirby-button-background-color: transparent;
-  --kirby-button-color: #{get-color('primary-contrast')};
+  --kirby-button-color: #{get-color('background-color-contrast')};
 
   &.destructive {
     --kirby-button-color: #{get-color('danger')};
