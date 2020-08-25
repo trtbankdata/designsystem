@@ -25,6 +25,7 @@
 
 ion-modal.kirby-overlay {
   position: fixed;
+  align-items: flex-start;
 
   // Ensure consistent backdrop on overlays, as Ionic 5 only applies --backdrop-opacity to :first-of-type:
   // See https://github.com/ionic-team/ionic/commit/253cd96164914a803f6bb42ff95ca74880c940d0
@@ -61,6 +62,7 @@ ion-modal.kirby-overlay {
 
     &.kirby-modal-compact {
       --border-radius: #{$border-radius};
+      align-items: center;
 
       .modal-wrapper {
         max-width: $compact-modal-max-width;
@@ -92,9 +94,13 @@ ion-modal.kirby-overlay {
     @include media('>=medium') {
       //TODO Hardcoded magic numbers: Jakob + Jonathan, revisit!!!
       --width: 720px;
-      --height: 647px;
       --border-radius: #{$border-radius};
       --box-shadow: #{get-elevation(8)};
+
+      .modal-wrapper {
+        height: auto;
+        margin-top: size('xl');
+      }
 
       &.kirby-drawer {
         padding-top: unset;
@@ -120,6 +126,7 @@ ion-modal.kirby-overlay {
     --background: #{get-color('background-color')};
     --border-radius: #{$border-radius};
     --box-shadow: #{get-elevation(8)};
+    align-items: center;
 
     .modal-wrapper {
       max-width: $alert-max-width;

@@ -67,6 +67,12 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
     return this.config.flavor === 'drawer';
   }
 
+  private _ionPageReset = false;
+  @HostBinding('class.ion-page')
+  get ionPageReset() {
+    return this._ionPageReset;
+  }
+
   constructor(
     private injector: Injector,
     private elementRef: ElementRef<HTMLElement>,

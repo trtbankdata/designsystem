@@ -28,7 +28,7 @@ export class ModalHelper {
       ],
       backdropDismiss: config.flavor === 'compact' ? false : true,
       componentProps: { config: config },
-      swipeToClose: config.flavor != 'compact',
+      swipeToClose: config.flavor !== 'compact',
       presentingElement: modalPresentingElement,
       keyboardClose: false,
     });
