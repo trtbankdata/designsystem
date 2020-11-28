@@ -1,3 +1,4 @@
+import { ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { KirbyAnimation } from '../../../animation/kirby-animation';
@@ -24,5 +25,9 @@ export abstract class Modal {
   close: (data?: any) => Promise<void>;
   scrollToTop: (scrollDuration?: KirbyAnimation.Duration) => void;
   scrollToBottom: (scrollDuration?: KirbyAnimation.Duration) => void;
+  keepInViewWhileFocused: (
+    elementRef: ElementRef,
+    scrollDuration?: KirbyAnimation.Duration
+  ) => void;
   scrollDisabled: boolean;
 }

@@ -81,6 +81,7 @@ export class ModalCompactWrapperComponent implements Modal, OnInit {
 
   scrollToTop: (_?: any) => void;
   scrollToBottom: (_?: any) => void;
+  keepInViewWhileFocused: (_?: any) => void;
 
   @HostListener('window:focus')
   @HostListener('window:focusout')
