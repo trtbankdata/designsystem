@@ -69,7 +69,7 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
   private delayedCloseTimeoutId;
   private initialViewportHeight: number;
   private viewportResized = false;
-  private keyboardOverlap = 0;
+  private contentKeyboardOffset = 0;
   private elementToKeepInView: {
     elementRef: ElementRef;
     scrollDuration?: KirbyAnimation.Duration;
@@ -255,6 +255,8 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
   }
 
   private async scrollFocusedElementIntoViewIfNeeded() {
+    // TODO remove disabled log statements
+    // console.log('🍒 scrollFocusedElementIntoViewIfNeeded()');
     if (!this.elementToKeepInView) {
       return;
     }
@@ -262,26 +264,37 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
     // determine current scrolling
     const scrollElement = await this.ionContent.getScrollElement();
     const scrollTop = scrollElement.scrollTop;
+    // console.log({ scrollTop });
 
     // determine bounding rects in absolute coordinates
     const contentBoundingClientRect = this.ionContentElement.nativeElement.getBoundingClientRect();
     const elementBoundingClientRect = this.elementToKeepInView.elementRef.nativeElement.getBoundingClientRect();
+    // console.log({ contentBoundingClientRect, elementBoundingClientRect });
 
     // determine top and bottom of viewport and element, relative to scroll element content
     // NOTE: only vertical extents are considered and only vertical scroll position
     // will be adjusted.
-    const viewportHeight = contentBoundingClientRect.height - this.keyboardOverlap;
+    const viewportHeight = contentBoundingClientRect.height - this.contentKeyboardOffset;
     const viewportTop = scrollTop;
     const viewportBottom = scrollTop + viewportHeight;
+    // console.log({
+    //   'this.contentKeyboardOffset': this.contentKeyboardOffset,
+    //   viewportHeight,
+    //   viewportTop,
+    //   viewportBottom,
+    // });
 
     const elementTop = elementBoundingClientRect.top - contentBoundingClientRect.top + scrollTop;
     const elementBottom = elementTop + elementBoundingClientRect.height;
+    // console.log({ elementTop, elementBottom });
 
     if (elementTop < viewportTop) {
       // scroll downwards until element is in viewport
+      // console.log('⬇️ this.ionContent.scrollToPoint', elementTop);
       this.ionContent.scrollToPoint(0, elementTop, this.elementToKeepInView.scrollDuration);
     } else if (elementBottom > viewportBottom) {
       // scroll upwards until element is in viewport
+      // console.log('🔼 this.ionContent.scrollToPoint', elementBottom - viewportHeight);
       this.ionContent.scrollToPoint(
         0,
         elementBottom - viewportHeight,
@@ -364,6 +377,9 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
     this.keyboardVisible = keyboardHeight > 0;
     this.toggleContentMaxHeight(this.keyboardVisible);
     this.setKeyboardOverlap(keyboardHeight);
+    console.log(
+      `setKeyboardVisibility(${keyboardHeight}) > this.scrollFocusedElementIntoViewIfNeeded()`
+    );
     this.scrollFocusedElementIntoViewIfNeeded();
   }
 
@@ -389,19 +405,20 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
 
   private setKeyboardOverlap(keyboardHeight: number) {
     this.toggleCssClass(this.elementRef.nativeElement, 'keyboard-visible', keyboardHeight > 0);
-    this.keyboardOverlap = this.getKeyboardOverlap(keyboardHeight, this.elementRef.nativeElement);
+    const keyboardOverlap = this.getKeyboardOverlap(keyboardHeight, this.elementRef.nativeElement);
     let snapFooterToKeyboard = false;
     const embeddedFooterElement = this.getEmbeddedFooterElement();
     if (embeddedFooterElement) {
-      this.setCssVar(embeddedFooterElement, '--keyboard-offset', `${this.keyboardOverlap}px`);
+      this.setCssVar(embeddedFooterElement, '--keyboard-offset', `${keyboardOverlap}px`);
       snapFooterToKeyboard = embeddedFooterElement.classList.contains('snap-to-keyboard');
     }
 
     const contentElement = this.ionContentElement.nativeElement;
-    const contentKeyboardOffset = snapFooterToKeyboard
-      ? this.keyboardOverlap
+    this.contentKeyboardOffset = snapFooterToKeyboard
+      ? keyboardOverlap
       : this.getKeyboardOverlap(keyboardHeight, contentElement);
-    this.setCssVar(contentElement, '--keyboard-offset', `${contentKeyboardOffset}px`);
+    console.log('> this.setCssVar', '--keyboard-offset', this.contentKeyboardOffset);
+    this.setCssVar(contentElement, '--keyboard-offset', `${this.contentKeyboardOffset}px`);
   }
 
   onHeaderTouchStart(event: TouchEvent) {
