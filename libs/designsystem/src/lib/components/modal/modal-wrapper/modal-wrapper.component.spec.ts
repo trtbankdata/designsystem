@@ -617,32 +617,30 @@ describe('ModalWrapperComponent', () => {
           TestHelper.resetTestWindow();
         });
 
-        // TODO fix and reenable before PR
-        // it(`should blur document.activeElement before calling wrapping ion-modal's dismiss() method`, fakeAsync(async () => {
-        //   const ionContent = spectator.query('ion-content');
-        //   // If other test specs have imported IonicModule before this test is run,
-        //   // then Ionic components won't be mocked - so ensure ionContent.componentOnReady is run if exists:
-        //   await TestHelper.ionComponentOnReady(ionContent);
+        it(`should blur document.activeElement before calling wrapping ion-modal's dismiss() method`, fakeAsync(async () => {
+          const ionContent = spectator.query('ion-content');
+          // If other test specs have imported IonicModule before this test is run,
+          // then Ionic components won't be mocked - so ensure ionContent.componentOnReady is run if exists:
+          await TestHelper.ionComponentOnReady(ionContent);
 
-        //   const input = ionContent.querySelector('input');
-        //   spyOn(input, 'blur');
-        //   input.focus();
-        //   expect(document.activeElement).toEqual(input);
+          const input = ionContent.querySelector('input');
+          spyOn(input, 'blur');
+          input.focus();
+          expect(document.activeElement).toEqual(input);
 
-        //   spectator.component.close('test data');
-        //   expect(spectator.component['ionModalElement'].dismiss).not.toHaveBeenCalled();
-        //   expect(input.blur).toHaveBeenCalled();
-        //   tick(ModalWrapperComponent.KEYBOARD_HIDE_DELAY_IN_MS);
-        //   expect(spectator.component['ionModalElement'].dismiss).toHaveBeenCalled();
-        // }));
+          spectator.component.close('test data');
+          expect(spectator.component['ionModalElement'].dismiss).not.toHaveBeenCalled();
+          expect(input.blur).toHaveBeenCalled();
+          tick(ModalWrapperComponent.KEYBOARD_HIDE_DELAY_IN_MS);
+          expect(spectator.component['ionModalElement'].dismiss).toHaveBeenCalled();
+        }));
 
-        // TODO fix and reenable before PR
-        // it(`should delay before calling wrapping ion-modal's dismiss() method`, fakeAsync(() => {
-        //   spectator.component.close('test data');
-        //   expect(spectator.component['ionModalElement'].dismiss).not.toHaveBeenCalled();
-        //   tick(ModalWrapperComponent.KEYBOARD_HIDE_DELAY_IN_MS);
-        //   expect(spectator.component['ionModalElement'].dismiss).toHaveBeenCalledWith('test data');
-        // }));
+        it(`should delay before calling wrapping ion-modal's dismiss() method`, fakeAsync(() => {
+          spectator.component.close('test data');
+          expect(spectator.component['ionModalElement'].dismiss).not.toHaveBeenCalled();
+          tick(ModalWrapperComponent.KEYBOARD_HIDE_DELAY_IN_MS);
+          expect(spectator.component['ionModalElement'].dismiss).toHaveBeenCalledWith('test data');
+        }));
       });
     });
   });
