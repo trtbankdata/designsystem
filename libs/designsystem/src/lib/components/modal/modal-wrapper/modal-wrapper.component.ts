@@ -69,11 +69,11 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
   private delayedCloseTimeoutId;
   private initialViewportHeight: number;
   private viewportResized = false;
-  private contentKeyboardOffset = 0;
   private elementToKeepInView: {
     elementRef: ElementRef;
     scrollDuration?: KirbyAnimation.Duration;
   };
+  private keyboardHeight: number;
   private ionModalElement?: HTMLIonModalElement;
   private readonly ionModalDidPresent = new Subject<void>();
   readonly didPresent = this.ionModalDidPresent.toPromise();
@@ -256,8 +256,9 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
 
   private async scrollFocusedElementIntoViewIfNeeded() {
     // TODO remove before PR
-    const log = (...args) => {};
-    //const log = console.log
+    const log = (...args) => {
+      //console.log(...args);
+    };
     log('🍒 scrollFocusedElementIntoViewIfNeeded()');
     if (!this.elementToKeepInView) {
       return;
@@ -276,11 +277,21 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
     // determine top and bottom of viewport and element, relative to scroll element content
     // NOTE: only vertical extents are considered and only vertical scroll position
     // will be adjusted.
-    const viewportHeight = contentBoundingClientRect.height - this.contentKeyboardOffset;
+
+    const contentBottomInWindow = Math.min(
+      contentBoundingClientRect.top + contentBoundingClientRect.height,
+      this.windowRef.innerHeight - this.keyboardHeight
+    );
+    log({
+      'this.windowRef.innerHeight - this.keyboardHeight':
+        this.windowRef.innerHeight - this.keyboardHeight,
+    });
+
+    const viewportHeight = contentBottomInWindow - contentBoundingClientRect.top;
     const viewportTop = scrollTop;
     const viewportBottom = scrollTop + viewportHeight;
     log({
-      'this.contentKeyboardOffset': this.contentKeyboardOffset,
+      contentBottomInWindow,
       viewportHeight,
       viewportTop,
       viewportBottom,
@@ -373,6 +384,7 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
   }
 
   private setKeyboardVisibility(keyboardHeight: number) {
+    this.keyboardHeight = keyboardHeight;
     const keyboardAlreadyVisible = keyboardHeight > 0 && this.keyboardVisible;
     const keyboardAlreadyHidden = keyboardHeight === 0 && !this.keyboardVisible;
     if (keyboardAlreadyVisible || keyboardAlreadyHidden) return;
@@ -413,10 +425,10 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
     }
 
     const contentElement = this.ionContentElement.nativeElement;
-    this.contentKeyboardOffset = snapFooterToKeyboard
+    const contentKeyboardOffset = snapFooterToKeyboard
       ? keyboardOverlap
       : this.getKeyboardOverlap(keyboardHeight, contentElement);
-    this.setCssVar(contentElement, '--keyboard-offset', `${this.contentKeyboardOffset}px`);
+    this.setCssVar(contentElement, '--keyboard-offset', `${contentKeyboardOffset}px`);
   }
 
   onHeaderTouchStart(event: TouchEvent) {
