@@ -5,7 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { InfiniteScrollDirective } from './components/list/directives/infinite-scroll.directive';
-import { ModalWrapperComponent } from './components/modal/modal-wrapper/modal-wrapper.component';
+import {
+  InlineFooterComponent,
+  ModalWrapperComponent,
+} from './components/modal/modal-wrapper/modal-wrapper.component';
 import { ModalCompactWrapperComponent } from './components/modal/modal-wrapper/compact/modal-compact-wrapper.component';
 import { ModalFooterComponent } from './components/modal/footer/modal-footer.component';
 import { ModalRouterLinkDirective } from './directives/modal-router-link/modal-router-link.directive';
@@ -107,6 +110,7 @@ const exportedDeclarations = [
   CalendarComponent,
   CheckboxComponent,
   ActionSheetComponent,
+  InlineFooterComponent,
   ModalFooterComponent,
   ModalRouterLinkDirective,
   SegmentedControlComponent,

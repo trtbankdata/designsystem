@@ -33,6 +33,21 @@ import { DesignTokenHelper } from '../../../helpers/design-token-helper';
 import { PlatformService } from '../../../helpers/platform.service';
 
 @Component({
+  selector: 'kirby-inline-footer',
+  template: '<ng-content></ng-content>',
+  styles: [
+    `
+      :host {
+        display: block;
+        margin-top: var(--margin-top, 0px);
+        padding: 8px 16px;
+      }
+    `,
+  ],
+})
+export class InlineFooterComponent {}
+
+@Component({
   selector: 'kirby-modal-wrapper',
   templateUrl: './modal-wrapper.component.html',
   styleUrls: ['./modal-wrapper.component.scss'],
@@ -185,7 +200,29 @@ export class ModalWrapperComponent implements Modal, AfterViewInit, OnInit, OnDe
 
   private checkForEmbeddedElements() {
     this.moveEmbeddedElements();
-    this.observeEmbeddedElements();
+    this.observeEmbeddedElements(); // TODO: Also observe inline-footer added later, e.g. after embedded component has loaded data...
+    const parentElement = this.getEmbeddedComponentElement() as HTMLElement;
+    const inlineFooter = parentElement.querySelector<HTMLElement>('kirby-inline-footer');
+    if (inlineFooter) {
+      setTimeout(() => {
+        console.warn('parentElement.height:', parentElement.offsetHeight);
+        console.warn('inlineFooter.height:', inlineFooter.offsetHeight);
+        console.warn(
+          'ionContentElement.height:',
+          this.ionContentElement.nativeElement.offsetHeight
+        );
+        // TODO: When scroll-element is 100% (e.g. on phone) calculate available space as: (scrollElementHeight - verticalPadding) - (embbededElementHeight - inlineFooterHeight)
+        this.ionContent.getScrollElement().then((scrollElement) => {
+          console.warn('scrollElement.height:', scrollElement.offsetHeight);
+          const availableFooterSpace =
+            this.ionContentElement.nativeElement.offsetHeight - scrollElement.offsetHeight;
+          console.warn('available footer space:', availableFooterSpace);
+          if (availableFooterSpace > 0) {
+            this.setCssVar(inlineFooter, '--margin-top', `${availableFooterSpace}px`);
+          }
+        });
+      }, 5); // TODO: Figure out why this timeout is needed? Or poll parentElement for offsetHeight > 0...
+    }
   }
 
   private observeHeaderResize() {
